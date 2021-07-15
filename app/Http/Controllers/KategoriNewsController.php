@@ -14,7 +14,8 @@ class KategoriNewsController extends Controller
      */
     public function index()
     {
-        //
+        $semuaKategoriNews = KategoriNews::latest()->get();
+        return view('kategori-news.index', compact('semuaKategoriNews'));
     }
 
     /**
@@ -24,7 +25,7 @@ class KategoriNewsController extends Controller
      */
     public function create()
     {
-        //
+        return view('kategori-news.create');
     }
 
     /**
@@ -35,7 +36,11 @@ class KategoriNewsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $kategori = new KategoriNews;
+        $kategori->nama_kategori = $request->nama_kategori;
+        $kategori->save();
+
+        return redirect()->route('kategori-news.index')->with('success', 'Data Kategori News Berhasil Disimpan');
     }
 
     /**
@@ -46,7 +51,7 @@ class KategoriNewsController extends Controller
      */
     public function show(KategoriNews $kategoriNews)
     {
-        //
+        return view('kategori-news.show', compact('kategoriNews'));
     }
 
     /**
@@ -57,7 +62,7 @@ class KategoriNewsController extends Controller
      */
     public function edit(KategoriNews $kategoriNews)
     {
-        //
+        return view('kategori-news.edit', compact('kategoriNews'));
     }
 
     /**
@@ -69,7 +74,10 @@ class KategoriNewsController extends Controller
      */
     public function update(Request $request, KategoriNews $kategoriNews)
     {
-        //
+        $kategoriNews->nama_kategori = $request->nama_kategori;
+        $kategoriNews->save();
+
+        return redirect()->route('kategori-news.index')->with('success', 'Data Kategori News Berhasil Diubah');
     }
 
     /**
@@ -80,6 +88,9 @@ class KategoriNewsController extends Controller
      */
     public function destroy(KategoriNews $kategoriNews)
     {
-        //
+        /** Hapus kategori */
+        $kategoriNews->delete();
+
+        return redirect()->route('kategori-news.index')->with('success', 'Data Kategori News Berhasil Dihapus');
     }
 }

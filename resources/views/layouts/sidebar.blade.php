@@ -27,79 +27,81 @@
                     </a>
                 </li>
 
+                <li class="sidebar-item @if (collect(['kategoriNews', 'news' ])->
+                    contains($sidebar)) {{ 'active' }} @endif has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-file-earmark-image"></i>
+                        <span>News</span>
+                    </a>
+                    <ul class="submenu @if (collect(['kategoriNews', 'news' ])->
+                        contains($sidebar)) {{ 'active' }} @endif">
+                        <li class="submenu-item @if ($sidebar=='kategoriNews' ) {{ 'active' }} @endif">
+                            <a href="{{ route('kategori-news.index') }}">Kategori News</a>
+                        </li>
+                        <li class="submenu-item @if ($sidebar=='news' ) {{ 'active' }} @endif">
+                            <a href="{{ route('news.index') }}">Daftar News</a>
+                        </li>
+                    </ul>
+                </li>
 
-                {{-- <li class="sidebar-item @if ($sidebar=='pengunjung' ) {{ 'active' }} @endif">
+
+                {{-- <li class="sidebar-item @if ($sidebar == 'pengunjung') {{ 'active' }} @endif">
                     <a href="{{ route('pengunjung.index') }}" class='sidebar-link'>
                         <i class="bi bi-people-fill"></i>
                         <span>Pengunjung</span>
                     </a>
                 </li> --}}
 
-                {{-- <li class="sidebar-item @if ($sidebar=='kritiksaran' ) {{ 'active' }} @endif">
+                {{-- <li class="sidebar-item @if ($sidebar == 'kritiksaran') {{ 'active' }} @endif">
                     <a href="{{ route('kritiksaran.index') }}" class='sidebar-link'>
                         <i class="bi bi-inbox-fill"></i>
                         <span>Kritik & Saran</span>
                     </a>
                 </li> --}}
 
-                {{-- <li class="sidebar-item @if ($sidebar=='booking' ) {{ 'active' }} @endif">
+                {{-- <li class="sidebar-item @if ($sidebar == 'booking') {{ 'active' }} @endif">
                     <a href="{{ route('booking.index') }}" class='sidebar-link'>
                         <i class="bi bi-calendar2-check"></i>
                         <span>Booking</span>
                     </a>
                 </li> --}}
 
-                {{-- <li class="sidebar-item @if ($sidebar=='donasi' ) {{ 'active' }} @endif">
+                {{-- <li class="sidebar-item @if ($sidebar == 'donasi') {{ 'active' }} @endif">
                     <a href="{{ route('donasi.index') }}" class='sidebar-link'>
                         <i class="bi bi-cash-stack"></i>
                         <span>Donasi</span>
                     </a>
                 </li> --}}
 
-                {{-- <li class="sidebar-item @if ($sidebar=='merchandise' ) {{ 'active' }} @endif">
+                {{-- <li class="sidebar-item @if ($sidebar == 'merchandise') {{ 'active' }} @endif">
                     <a href="{{ route('merchandise.index') }}" class='sidebar-link'>
                         <i class="bi bi-basket-fill"></i>
                         <span>Merchandise</span>
                     </a>
                 </li> --}}
 
-                {{-- <li class="sidebar-item @if ($sidebar=='koleksi' ) {{ 'active' }} @endif">
+                {{-- <li class="sidebar-item @if ($sidebar == 'koleksi') {{ 'active' }} @endif">
                     <a href="{{ route('koleksi.index') }}" class='sidebar-link'>
                         <i class="bi bi-archive-fill"></i>
                         <span>Koleksi</span>
                     </a>
                 </li> --}}
 
-                {{-- <li class="sidebar-item @if ($sidebar=='majalah' ) {{ 'active' }} @endif">
+                {{-- <li class="sidebar-item @if ($sidebar == 'majalah') {{ 'active' }} @endif">
                     <a href="{{ route('majalah.index') }}" class='sidebar-link'>
                         <i class="bi bi-book"></i>
                         <span>Majalah</span>
                     </a>
                 </li> --}}
 
-                {{-- <li class="sidebar-item @if ($sidebar=='berita' ) {{ 'active' }} @endif">
+                {{-- <li class="sidebar-item @if ($sidebar == 'berita') {{ 'active' }} @endif">
                     <a href="{{ route('berita.index') }}" class='sidebar-link'>
                         <i class="bi bi-newspaper"></i>
                         <span>Berita</span>
                     </a>
                 </li> --}}
 
-                {{-- <li class="sidebar-item @if (collect(['kategori', 'galeri' ])->
-                    contains($sidebar)) {{ 'active' }} @endif has-sub">
-                    <a href="#" class='sidebar-link'>
-                        <i class="bi bi-file-earmark-image"></i>
-                        <span>Galeri</span>
-                    </a>
-                    <ul class="submenu @if (collect(['kategori', 'galeri' ])->
-                        contains($sidebar)) {{ 'active' }} @endif">
-                        <li class="submenu-item @if ($sidebar=='kategori' ) {{ 'active' }} @endif">
-                            <a href="{{ route('kategori.index') }}">Kelola Kategori</a>
-                        </li>
-                        <li class="submenu-item @if ($sidebar=='galeri' ) {{ 'active' }} @endif">
-                            <a href="{{ route('galeri.index') }}">Kelola Galeri</a>
-                        </li>
-                    </ul>
-                </li> --}}
+
 
 
                 <li class="sidebar-item"><br><br></li>

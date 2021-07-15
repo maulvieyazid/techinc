@@ -16,7 +16,6 @@ class CreateKategoriNewsTable extends Migration
         Schema::create('kategori_news', function (Blueprint $table) {
             $table->string('slug')->primary();
             $table->string('nama_kategori')->nullable();
-            $table->string('folder_kategori')->nullable();
             $table->timestamps();
         });
     }

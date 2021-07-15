@@ -22,5 +22,15 @@ Auth::routes();
 Route::middleware(['auth'])->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');
 
+    Route::post('/upload/images/ckeditor', 'HomeController@uploadImagesCkeditor')
+        ->name('upload.images.ckeditor');
+
+    # Route Event
     Route::resource('event', 'EventController');
+
+    # Route News
+    Route::resource('news', 'NewsController');
+
+    # Route Kategori News
+    Route::resource('kategori-news', 'KategoriNewsController');
 });
