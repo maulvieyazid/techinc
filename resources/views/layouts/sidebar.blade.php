@@ -30,7 +30,7 @@
                 <li class="sidebar-item @if (collect(['kategoriNews', 'news' ])->
                     contains($sidebar)) {{ 'active' }} @endif has-sub">
                     <a href="#" class='sidebar-link'>
-                        <i class="bi bi-file-earmark-image"></i>
+                        <i class="bi bi-newspaper"></i>
                         <span>News</span>
                     </a>
                     <ul class="submenu @if (collect(['kategoriNews', 'news' ])->

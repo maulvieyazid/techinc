@@ -75,6 +75,7 @@
 
                                             <div class="col-md-2">
                                                 <label>Isi News</label>
+                                                <a href="#" id="info-isi"><i class="bi bi-info-circle-fill"></i></a>
                                             </div>
                                             <div class="col-md-12 form-group">
                                                 <textarea name="deskripsi" id="deskripsi"></textarea>
@@ -104,7 +105,7 @@
             console.log(ClassicEditor);
 
             thumbnail.addEventListener('change', function() {
-                if (this.files[0].size > 5242880) {
+                if (this.files[0].size > 6291456) {
                     Toastify({
                         text: "Thumbnail tidak boleh melebihi 5 MB",
                         duration: 3000,
@@ -151,9 +152,17 @@
                 });
 
             document.getElementById('info').addEventListener('click', () => {
-                Swal.fire(
-                    "Slug akan dibuat berdasarkan Judul News. Contoh : <br> <br> https://example.com/news/ini-adalah-slug"
-                )
+                Swal.fire({
+                    icon: "info",
+                    html: `<h5>Slug akan dibuat berdasarkan Judul News. Contoh : <br> https://example.com/news/ini-adalah-slug</h5>`,
+                })
+            })
+
+            document.getElementById('info-isi').addEventListener('click', () => {
+                Swal.fire({
+                    icon: "info",
+                    html: `<h5>Jika gambar yang tampil tidak sama dengan gambar yang kamu upload, maka coba ganti nama dari file gambar tersebut</h5>`,
+                })
             })
         </script>
     @endpush
