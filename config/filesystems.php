@@ -85,6 +85,11 @@ return [
             'root'   => public_path('upload/startup/tim')
         ],
 
+        'foto_member' => [
+            'driver' => 'local',
+            'root'   => public_path('upload/member')
+        ],
+
         'image_ckeditor' => [
             'driver' => 'local',
             'root'   => public_path('upload/ckeditor'),

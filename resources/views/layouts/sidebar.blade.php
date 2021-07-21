@@ -60,63 +60,26 @@
                         </li>
                     </ul>
                 </li>
-                {{-- <li class="sidebar-item @if ($sidebar == 'pengunjung') {{ 'active' }} @endif">
-                    <a href="{{ route('pengunjung.index') }}" class='sidebar-link'>
+
+                <li class="sidebar-item @if (collect(['member', 'jenisMember', 'roleMember' ])->
+                    contains($sidebar)) {{ 'active' }} @endif has-sub">
+                    <a href="#" class='sidebar-link'>
                         <i class="bi bi-people-fill"></i>
-                        <span>Pengunjung</span>
+                        <span>Member</span>
                     </a>
-                </li> --}}
-
-                {{-- <li class="sidebar-item @if ($sidebar == 'kritiksaran') {{ 'active' }} @endif">
-                    <a href="{{ route('kritiksaran.index') }}" class='sidebar-link'>
-                        <i class="bi bi-inbox-fill"></i>
-                        <span>Kritik & Saran</span>
-                    </a>
-                </li> --}}
-
-                {{-- <li class="sidebar-item @if ($sidebar == 'booking') {{ 'active' }} @endif">
-                    <a href="{{ route('booking.index') }}" class='sidebar-link'>
-                        <i class="bi bi-calendar2-check"></i>
-                        <span>Booking</span>
-                    </a>
-                </li> --}}
-
-                {{-- <li class="sidebar-item @if ($sidebar == 'donasi') {{ 'active' }} @endif">
-                    <a href="{{ route('donasi.index') }}" class='sidebar-link'>
-                        <i class="bi bi-cash-stack"></i>
-                        <span>Donasi</span>
-                    </a>
-                </li> --}}
-
-                {{-- <li class="sidebar-item @if ($sidebar == 'merchandise') {{ 'active' }} @endif">
-                    <a href="{{ route('merchandise.index') }}" class='sidebar-link'>
-                        <i class="bi bi-basket-fill"></i>
-                        <span>Merchandise</span>
-                    </a>
-                </li> --}}
-
-                {{-- <li class="sidebar-item @if ($sidebar == 'koleksi') {{ 'active' }} @endif">
-                    <a href="{{ route('koleksi.index') }}" class='sidebar-link'>
-                        <i class="bi bi-archive-fill"></i>
-                        <span>Koleksi</span>
-                    </a>
-                </li> --}}
-
-                {{-- <li class="sidebar-item @if ($sidebar == 'majalah') {{ 'active' }} @endif">
-                    <a href="{{ route('majalah.index') }}" class='sidebar-link'>
-                        <i class="bi bi-book"></i>
-                        <span>Majalah</span>
-                    </a>
-                </li> --}}
-
-                {{-- <li class="sidebar-item @if ($sidebar == 'berita') {{ 'active' }} @endif">
-                    <a href="{{ route('berita.index') }}" class='sidebar-link'>
-                        <i class="bi bi-newspaper"></i>
-                        <span>Berita</span>
-                    </a>
-                </li> --}}
-
-
+                    <ul class="submenu @if (collect(['member', 'jenisMember', 'roleMember' ])->
+                        contains($sidebar)) {{ 'active' }} @endif">
+                        <li class="submenu-item @if ($sidebar=='member' ) {{ 'active' }} @endif">
+                            <a href="{{ route('member.index') }}">Daftar Member</a>
+                        </li>
+                        <li class="submenu-item @if ($sidebar=='jenisMember' ) {{ 'active' }} @endif">
+                            <a href="{{ route('jenis-member.index') }}">Jenis Member</a>
+                        </li>
+                        <li class="submenu-item @if ($sidebar=='roleMember' ) {{ 'active' }} @endif">
+                            <a href="{{ route('role-member.index') }}">Role Member</a>
+                        </li>
+                    </ul>
+                </li>
 
 
                 <li class="sidebar-item"><br><br></li>

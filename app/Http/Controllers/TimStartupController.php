@@ -6,7 +6,6 @@ use App\Startup;
 use App\TimStartup;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;
 
 class TimStartupController extends Controller
@@ -63,7 +62,7 @@ class TimStartupController extends Controller
                  */
                 Storage::disk('tim_startup')->putFileAs(null, $foto, $namafile);
 
-                /** Insert Foto */
+                /** Ganti value dari key foto dengan path foto */
                 $item->put('foto', $this->getPathFoto($namafile));
             }
             /** Kalo gk ada fotonya */
@@ -71,6 +70,9 @@ class TimStartupController extends Controller
                 # Tambahkan key foto dengan value null
                 $item->put('foto', null);
             }
+            # Tambahkan key created_at dan updated_at
+            $item->put('created_at', date('Y-m-d H:i:s'));
+            $item->put('updated_at', date('Y-m-d H:i:s'));
             return $item->toArray();
         });
 

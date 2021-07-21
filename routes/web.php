@@ -37,6 +37,20 @@ Route::middleware(['auth'])->group(function () {
     # Route Startup
     Route::resource('startup', 'StartupController');
 
-    # Route Kategori News
+    # Route Tim Startup
     Route::resource('tim-startup', 'TimStartupController');
+
+    # Route Member
+    Route::resource('member', 'MemberController');
+
+    # Route Jenis Member
+    Route::resource('jenis-member', 'JenisMemberController');
+
+    # Route Role Member
+    Route::resource('role-member', 'RoleMemberController')->only([
+        'index', 'create', 'store'
+    ]);
+
+    Route::delete('role-member/{id_member}/{id_jenis}', 'RoleMemberController@destroy')
+        ->name('role-member.destroy');
 });

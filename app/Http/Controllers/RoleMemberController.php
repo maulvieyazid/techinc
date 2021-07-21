@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\JenisMember;
+use App\Member;
 use App\RoleMember;
 use Illuminate\Http\Request;
 
@@ -14,7 +16,8 @@ class RoleMemberController extends Controller
      */
     public function index()
     {
-        //
+        $semuaRoleMember = RoleMember::with(['member', 'jenisMember'])->get();
+        return view('role-member.index', compact('semuaRoleMember'));
     }
 
     /**
@@ -24,7 +27,13 @@ class RoleMemberController extends Controller
      */
     public function create()
     {
-        //
+        $semuaMember = Member::all();
+        $semuaJenisMember = JenisMember::all();
+        // $x = RoleMember::all();
+        // $cond1 = $x->where('id_member', 2)->where('id_jenis', 2)->count();
+        // $cond2 = $x->where('id_member', 3)->where('id_jenis', 2)->count();
+
+        return view('role-member.create', compact('semuaMember', 'semuaJenisMember'));
     }
 
     /**
@@ -35,51 +44,48 @@ class RoleMemberController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        # Ambil semua Role Di DB
+        $roleMember = RoleMember::all();
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\RoleMember  $roleMember
-     * @return \Illuminate\Http\Response
-     */
-    public function show(RoleMember $roleMember)
-    {
-        //
-    }
+        # Ambil semua Role dari inputan
+        $semuaRoleMember = collect($request->role);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\RoleMember  $roleMember
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(RoleMember $roleMember)
-    {
-        //
-    }
+        # Buang inputan Role yang double
+        $semuaRoleMember = $semuaRoleMember->unique(function ($item) {
+            return $item['id_member'] . $item['id_jenis'];
+        })->values();
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\RoleMember  $roleMember
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, RoleMember $roleMember)
-    {
-        //
+        # Cek inputan role sudah ada di DB atau belum
+        $semuaRoleMember = $semuaRoleMember->filter(function ($item, $key) use ($roleMember) {
+            $cek = $roleMember->where('id_member', $item['id_member'])
+                ->where('id_jenis', $item['id_jenis'])
+                ->count();
+            # Klo blm ada di DB, maka antrikan biar dimasukkan ke DB
+            if ($cek == 0) {
+                return $item;
+            }
+
+        });
+
+        # Masukkan ke DB
+        RoleMember::insert($semuaRoleMember->toArray());
+
+        return redirect()->route('role-member.index')->with('success', 'Data Role Member Berhasil Disimpan');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\RoleMember  $roleMember
+     * @param  $id_member
+     * @param  $id_jenis
      * @return \Illuminate\Http\Response
      */
-    public function destroy(RoleMember $roleMember)
+    public function destroy($id_member, $id_jenis)
     {
-        //
+        RoleMember::where('id_member', $id_member)
+            ->where('id_jenis', $id_jenis)
+            ->delete();
+
+        return redirect()->route('role-member.index')->with('success', 'Data Role Member Berhasil Dihapus');
     }
 }

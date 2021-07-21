@@ -14,7 +14,8 @@ class JenisMemberController extends Controller
      */
     public function index()
     {
-        //
+        $semuaJenisMember = JenisMember::latest()->get();
+        return view('jenis-member.index', compact('semuaJenisMember'));
     }
 
     /**
@@ -24,7 +25,7 @@ class JenisMemberController extends Controller
      */
     public function create()
     {
-        //
+        return view('jenis-member.create');
     }
 
     /**
@@ -35,7 +36,21 @@ class JenisMemberController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $semuaJenisMember = collect($request->jenis);
+
+        $semuaJenisMember->transform(function ($item, $key) {
+            $item = collect($item);
+
+            # Tambahkan key created_at dan updated_at
+            $item->put('created_at', date('Y-m-d H:i:s'));
+            $item->put('updated_at', date('Y-m-d H:i:s'));
+
+            return $item->toArray();
+        });
+
+        JenisMember::insert($semuaJenisMember->toArray());
+
+        return redirect()->route('jenis-member.index')->with('success', 'Data Jenis Member Berhasil Disimpan');
     }
 
     /**
@@ -46,7 +61,8 @@ class JenisMemberController extends Controller
      */
     public function show(JenisMember $jenisMember)
     {
-        //
+        return view('jenis-member.show', compact('jenisMember'));
+
     }
 
     /**
@@ -57,7 +73,8 @@ class JenisMemberController extends Controller
      */
     public function edit(JenisMember $jenisMember)
     {
-        //
+        return view('jenis-member.edit', compact('jenisMember'));
+
     }
 
     /**
@@ -69,7 +86,10 @@ class JenisMemberController extends Controller
      */
     public function update(Request $request, JenisMember $jenisMember)
     {
-        //
+        $jenisMember->nama_jenis = $request->nama_jenis;
+        $jenisMember->save();
+
+        return redirect()->route('jenis-member.index')->with('success', 'Data Jenis Member Berhasil Diubah');
     }
 
     /**
@@ -80,6 +100,8 @@ class JenisMemberController extends Controller
      */
     public function destroy(JenisMember $jenisMember)
     {
-        //
+        $jenisMember->delete();
+
+        return redirect()->route('jenis-member.index')->with('success', 'Data Jenis Member Berhasil Dihapus');
     }
 }
