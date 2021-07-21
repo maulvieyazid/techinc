@@ -33,4 +33,10 @@ Route::middleware(['auth'])->group(function () {
 
     # Route Kategori News
     Route::resource('kategori-news', 'KategoriNewsController');
+
+    # Route Startup
+    Route::resource('startup', 'StartupController');
+
+    # Route Kategori News
+    Route::resource('tim-startup', 'TimStartupController');
 });

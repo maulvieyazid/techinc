@@ -54,7 +54,7 @@ class HomeController extends Controller
         }
 
         # Generate URL untuk file
-        $url = Storage::disk('image_ckeditor')->url($namafile);
+        $url = asset('upload/ckeditor/'.$namafile);
 
         return response()->json([
             'url' => $url

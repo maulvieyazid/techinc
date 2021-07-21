@@ -75,10 +75,19 @@ return [
             'root'   => public_path('upload/news/thumbnail')
         ],
 
+        'logo_startup' => [
+            'driver' => 'local',
+            'root'   => public_path('upload/startup/logo')
+        ],
+
+        'tim_startup' => [
+            'driver' => 'local',
+            'root'   => public_path('upload/startup/tim')
+        ],
+
         'image_ckeditor' => [
             'driver' => 'local',
             'root'   => public_path('upload/ckeditor'),
-            'url'    => asset('upload/ckeditor'),
         ],
 
     ],

@@ -17,6 +17,7 @@ class CreateStartupTable extends Migration
             $table->string('slug')->primary();
             $table->string('nama_startup')->nullable();
             $table->text('deskripsi')->nullable();
+            $table->string('logo')->nullable();
             $table->timestamps();
         });
     }

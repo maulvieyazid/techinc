@@ -44,7 +44,22 @@
                     </ul>
                 </li>
 
-
+                <li class="sidebar-item @if (collect(['startup', 'timStartup' ])->
+                    contains($sidebar)) {{ 'active' }} @endif has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-lightbulb"></i>
+                        <span>Startup</span>
+                    </a>
+                    <ul class="submenu @if (collect(['startup', 'timStartup' ])->
+                        contains($sidebar)) {{ 'active' }} @endif">
+                        <li class="submenu-item @if ($sidebar=='startup' ) {{ 'active' }} @endif">
+                            <a href="{{ route('startup.index') }}">Daftar Startup</a>
+                        </li>
+                        <li class="submenu-item @if ($sidebar=='timStartup' ) {{ 'active' }} @endif">
+                            <a href="{{ route('tim-startup.index') }}">Tim Startup</a>
+                        </li>
+                    </ul>
+                </li>
                 {{-- <li class="sidebar-item @if ($sidebar == 'pengunjung') {{ 'active' }} @endif">
                     <a href="{{ route('pengunjung.index') }}" class='sidebar-link'>
                         <i class="bi bi-people-fill"></i>

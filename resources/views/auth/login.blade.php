@@ -39,7 +39,7 @@
         <form method="POST" action="{{ route('login') }}">
             @csrf
             <h1 class="h3 mb-1 fw-normal">CMS Tech Inc</h1>
-            <h1 class="h3 mb-3 fw-normal">Universitas Dinamika</h1>
+            {{-- <h1 class="h3 mb-3 fw-normal">Universitas Dinamika</h1> --}}
             <br>
 
             <div class="form-floating">

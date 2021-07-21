@@ -46,7 +46,6 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
         $news = new News;
         $thumbnail = $request->thumbnail;
 

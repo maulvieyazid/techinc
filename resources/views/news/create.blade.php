@@ -102,7 +102,6 @@
             const thumbnail = document.getElementById('thumbnail')
             const image_preview = document.getElementById('image_preview')
             var csrf = document.querySelector('meta[name="csrf-token"]').content;
-            console.log(ClassicEditor);
 
             thumbnail.addEventListener('change', function() {
                 if (this.files[0].size > 6291456) {
@@ -136,9 +135,6 @@
                     simpleUpload: {
                         // The URL that the images are uploaded to.
                         uploadUrl: "{{ route('upload.images.ckeditor') }}",
-
-                        // Enable the XMLHttpRequest.withCredentials property.
-                        // withCredentials: true,
 
                         // Headers sent along with the XMLHttpRequest to the upload server.
                         headers: {

@@ -32,6 +32,7 @@
                                 <th>No</th>
                                 <th>Judul</th>
                                 <th>Thumbnail</th>
+                                <th>Kategori</th>
                                 <th>Dibuat</th>
                                 <th>Aksi</th>
                             </tr>
@@ -45,6 +46,7 @@
                                         <img src="{{ asset($news->thumbnail ?? 'images/no-photos.webp') }}" width="100"
                                             height="100">
                                     </td>
+                                    <td>{{ $news->kategoriNews->nama_kategori ?? 'Tidak ada' }}</td>
                                     <td>{{ $news->created_at->translatedFormat('l, d F Y H:i:s') }}</td>
                                     <td>
                                         <div class="btn-group dropstart  mb-1">
