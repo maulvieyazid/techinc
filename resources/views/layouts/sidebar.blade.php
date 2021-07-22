@@ -81,6 +81,23 @@
                     </ul>
                 </li>
 
+                <li class="sidebar-item @if (collect(['kategori', 'galeri' ])->
+                    contains($sidebar)) {{ 'active' }} @endif has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-images"></i>
+                        <span>Galeri</span>
+                    </a>
+                    <ul class="submenu @if (collect(['kategori', 'galeri' ])->
+                        contains($sidebar)) {{ 'active' }} @endif">
+                        <li class="submenu-item @if ($sidebar=='kategori' ) {{ 'active' }} @endif">
+                            <a href="{{ route('kategori.index') }}">Kategori</a>
+                        </li>
+                        <li class="submenu-item @if ($sidebar=='galeri' ) {{ 'active' }} @endif">
+                            <a href="{{ route('galeri.index') }}">Galeri</a>
+                        </li>
+                    </ul>
+                </li>
+
 
                 <li class="sidebar-item"><br><br></li>
 

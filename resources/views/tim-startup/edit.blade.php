@@ -68,8 +68,7 @@
                                             </div>
                                             <div class="col-md-10 form-group">
                                                 <input type="text" id="posisi" class="form-control" name="posisi"
-                                                    placeholder="Posisi" value="{{ $timStartup->posisi }}" required
-                                                    autofocus>
+                                                    placeholder="Posisi" value="{{ $timStartup->posisi }}">
                                             </div>
 
                                             <div class="col-md-2 pe-0">

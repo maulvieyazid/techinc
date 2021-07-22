@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Galeri;
 use App\Kategori;
+use App\Startup;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class KategoriController extends Controller
 {
@@ -14,7 +18,8 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        //
+        $semuaKategori = Kategori::with('startup')->latest()->get();
+        return view('kategori.index', compact('semuaKategori'));
     }
 
     /**
@@ -24,7 +29,8 @@ class KategoriController extends Controller
      */
     public function create()
     {
-        //
+        $semuaStartup = Startup::all();
+        return view('kategori.create', compact('semuaStartup'));
     }
 
     /**
@@ -35,7 +41,16 @@ class KategoriController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $kategori                  = new Kategori;
+        $kategori->nama_kategori   = $request->nama_kategori;
+        $kategori->slug_startup    = $request->slug_startup;
+        $kategori->folder_kategori = Str::snake($request->folder_kategori);
+        $kategori->save();
+
+        /** Buat folder kosong */
+        Storage::disk('galeri')->makeDirectory($kategori->folder_kategori);
+
+        return redirect()->route('kategori.index')->with('success', 'Data Kategori Berhasil Disimpan');
     }
 
     /**
@@ -57,7 +72,8 @@ class KategoriController extends Controller
      */
     public function edit(Kategori $kategori)
     {
-        //
+        $semuaStartup = Startup::all();
+        return view('kategori.edit', compact('kategori', 'semuaStartup'));
     }
 
     /**
@@ -69,7 +85,11 @@ class KategoriController extends Controller
      */
     public function update(Request $request, Kategori $kategori)
     {
-        //
+        $kategori->nama_kategori = $request->nama_kategori;
+        $kategori->slug_startup  = $request->slug_startup;
+        $kategori->save();
+
+        return redirect()->route('kategori.index')->with('success', 'Data Kategori Berhasil Diubah');
     }
 
     /**
@@ -80,6 +100,15 @@ class KategoriController extends Controller
      */
     public function destroy(Kategori $kategori)
     {
-        //
+        /** Hapus Folder Kategori pada Disk 'galeri' */
+        Storage::disk('galeri')->deleteDirectory($kategori->folder_kategori);
+
+        /** Hapus galeri foto */
+        Galeri::where('slug_kategori', $kategori->slug)->delete();
+
+        /** Hapus kategori */
+        $kategori->delete();
+
+        return redirect()->route('kategori.index')->with('success', 'Data Kategori Berhasil Dihapus');
     }
 }

@@ -10,8 +10,6 @@ use Illuminate\Support\Facades\Storage;
 
 class TimStartupController extends Controller
 {
-    private $pathFoto;
-
     public function __construct()
     {
         $this->pathFoto = TimStartup::$pathFoto;
@@ -23,7 +21,7 @@ class TimStartupController extends Controller
      */
     public function index()
     {
-        $semuaTimStartup = TimStartup::latest()->get();
+        $semuaTimStartup = TimStartup::with('startup')->latest()->get();
         return view('tim-startup.index', compact('semuaTimStartup'));
     }
 

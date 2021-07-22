@@ -90,6 +90,11 @@ return [
             'root'   => public_path('upload/member')
         ],
 
+        'galeri' => [
+            'driver' => 'local',
+            'root'   => public_path('upload/galeri')
+        ],
+
         'image_ckeditor' => [
             'driver' => 'local',
             'root'   => public_path('upload/ckeditor'),

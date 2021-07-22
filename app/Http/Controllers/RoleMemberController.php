@@ -29,9 +29,6 @@ class RoleMemberController extends Controller
     {
         $semuaMember = Member::all();
         $semuaJenisMember = JenisMember::all();
-        // $x = RoleMember::all();
-        // $cond1 = $x->where('id_member', 2)->where('id_jenis', 2)->count();
-        // $cond2 = $x->where('id_member', 3)->where('id_jenis', 2)->count();
 
         return view('role-member.create', compact('semuaMember', 'semuaJenisMember'));
     }
