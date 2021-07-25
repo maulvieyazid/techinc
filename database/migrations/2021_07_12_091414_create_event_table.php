@@ -18,7 +18,7 @@ class CreateEventTable extends Migration
             $table->string('nama_event')->nullable();
             $table->timestamp('tanggal_mulai', 0)->nullable();
             $table->timestamp('tanggal_selesai', 0)->nullable();
-            $table->string('foto')->nullable();
+            $table->string('folder')->nullable();
             $table->text('deskripsi')->nullable();
             $table->string('link_daftar')->nullable();
             $table->timestamps();

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CMS Museum</title>
+    <title>CMS Tech.Inc</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('css/pages/signin/bootstrap.min.css') }}" rel="stylesheet">
@@ -38,7 +38,7 @@
     <main class="form-signin">
         <form method="POST" action="{{ route('login') }}">
             @csrf
-            <h1 class="h3 mb-1 fw-normal">CMS Tech Inc</h1>
+            <h1 class="h3 mb-1 fw-normal">CMS Tech.Inc</h1>
             {{-- <h1 class="h3 mb-3 fw-normal">Universitas Dinamika</h1> --}}
             <br>
 

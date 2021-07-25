@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Support\Facades\Storage;
 
 class Event extends Model
 {
@@ -25,6 +26,11 @@ class Event extends Model
         'tanggal_mulai',
         'tanggal_selesai'
     ];
+
+    public function file_photo(){
+        $semuaFoto = Storage::allFiles(self::$pathFoto . '/' . $this->folder);
+        return $semuaFoto;
+    }
 
     /**
      * Return the sluggable configuration array for this model.

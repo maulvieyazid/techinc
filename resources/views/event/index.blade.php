@@ -31,7 +31,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>Nama Event</th>
-                                <th>Foto</th>
+                                <th>Status</th>
                                 <th>Mulai</th>
                                 <th>Selesai</th>
                                 <th>Aksi</th>
@@ -43,8 +43,16 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $event->nama_event }}</td>
                                     <td>
-                                        <img src="{{ asset($event->foto ?? 'images/no-photos.webp') }}" width="100"
-                                            height="100">
+                                        {{-- Jika Tanggal Mulai > sekarang --}}
+                                        @if ($event->tanggal_mulai->gt(date('Y-m-d H:i:s')) )
+                                            <span class="badge rounded-pill bg-primary">Akan Datang</span>
+                                        {{-- Jika Tanggal Mulai < sekarang && Tanggal Selesai > sekarang --}}
+                                        @elseif ($event->tanggal_mulai->lt(date('Y-m-d H:i:s')) && $event->tanggal_selesai->gt(date('Y-m-d H:i:s')) )
+                                            <span class="badge rounded-pill bg-warning text-dark">Sedang Berlangsung</span>
+                                        {{-- Jika Tanggal Selesai < sekarang --}}
+                                        @elseif ($event->tanggal_selesai->lt(date('Y-m-d H:i:s')) )
+                                            <span class="badge rounded-pill bg-success">Selesai</span>
+                                        @endif
                                     </td>
                                     <td>{{ $event->tanggal_mulai->translatedFormat('l, d F Y H:i:s') }}</td>
                                     <td>{{ $event->tanggal_selesai->translatedFormat('l, d F Y H:i:s') }}</td>
@@ -55,12 +63,10 @@
                                                 Aksi
                                             </button>
                                             <div class="dropdown-menu">
-                                                <a class="dropdown-item"
-                                                    href="{{ route('event.show', $event->slug) }}">
+                                                <a class="dropdown-item" href="{{ route('event.show', $event->slug) }}">
                                                     <i class="bi bi-eye-fill me-50"></i> Lihat
                                                 </a>
-                                                <a class="dropdown-item"
-                                                    href="{{ route('event.edit', $event->slug) }}">
+                                                <a class="dropdown-item" href="{{ route('event.edit', $event->slug) }}">
                                                     <i class="bi bi-pencil-square me-50"></i> Ubah
                                                 </a>
                                                 <a class="dropdown-item" href=""
@@ -108,7 +114,6 @@
                     btn.children[1].submit();
                 }
             }
-
         </script>
     @endpush
 @endsection

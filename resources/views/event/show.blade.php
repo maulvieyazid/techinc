@@ -53,12 +53,20 @@
                                                     value="{{ $event->tanggal_selesai->translatedFormat('l, d F Y H:i:s') }}">
                                             </div>
                                             <div class="col-md-2">
+                                                <label>Link Daftar</label>
+                                            </div>
+                                            <div class="col-md-10 form-group">
+                                                <input type="text" id="link_daftar" class="form-control" name="link_daftar"
+                                                    placeholder="Link Daftar" value="{{ $event->link_daftar }}">
+                                            </div>
+                                            <div class="col-md-2">
                                                 <label>Foto Event</label>
                                             </div>
                                             <div class="col-md-10 form-group">
-                                                <img id="image_preview"
-                                                    src="{{ asset($event->foto ?? 'images/no-photos.webp') }}"
-                                                    width="200" height="200">
+                                                @foreach ($event->file_photo() as $foto)
+                                                    <img id="image_preview" src="{{ asset($foto) }}" class="me-2"
+                                                        width="200" height="200">
+                                                @endforeach
                                             </div>
                                             <div class="col-md-2">
                                                 <label>Deskripsi Event</label>
@@ -85,7 +93,6 @@
                 .catch(error => {
                     console.error(error);
                 });
-
         </script>
     @endpush
 @endsection

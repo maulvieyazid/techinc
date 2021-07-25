@@ -47,25 +47,25 @@ class EventController extends Controller
     {
         $event = new Event;
 
-        $foto = $request->foto;
+        $semuaFoto = $request->foto;
+        $folder = Str::slug(Str::lower($request->nama_event));
 
-        /** Kalo ada fotonya */
-        if ($foto) {
+        foreach ($semuaFoto as $foto) {
             $namafile = $this->getNamaFile($foto);
 
             /** Simpan Foto ke Disk
              * note: konfigurasi disk 'foto_event' dapat dilihat pada config/filesystems.php
              */
-            Storage::disk('foto_event')->putFileAs(null, $foto, $namafile);
-
-            /** Insert Foto */
-            $event->foto = $this->getPathFoto($namafile);
+            Storage::disk('foto_event')->putFileAs($folder, $foto, $namafile);
         }
 
         $event->nama_event      = $request->nama_event;
         $event->tanggal_mulai   = $request->tanggal_mulai;
         $event->tanggal_selesai = $request->tanggal_selesai;
         $event->deskripsi       = $request->deskripsi;
+        $event->link_daftar     = $request->link_daftar;
+        $event->folder          = $folder;
+
         $event->save();
 
         return redirect()->route('event.index')->with('success', 'Data Event Berhasil Disimpan');
@@ -102,28 +102,28 @@ class EventController extends Controller
      */
     public function update(Request $request, Event $event)
     {
-        $foto = $request->foto;
+        $semuaFoto = $request->foto;
 
         /** Kalo ada fotonya */
-        if ($foto) {
-            $namafile = $this->getNamaFile($foto);
+        if ($semuaFoto) {
+            /** Hapus Folder Event dari Folder Public */
+            Storage::disk('foto_event')->deleteDirectory($event->folder);
 
-            /** Hapus File Foto dari Folder Public */
-            Storage::delete($event->foto);
+            foreach ($semuaFoto as $foto) {
+                $namafile = $this->getNamaFile($foto);
 
-            /** Simpan Foto ke Disk
-             * note: konfigurasi disk 'foto_event' dapat dilihat pada config/filesystems.php
-             */
-            Storage::disk('foto_event')->putFileAs(null, $foto, $namafile);
-
-            /** Update Foto */
-            $event->foto = $this->getPathFoto($namafile);
+                /** Simpan Foto ke Disk
+                 * note: konfigurasi disk 'foto_event' dapat dilihat pada config/filesystems.php
+                 */
+                Storage::disk('foto_event')->putFileAs($event->folder, $foto, $namafile);
+            }
         }
 
         $event->nama_event      = $request->nama_event;
         $event->tanggal_mulai   = $request->tanggal_mulai;
         $event->tanggal_selesai = $request->tanggal_selesai;
         $event->deskripsi       = $request->deskripsi;
+        $event->link_daftar     = $request->link_daftar;
         $event->save();
 
         return redirect()->route('event.index')->with('success', 'Data Event Berhasil Diubah');
@@ -137,8 +137,8 @@ class EventController extends Controller
      */
     public function destroy(Event $event)
     {
-        /** Hapus File Foto dari Folder Public */
-        Storage::delete($event->foto);
+        /** Hapus Folder Event dari Folder Public */
+        Storage::disk('foto_event')->deleteDirectory($event->folder);
 
         $event->delete();
 

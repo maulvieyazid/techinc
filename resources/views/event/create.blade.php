@@ -58,15 +58,21 @@
                                                     name="tanggal_selesai" placeholder="Tanggal Selesai" autocomplete="off">
                                             </div>
                                             <div class="col-md-2">
+                                                <label>Link Daftar</label>
+                                            </div>
+                                            <div class="col-md-10 form-group">
+                                                <input type="text" id="link_daftar" class="form-control" name="link_daftar"
+                                                    placeholder="Link Daftar">
+                                            </div>
+                                            <div class="col-md-2">
                                                 <label>Foto Event</label>
                                             </div>
-                                            <div class="col-md-5 form-group">
-                                                <input class="form-control" type="file" id="foto" name="foto"
-                                                    accept="image/*">
+                                            <div class="col-md-10 form-group">
+                                                <input class="form-control" type="file" id="foto" name="foto[]"
+                                                    accept="image/*" multiple>
                                             </div>
-                                            <div class="col-5">
-                                                <img id="image_preview" src="{{ asset('images/no-photos.webp') }}"
-                                                    width="200" height="200" style="display: none">
+                                            <div class="col-12">
+                                                <div id="image_preview" class="mb-3"></div>
                                             </div>
                                             <div class="col-md-2">
                                                 <label>Deskripsi Event</label>
@@ -99,31 +105,71 @@
             const image_preview = document.getElementById('image_preview')
 
             foto.addEventListener('change', function() {
-                if (this.files[0].size > 5242880) {
-                    Toastify({
-                        text: "Foto tidak boleh melebihi 5 MB",
-                        duration: 3000,
-                        close: true,
-                        gravity: "top",
-                        position: "right",
-                        backgroundColor: "#ff0000",
-                    }).showToast();
-                    image_preview.style.display = "none"
-                    this.value = ''
-                } else {
-                    image_preview.removeAttribute('style')
-                    previewImage();
-                }
+                Array.from(this.files).forEach(file => {
+                    if (file.size > 6291456) {
+                        Toastify({
+                            text: "Foto tidak boleh melebihi 5 MB",
+                            duration: 3000,
+                            close: true,
+                            gravity: "top",
+                            position: "right",
+                            backgroundColor: "#ff0000",
+                        }).showToast();
+                        this.value = ''
+                    }
+                })
+                /* Kosongkan image_preview*/
+                image_preview.innerHTML = ''
+                previewImage();
             })
 
             function previewImage() {
-                var oFReader = new FileReader();
-                oFReader.readAsDataURL(foto.files[0]);
 
-                oFReader.onload = function() {
-                    image_preview.src = oFReader.result;
-                };
+                Array.from(foto.files).forEach(file => {
+
+                    var oFReader = new FileReader();
+                    let type = getType(file.type);
+
+                    oFReader.addEventListener("load", function() {
+                        if (type == 'video') {
+                            var video = document.createElement("VIDEO");
+                            video.setAttribute("src", this.result);
+                            video.setAttribute("width", "200");
+                            video.setAttribute("height", "200");
+                            video.setAttribute("controls", "controls");
+                            video.setAttribute("style", "vertical-align:middle; object-fit:cover");
+                            video.setAttribute("class", "me-2");
+
+                            image_preview.appendChild(video);
+                        }
+                        else if (type == 'image') {
+                            var image = new Image();
+                            image.height = 200;
+                            image.width = 200;
+                            image.title = file.name;
+                            image.className = 'me-2 mb-2';
+                            image.src = this.result;
+
+                            image_preview.appendChild(image);
+
+                        }
+
+                    });
+
+                    oFReader.readAsDataURL(file);
+
+                })
             };
+
+            /* Ambil type file */
+            function getType(type) {
+                let arr = type.split('/');
+                if (arr[0] == 'video') {
+                    return 'video';
+                }
+
+                return 'image';
+            }
 
             ClassicEditor
                 .create(document.getElementById('deskripsi'))
