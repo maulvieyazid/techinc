@@ -131,6 +131,7 @@ class TimStartupController extends Controller
 
         $timStartup->nama         = $request->nama;
         $timStartup->posisi       = $request->posisi;
+        $timStartup->status       = $request->status;
         $timStartup->slug_startup = $request->slug_startup;
         $timStartup->save();
 

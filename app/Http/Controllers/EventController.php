@@ -50,14 +50,18 @@ class EventController extends Controller
         $semuaFoto = $request->foto;
         $folder = Str::slug(Str::lower($request->nama_event));
 
-        foreach ($semuaFoto as $foto) {
-            $namafile = $this->getNamaFile($foto);
+        # Kalo ada fotonya
+        if ($semuaFoto) {
+            foreach ($semuaFoto as $foto) {
+                $namafile = $this->getNamaFile($foto);
 
-            /** Simpan Foto ke Disk
-             * note: konfigurasi disk 'foto_event' dapat dilihat pada config/filesystems.php
-             */
-            Storage::disk('foto_event')->putFileAs($folder, $foto, $namafile);
+                /** Simpan Foto ke Disk
+                 * note: konfigurasi disk 'foto_event' dapat dilihat pada config/filesystems.php
+                 */
+                Storage::disk('foto_event')->putFileAs($folder, $foto, $namafile);
+            }
         }
+
 
         $event->nama_event      = $request->nama_event;
         $event->tanggal_mulai   = $request->tanggal_mulai;

@@ -60,8 +60,10 @@ class StartupController extends Controller
             $startup->logo = $this->getPathlogo($namafile);
         }
 
-        $startup->nama_startup = $request->nama_startup;
-        $startup->deskripsi    = $request->deskripsi;
+        $startup->nama_startup   = $request->nama_startup;
+        $startup->tanggal_gabung = $request->tanggal_gabung;
+        $startup->tanggal_lulus  = $request->tanggal_lulus;
+        $startup->deskripsi      = $request->deskripsi;
         $startup->save();
 
         return redirect()->route('startup.index')->with('success', 'Data Startup Berhasil Disimpan');
@@ -116,8 +118,10 @@ class StartupController extends Controller
             $startup->logo = $this->getPathlogo($namafile);
         }
 
-        $startup->nama_startup = $request->nama_startup;
-        $startup->deskripsi    = $request->deskripsi;
+        $startup->nama_startup   = $request->nama_startup;
+        $startup->tanggal_gabung = $request->tanggal_gabung;
+        $startup->tanggal_lulus  = $request->tanggal_lulus;
+        $startup->deskripsi      = $request->deskripsi;
         $startup->save();
 
         return redirect()->route('startup.index')->with('success', 'Data Startup Berhasil Diubah');

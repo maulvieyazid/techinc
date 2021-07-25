@@ -141,8 +141,7 @@
                             video.setAttribute("class", "me-2");
 
                             image_preview.appendChild(video);
-                        }
-                        else if (type == 'image') {
+                        } else if (type == 'image') {
                             var image = new Image();
                             image.height = 200;
                             image.width = 200;
@@ -177,7 +176,7 @@
                     console.error(error);
                 });
 
-                flatpickr('#tanggal_mulai', {
+            flatpickr('#tanggal_mulai', {
                 altInput: true,
                 altFormat: "l, d F Y H:i:S",
                 enableTime: true,
@@ -198,7 +197,6 @@
                 // maxTime: "16:00",
                 locale: 'id',
             })
-
         </script>
     @endpush
 @endsection

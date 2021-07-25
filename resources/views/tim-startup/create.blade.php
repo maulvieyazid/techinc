@@ -40,8 +40,7 @@
                                             </div>
                                             <div class="col-md-10 form-group">
                                                 <fieldset class="form-group">
-                                                    <select class="form-select" name="tim[0][slug_startup]"
-                                                        required>
+                                                    <select class="form-select" name="tim[0][slug_startup]" required>
                                                         <option value="" disabled selected>-- Pilih Startup --
                                                         </option>
                                                         @foreach ($semuaStartup as $startup)
@@ -68,12 +67,29 @@
                                                     placeholder="Posisi">
                                             </div>
 
+                                            <div class="col-md-2">
+                                                <label>Status</label>
+                                            </div>
+                                            <div class="col-md-10 form-group">
+                                                <input type="radio" class="btn-check" name="tim[0][status]"
+                                                    id="success-outlined" autocomplete="off" value="1" checked>
+                                                <label class="btn btn-outline-success" for="success-outlined">
+                                                    Aktif
+                                                </label>
+                                                <input type="radio" class="btn-check" name="tim[0][status]"
+                                                    id="danger-outlined" autocomplete="off" value="2">
+                                                <label class="btn btn-outline-danger" for="danger-outlined">
+                                                    Tidak Aktif
+                                                </label>
+                                            </div>
+
+
                                             <div class="col-md-2 pe-0">
                                                 <label>Foto</label>
                                             </div>
                                             <div class="col-md-5 form-group">
-                                                <input class="form-control" type="file" name="tim[0][foto]"
-                                                    accept="image/*" onchange="showImage(this, 'image_preview0')">
+                                                <input class="form-control" type="file" name="tim[0][foto]" accept="image/*"
+                                                    onchange="showImage(this, 'image_preview0')">
                                             </div>
                                             <div class="col-5 mb-3">
                                                 <img id="image_preview0" src="" width="200" height="200"
@@ -173,6 +189,22 @@
                         <div class="col-md-10 form-group">
                             <input type="text" class="form-control" name="tim[${countItem}][posisi]"
                                 placeholder="Posisi" >
+                        </div>
+
+                        <div class="col-md-2">
+                            <label>Status</label>
+                        </div>
+                        <div class="col-md-10 form-group">
+                            <input type="radio" class="btn-check" name="tim[${countItem}][status]" id="success-outlined${countItem}"
+                                autocomplete="off" value="1" checked>
+                            <label class="btn btn-outline-success" for="success-outlined${countItem}">
+                                Aktif
+                            </label>
+                            <input type="radio" class="btn-check" name="tim[${countItem}][status]" id="danger-outlined${countItem}"
+                                autocomplete="off" value="2">
+                            <label class="btn btn-outline-danger" for="danger-outlined${countItem}">
+                                Tidak Aktif
+                            </label>
                         </div>
 
                         <div class="col-md-2 pe-0">

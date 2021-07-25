@@ -2,6 +2,7 @@
 
 @push('styles')
     <link rel="stylesheet" href="{{ asset('vendors/toastify/toastify.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendors/flatpickr/flatpickr.min.css') }}">
 
 @endpush
 
@@ -30,9 +31,8 @@
                         </div>
                         <div class="card-content">
                             <div class="card-body">
-                                <form class="form form-horizontal"
-                                    action="{{ route('startup.update', $startup->slug) }}" method="POST"
-                                    enctype="multipart/form-data">
+                                <form class="form form-horizontal" action="{{ route('startup.update', $startup->slug) }}"
+                                    method="POST" enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
                                     <div class="form-body">
@@ -41,9 +41,27 @@
                                                 <label>Nama Startup</label>
                                             </div>
                                             <div class="col-md-10 form-group">
-                                                <input type="text" id="nama_startup" class="form-control" name="nama_startup"
-                                                    placeholder="Nama Startup" value="{{ $startup->nama_startup }}" required
-                                                    autofocus>
+                                                <input type="text" id="nama_startup" class="form-control"
+                                                    name="nama_startup" placeholder="Nama Startup"
+                                                    value="{{ $startup->nama_startup }}" required autofocus>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label>Tanggal Gabung</label>
+                                            </div>
+                                            <div class="col-md-10 form-group">
+                                                <input type="text" id="tanggal_gabung" class="form-control"
+                                                    name="tanggal_gabung"
+                                                    value="{{ empty($startup->tanggal_gabung) ? '' : $startup->tanggal_gabung->format('d F Y') }}"
+                                                    placeholder="Tanggal Gabung" autocomplete="off">
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label>Tanggal Lulus</label>
+                                            </div>
+                                            <div class="col-md-10 form-group">
+                                                <input type="text" id="tanggal_lulus" class="form-control"
+                                                    name="tanggal_lulus"
+                                                    value="{{ empty($startup->tanggal_lulus) ? '' : $startup->tanggal_lulus->format('d F Y') }}"
+                                                    placeholder="Tanggal Lulus" autocomplete="off">
                                             </div>
                                             <div class="col-md-2">
                                                 <label>Logo Startup</label>
@@ -80,6 +98,8 @@
     @push('scripts')
         <script src="{{ asset('vendors/toastify/toastify.js') }}"></script>
         <script src="{{ asset('vendors/ckeditor/ckeditor.js') }}"></script>
+        <script src="{{ asset('vendors/flatpickr/flatpickr.js') }}"></script>
+        <script src="{{ asset('vendors/flatpickr/id.js') }}"></script>
 
         <script>
             const logo = document.getElementById('logo')
@@ -112,12 +132,33 @@
                 };
             };
 
+            flatpickr('#tanggal_gabung', {
+                altInput: true,
+                altFormat: "l, d F Y",
+                // enableTime: true,
+                dateFormat: "Y-m-d",
+                // time_24hr: true,
+                // minTime: "09:00",
+                // maxTime: "16:00",
+                locale: 'id',
+            })
+
+            flatpickr('#tanggal_lulus', {
+                altInput: true,
+                altFormat: "l, d F Y",
+                // enableTime: true,
+                dateFormat: "Y-m-d",
+                // time_24hr: true,
+                // minTime: "09:00",
+                // maxTime: "16:00",
+                locale: 'id',
+            })
+
             ClassicEditor
                 .create(document.getElementById('deskripsi'))
                 .catch(error => {
                     console.error(error);
                 });
-
         </script>
     @endpush
 @endsection

@@ -32,6 +32,9 @@
                                 <th>No</th>
                                 <th>Nama Startup</th>
                                 <th>Logo</th>
+                                <th width="16%">Bergabung</th>
+                                <th width="16%">Lulus</th>
+                                <th>Deskripsi</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -42,7 +45,12 @@
                                     <td>{{ $startup->nama_startup }}</td>
                                     <td>
                                         <img src="{{ asset($startup->logo ?? 'images/no-photos.webp') }}" width="100"
-                                            height="100">
+                                        height="100">
+                                    </td>
+                                    <td>{{ empty($startup->tanggal_gabung) ? '' : $startup->tanggal_gabung->translatedFormat('l, d F Y') }}</td>
+                                    <td>{{ empty($startup->tanggal_lulus) ? '' : $startup->tanggal_lulus->translatedFormat('l, d F Y') }}</td>
+                                    <td>
+                                        {!! $startup->deskripsi !!}
                                     </td>
                                     <td>
                                         <div class="btn-group dropstart  mb-1">

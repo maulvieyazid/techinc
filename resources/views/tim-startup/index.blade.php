@@ -33,6 +33,7 @@
                                 <th>Nama</th>
                                 <th>Posisi</th>
                                 <th>Foto</th>
+                                <th>Status</th>
                                 <th>Startup</th>
                                 <th>Aksi</th>
                             </tr>
@@ -46,6 +47,13 @@
                                     <td>
                                         <img src="{{ asset($timStartup->foto ?? 'images/no-photos.webp') }}" width="100"
                                             height="100">
+                                    </td>
+                                    <td>
+                                        @if ($timStartup->status == 1)
+                                            <span class="badge rounded-pill bg-success">Aktif</span>
+                                        @elseif ($timStartup->status == 2)
+                                            <span class="badge rounded-pill bg-danger">Tidak Aktif</span>
+                                        @endif
                                     </td>
                                     <td>{{ $timStartup->startup->nama_startup ?? 'Tidak ada' }}</td>
                                     <td>
@@ -66,7 +74,8 @@
                                                 <a class="dropdown-item" href=""
                                                     onclick="event.preventDefault(); hapus(this, '{{ $timStartup->nama }}')">
                                                     <i class="bi bi-trash-fill me-50"></i> Hapus
-                                                    <form action="{{ route('tim-startup.destroy', $timStartup->id_tim) }}"
+                                                    <form
+                                                        action="{{ route('tim-startup.destroy', $timStartup->id_tim) }}"
                                                         method="POST" style="display: none;">
                                                         @csrf
                                                         @method('DELETE')
@@ -108,7 +117,6 @@
                     btn.children[1].submit();
                 }
             }
-
         </script>
     @endpush
 @endsection

@@ -18,6 +18,8 @@ class CreateTimStartupTable extends Migration
             $table->string('nama')->nullable();
             $table->string('foto')->nullable();
             $table->string('posisi')->nullable();
+            $table->char('status')->nullable()
+            ->comment("1 = Aktif 2 = Tidak Aktif");
             $table->string('slug_startup')->nullable();
             $table->timestamps();
 

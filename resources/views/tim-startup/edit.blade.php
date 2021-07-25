@@ -71,6 +71,22 @@
                                                     placeholder="Posisi" value="{{ $timStartup->posisi }}">
                                             </div>
 
+                                            <div class="col-md-2">
+                                                <label>Status</label>
+                                            </div>
+                                            <div class="col-md-10 form-group">
+                                                <input type="radio" class="btn-check" name="status"
+                                                    id="success-outlined" autocomplete="off" value="1" @if ($timStartup->status == 1) {{ 'checked' }} @endif>
+                                                <label class="btn btn-outline-success" for="success-outlined">
+                                                    Aktif
+                                                </label>
+                                                <input type="radio" class="btn-check" name="status"
+                                                    id="danger-outlined" autocomplete="off" value="2" @if ($timStartup->status == 2) {{ 'checked' }} @endif>
+                                                <label class="btn btn-outline-danger" for="danger-outlined">
+                                                    Tidak Aktif
+                                                </label>
+                                            </div>
+
                                             <div class="col-md-2 pe-0">
                                                 <label>Foto</label>
                                             </div>

@@ -18,6 +18,8 @@ class CreateStartupTable extends Migration
             $table->string('nama_startup')->nullable();
             $table->text('deskripsi')->nullable();
             $table->string('logo')->nullable();
+            $table->timestamp('tanggal_gabung', 0)->nullable();
+            $table->timestamp('tanggal_lulus', 0)->nullable();
             $table->timestamps();
         });
     }

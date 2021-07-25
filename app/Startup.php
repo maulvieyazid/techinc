@@ -21,6 +21,11 @@ class Startup extends Model
 
     protected $guarded = [];
 
+    protected $dates = [
+        'tanggal_gabung',
+        'tanggal_lulus'
+    ];
+
     /**
      * Return the sluggable configuration array for this model.
      *
