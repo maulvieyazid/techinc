@@ -47,8 +47,8 @@
                                         <img src="{{ asset($startup->logo ?? 'images/no-photos.webp') }}" width="100"
                                         height="100">
                                     </td>
-                                    <td>{{ empty($startup->tanggal_gabung) ? '' : $startup->tanggal_gabung->translatedFormat('l, d F Y') }}</td>
-                                    <td>{{ empty($startup->tanggal_lulus) ? '' : $startup->tanggal_lulus->translatedFormat('l, d F Y') }}</td>
+                                    <td>{{ empty($startup->tanggal_gabung) ? '-' : $startup->tanggal_gabung->translatedFormat('l, d F Y') }}</td>
+                                    <td>{{ empty($startup->tanggal_lulus) ? '-' : $startup->tanggal_lulus->translatedFormat('l, d F Y') }}</td>
                                     <td>
                                         {!! $startup->deskripsi !!}
                                     </td>

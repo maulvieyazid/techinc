@@ -51,7 +51,6 @@
                                             <div class="col-md-10 form-group">
                                                 <input type="text" id="tanggal_gabung" class="form-control"
                                                     name="tanggal_gabung"
-                                                    value="{{ empty($startup->tanggal_gabung) ? '' : $startup->tanggal_gabung->format('d F Y') }}"
                                                     placeholder="Tanggal Gabung" autocomplete="off">
                                             </div>
                                             <div class="col-md-2">
@@ -60,7 +59,6 @@
                                             <div class="col-md-10 form-group">
                                                 <input type="text" id="tanggal_lulus" class="form-control"
                                                     name="tanggal_lulus"
-                                                    value="{{ empty($startup->tanggal_lulus) ? '' : $startup->tanggal_lulus->format('d F Y') }}"
                                                     placeholder="Tanggal Lulus" autocomplete="off">
                                             </div>
                                             <div class="col-md-2">
@@ -79,7 +77,7 @@
                                                 <label>Deskripsi Startup</label>
                                             </div>
                                             <div class="col-md-12 form-group">
-                                                <textarea name="deskripsi" id="deskripsi">{!! $startup->deskripsi !!}</textarea>
+                                                <textarea name="deskripsi" id="deskripsi" class="form-control">{!! $startup->deskripsi !!}</textarea>
                                             </div>
                                             <div class="col-md-12 d-flex justify-content-end">
                                                 <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
@@ -97,7 +95,6 @@
 
     @push('scripts')
         <script src="{{ asset('vendors/toastify/toastify.js') }}"></script>
-        <script src="{{ asset('vendors/ckeditor/ckeditor.js') }}"></script>
         <script src="{{ asset('vendors/flatpickr/flatpickr.js') }}"></script>
         <script src="{{ asset('vendors/flatpickr/id.js') }}"></script>
 
@@ -140,6 +137,7 @@
                 // time_24hr: true,
                 // minTime: "09:00",
                 // maxTime: "16:00",
+                defaultDate: "{{ empty($startup->tanggal_gabung) ? '' : $startup->tanggal_gabung }}",
                 locale: 'id',
             })
 
@@ -151,14 +149,10 @@
                 // time_24hr: true,
                 // minTime: "09:00",
                 // maxTime: "16:00",
+                defaultDate: "{{ empty($startup->tanggal_lulus) ? '' : $startup->tanggal_lulus }}",
                 locale: 'id',
             })
 
-            ClassicEditor
-                .create(document.getElementById('deskripsi'))
-                .catch(error => {
-                    console.error(error);
-                });
         </script>
     @endpush
 @endsection

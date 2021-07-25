@@ -43,6 +43,22 @@
                                                     placeholder="Nama" required autofocus>
                                             </div>
 
+                                            <div class="col-md-2">
+                                                <label>Status</label>
+                                            </div>
+                                            <div class="col-md-10 form-group">
+                                                <input type="radio" class="btn-check" name="member[0][status]"
+                                                    id="success-outlined" autocomplete="off" value="1" checked>
+                                                <label class="btn btn-outline-success" for="success-outlined">
+                                                    Aktif
+                                                </label>
+                                                <input type="radio" class="btn-check" name="member[0][status]"
+                                                    id="danger-outlined" autocomplete="off" value="2">
+                                                <label class="btn btn-outline-danger" for="danger-outlined">
+                                                    Tidak Aktif
+                                                </label>
+                                            </div>
+
                                             <div class="col-md-2 pe-0">
                                                 <label>Foto</label>
                                             </div>
@@ -55,6 +71,14 @@
                                                     style="display: none">
                                             </div>
 
+                                            <div class="col-md-2">
+                                                <label>Deskripsi</label>
+                                            </div>
+                                            <div class="col-md-12 form-group">
+                                                <textarea class="form-control" name="member[0][deskripsi]" id="deskripsi"
+                                                    rows="3"></textarea>
+                                            </div>
+
                                             <hr>
 
                                             <div id="added_item">
@@ -63,7 +87,8 @@
 
                                             <div class="col-md-12 d-flex justify-content-center">
                                                 <button type="button" class="btn btn-success" id="add" onclick="addItem()">
-                                                    <i class="bi bi-plus-circle" style="vertical-align: sub"></i> Tambah Member
+                                                    <i class="bi bi-plus-circle" style="vertical-align: sub"></i> Tambah
+                                                    Member
                                                 </button>
                                             </div>
 
@@ -84,6 +109,7 @@
     @push('scripts')
         <script src="{{ asset('vendors/toastify/toastify.js') }}"></script>
         <script src="{{ asset('vendors/sweetalert2/sweetalert2.all.min.js') }}"></script>
+
         <script>
             let countItem = 0;
 
@@ -124,6 +150,22 @@
                                 placeholder="Nama" required autofocus>
                         </div>
 
+                        <div class="col-md-2">
+                            <label>Status</label>
+                        </div>
+                        <div class="col-md-10 form-group">
+                            <input type="radio" class="btn-check" name="member[${countItem}][status]"
+                                id="success-outlined${countItem}" autocomplete="off" value="1" checked>
+                            <label class="btn btn-outline-success" for="success-outlined${countItem}">
+                                Aktif
+                            </label>
+                            <input type="radio" class="btn-check" name="member[${countItem}][status]"
+                                id="danger-outlined${countItem}" autocomplete="off" value="2">
+                            <label class="btn btn-outline-danger" for="danger-outlined${countItem}">
+                                Tidak Aktif
+                            </label>
+                        </div>
+
                         <div class="col-md-2 pe-0">
                             <label>Foto</label>
                         </div>
@@ -134,6 +176,13 @@
                         <div class="col-5 mb-3">
                             <img id="image_preview${countItem}" src="" width="200" height="200"
                                 style="display: none">
+                        </div>
+
+                        <div class="col-md-2">
+                            <label>Deskripsi</label>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <textarea class="form-control" name="member[${countItem}][deskripsi]" rows="3"></textarea>
                         </div>
 
                         <hr>

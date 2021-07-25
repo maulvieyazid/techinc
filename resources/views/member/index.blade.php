@@ -32,6 +32,8 @@
                                 <th>No</th>
                                 <th>Nama</th>
                                 <th>Foto</th>
+                                <th>Status</th>
+                                <th>Deskripsi</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -43,6 +45,16 @@
                                     <td>
                                         <img src="{{ asset($member->foto ?? 'images/no-photos.webp') }}" width="100"
                                             height="100">
+                                    </td>
+                                    <td>
+                                        @if ($member->status == 1)
+                                            <span class="badge rounded-pill bg-success">Aktif</span>
+                                        @elseif ($member->status == 2)
+                                            <span class="badge rounded-pill bg-danger">Tidak Aktif</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        {!! $member->deskripsi !!}
                                     </td>
                                     <td>
                                         <div class="btn-group dropstart  mb-1">

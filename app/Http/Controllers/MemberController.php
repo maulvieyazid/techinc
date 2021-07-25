@@ -131,6 +131,8 @@ class MemberController extends Controller
         }
 
         $member->nama_member = $request->nama_member;
+        $member->status      = $request->status;
+        $member->deskripsi   = $request->deskripsi;
         $member->save();
 
         return redirect()->route('member.index')->with('success', 'Data Member Berhasil Diubah');

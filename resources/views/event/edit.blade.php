@@ -51,7 +51,6 @@
                                             <div class="col-md-10 form-group">
                                                 <input type="text" id="tanggal_mulai" class="form-control"
                                                     name="tanggal_mulai"
-                                                    value="{{ $event->tanggal_mulai->format('d F Y') }}"
                                                     placeholder="Tanggal Mulai" autocomplete="off">
                                             </div>
                                             <div class="col-md-2">
@@ -60,7 +59,6 @@
                                             <div class="col-md-10 form-group">
                                                 <input type="text" id="tanggal_selesai" class="form-control"
                                                     name="tanggal_selesai"
-                                                    value="{{ $event->tanggal_selesai->format('d F Y') }}"
                                                     placeholder="Tanggal Selesai" autocomplete="off">
                                             </div>
                                             <div class="col-md-2">

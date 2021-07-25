@@ -17,6 +17,9 @@ class CreateMemberTable extends Migration
             $table->increments('id_member');
             $table->string('nama_member')->nullable();
             $table->string('foto')->nullable();
+            $table->char('status')->nullable()
+            ->comment("1 = Aktif 2 = Tidak Aktif");
+            $table->text('deskripsi')->nullable();
             $table->timestamps();
         });
     }

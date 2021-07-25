@@ -47,6 +47,22 @@
                                                     autofocus>
                                             </div>
 
+                                            <div class="col-md-2">
+                                                <label>Status</label>
+                                            </div>
+                                            <div class="col-md-10 form-group">
+                                                <input type="radio" class="btn-check" name="status" id="success-outlined"
+                                                    autocomplete="off" value="1" @if ($member->status == 1) {{ 'checked' }} @endif>
+                                                <label class="btn btn-outline-success" for="success-outlined">
+                                                    Aktif
+                                                </label>
+                                                <input type="radio" class="btn-check" name="status" id="danger-outlined"
+                                                    autocomplete="off" value="2" @if ($member->status == 2) {{ 'checked' }} @endif>
+                                                <label class="btn btn-outline-danger" for="danger-outlined">
+                                                    Tidak Aktif
+                                                </label>
+                                            </div>
+
                                             <div class="col-md-2 pe-0">
                                                 <label>Foto</label>
                                             </div>
@@ -58,6 +74,14 @@
                                                 <img id="image_preview"
                                                     src="{{ asset($member->foto ?? 'images/no-photos.webp') }}"
                                                     width="200" height="200">
+                                            </div>
+
+                                            <div class="col-md-2">
+                                                <label>Deskripsi</label>
+                                            </div>
+                                            <div class="col-md-12 form-group">
+                                                <textarea class="form-control" name="deskripsi" id="deskripsi"
+                                                    rows="3">{!! $member->deskripsi !!}</textarea>
                                             </div>
 
                                             <div class="col-md-12 d-flex justify-content-end">

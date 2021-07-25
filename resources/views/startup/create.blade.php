@@ -73,7 +73,7 @@
                                                 <label>Deskripsi Startup</label>
                                             </div>
                                             <div class="col-md-12 form-group">
-                                                <textarea name="deskripsi" id="deskripsi"></textarea>
+                                                <textarea name="deskripsi" id="deskripsi" class="form-control" rows="3"></textarea>
                                             </div>
                                             <div class="col-md-12 d-flex justify-content-end">
                                                 <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
@@ -91,7 +91,6 @@
 
     @push('scripts')
         <script src="{{ asset('vendors/toastify/toastify.js') }}"></script>
-        <script src="{{ asset('vendors/ckeditor/ckeditor.js') }}"></script>
         <script src="{{ asset('vendors/flatpickr/flatpickr.js') }}"></script>
         <script src="{{ asset('vendors/flatpickr/id.js') }}"></script>
 
@@ -125,12 +124,6 @@
                     image_preview.src = oFReader.result;
                 };
             };
-
-            ClassicEditor
-                .create(document.getElementById('deskripsi'))
-                .catch(error => {
-                    console.error(error);
-                });
 
             flatpickr('#tanggal_gabung', {
                 altInput: true,
