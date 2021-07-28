@@ -90,6 +90,11 @@ return [
             'root'   => public_path('upload/member')
         ],
 
+        'carousel_image' => [
+            'driver' => 'local',
+            'root'   => public_path('upload/carousel')
+        ],
+
         'galeri' => [
             'driver' => 'local',
             'root'   => public_path('upload/galeri')

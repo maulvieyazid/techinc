@@ -20,6 +20,20 @@
                     </a>
                 </li>
 
+                <li class="sidebar-item @if (collect(['carouselImage' ])->
+                    contains($sidebar)) {{ 'active' }} @endif has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-front"></i>
+                        <span>Front</span>
+                    </a>
+                    <ul class="submenu @if (collect(['carouselImage' ])->
+                        contains($sidebar)) {{ 'active' }} @endif">
+                        <li class="submenu-item @if ($sidebar=='carouselImage' ) {{ 'active' }} @endif">
+                            <a href="{{ route('carousel-image.index') }}">Carousel</a>
+                        </li>
+                    </ul>
+                </li>
+
                 <li class="sidebar-item @if ($sidebar=='event' ) {{ 'active' }} @endif">
                     <a href="{{ route('event.index') }}" class='sidebar-link'>
                         <i class="bi bi-calendar3"></i>

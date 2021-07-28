@@ -59,5 +59,8 @@ Route::middleware(['auth'])->group(function () {
 
         # Route Galeri
         Route::resource('galeri', 'GaleriController');
+
+        # Route Carousel Image
+        Route::resource('carousel-image', 'CarouselImageController');
     });
 });

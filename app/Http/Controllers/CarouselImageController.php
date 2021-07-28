@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Member;
+use App\CarouselImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
-class MemberController extends Controller
+class CarouselImageController extends Controller
 {
     public function __construct()
     {
-        $this->pathFoto = Member::$pathFoto;
+        $this->pathFoto = CarouselImage::$pathFoto;
     }
     /**
      * Display a listing of the resource.
@@ -20,8 +20,8 @@ class MemberController extends Controller
      */
     public function index()
     {
-        $semuaMember = Member::latest()->get();
-        return view('member.index', compact('semuaMember'));
+        $semuaCarousel = CarouselImage::orderBy('urutan', 'asc')->get();
+        return view('carousel-image.index', compact('semuaCarousel'));
     }
 
     /**
@@ -31,7 +31,7 @@ class MemberController extends Controller
      */
     public function create()
     {
-        return view('member.create');
+        return view('carousel-image.create');
     }
 
     /**
@@ -42,9 +42,9 @@ class MemberController extends Controller
      */
     public function store(Request $request)
     {
-        $semuaMember = collect($request->member);
+        $semuaCarousel = collect($request->carousel);
 
-        $semuaMember->transform(function ($item, $key) {
+        $semuaCarousel->transform(function ($item, $key) {
             $item = collect($item);
 
             /** Kalo ada fotonya */
@@ -54,9 +54,9 @@ class MemberController extends Controller
                 $namafile = $this->getNamaFile($foto);
 
                 /** Simpan Foto ke Disk
-                 * note: konfigurasi disk 'foto_member' dapat dilihat pada config/filesystems.php
+                 * note: konfigurasi disk 'carousel_image' dapat dilihat pada config/filesystems.php
                  */
-                Storage::disk('foto_member')->putFileAs(null, $foto, $namafile);
+                Storage::disk('carousel_image')->putFileAs(null, $foto, $namafile);
 
                 /** Ganti value dari key foto dengan path foto */
                 $item->put('foto', $this->getPathFoto($namafile));
@@ -74,82 +74,60 @@ class MemberController extends Controller
             return $item->toArray();
         });
 
-        Member::insert($semuaMember->toArray());
+        CarouselImage::insert($semuaCarousel->toArray());
 
-        return redirect()->route('member.index')->with('success', 'Data Member Berhasil Disimpan');
+        return redirect()->route('carousel-image.index')->with('success', 'Data Carousel Image Berhasil Disimpan');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Member  $member
+     * @param  \App\CarouselImage  $carouselImage
      * @return \Illuminate\Http\Response
      */
-    public function show(Member $member)
+    public function show(CarouselImage $carouselImage)
     {
-        return view('member.show', compact('member'));
+        $carousel = $carouselImage;
+        return view('carousel-image.show', compact('carousel'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Member  $member
+     * @param  \App\CarouselImage  $carouselImage
      * @return \Illuminate\Http\Response
      */
-    public function edit(Member $member)
+    public function edit(CarouselImage $carouselImage)
     {
-        return view('member.edit', compact('member'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Member  $member
+     * @param  \App\CarouselImage  $carouselImage
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Member $member)
+    public function update(Request $request, CarouselImage $carouselImage)
     {
-        $foto = $request->foto;
-
-        /** Kalo ada thumbnailnya */
-        if ($foto) {
-            $namafile = $this->getNamaFile($foto);
-
-            /** Hapus File Foto dari Folder Public */
-            Storage::delete($member->foto);
-
-            /** Simpan Foto ke Disk
-             * note: konfigurasi disk 'foto_member' dapat dilihat pada config/filesystems.php
-             */
-            Storage::disk('foto_member')->putFileAs(null, $foto, $namafile);
-
-            /** Insert Foto */
-            $member->foto = $this->getPathFoto($namafile);
-        }
-
-        $member->nama_member = $request->nama_member;
-        $member->status      = $request->status;
-        $member->deskripsi   = $request->deskripsi;
-        $member->save();
-
-        return redirect()->route('member.index')->with('success', 'Data Member Berhasil Diubah');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Member  $member
+     * @param  \App\CarouselImage  $carouselImage
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Member $member)
+    public function destroy(CarouselImage $carouselImage)
     {
         /** Hapus Foto dari Folder Public */
-        Storage::delete($member->foto);
+        Storage::delete($carouselImage->foto);
 
-        $member->delete();
+        $carouselImage->delete();
 
-        return redirect()->route('member.index')->with('success', 'Data Member Berhasil Dihapus');
+        return redirect()->route('carousel-image.index')->with('success', 'Data Carousel Image Berhasil Dihapus');
     }
 
     private function getPathFoto($namafile)
