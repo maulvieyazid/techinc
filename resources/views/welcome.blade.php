@@ -72,6 +72,7 @@
             border-radius: 80px;
             margin-top: -6%;
             z-index: 3;
+            padding-bottom: 30px;
         }
 
         .tenant-box h3 {
@@ -113,7 +114,7 @@
 
         /* Style News */
         .news-container-fluid {
-            background-image: url("{{ asset('images/bg-news-grey.png') }}");
+            background-image: url("{{ asset('images/bg-news-grey.svg') }}");
             background-size: cover;
             background-position-y: 20vmin;
             background-repeat: no-repeat;
@@ -204,11 +205,12 @@
         }
 
         .event-container {
-            background-image: url("{{ asset('images/bg-event-grey.png') }}");
+            background-image: url("{{ asset('images/bg-event-grey.svg') }}");
             background-size: cover;
             background-position-y: 20vmin;
             background-repeat: no-repeat;
             margin-top: 10%;
+            padding-bottom: 10vmax
         }
 
         /* Akhir Style Event */
@@ -318,10 +320,10 @@
             </div>
             {{-- Button warna transparan jika tampilan layar lebar --}}
             <a class="nav-link btn btn-outline-light btn-gabung d-none d-sm-none d-md-none d-lg-block d-xl-block"
-                href="#">Gabung</a>
+                href="#">GABUNG</a>
             {{-- Button warna gray jika tampilan layar kecil --}}
             <a class="nav-link btn btn-secondary btn-gabung d-block d-sm-block d-md-block d-lg-none d-xl-none mt-3"
-                href="#">Gabung</a>
+                href="#">GABUNG</a>
         </div>
     </nav>
     {{-- Akhir Navbar --}}
@@ -360,7 +362,7 @@
                                     <div class="d-none d-sm-none d-md-none d-lg-block d-xl-block">
                                         <a class="carousel-control-prev" href="#carouselTenantBesar" role="button"
                                             data-slide="prev">
-                                            <img src="{{ asset('images/chevron-left-circle.png') }}">
+                                            <img src="{{ asset('images/chevron-left-circle.svg') }}">
                                             <span class="sr-only">Previous</span>
                                         </a>
                                     </div>
@@ -368,7 +370,7 @@
                                     <div class="d-block d-sm-block d-md-block d-lg-none d-xl-none">
                                         <a class="carousel-control-prev" href="#carouselTenantKecil" role="button"
                                             data-slide="prev">
-                                            <img src="{{ asset('images/chevron-left-circle.png') }}">
+                                            <img src="{{ asset('images/chevron-left-circle.svg') }}">
                                             <span class="sr-only">Previous</span>
                                         </a>
                                     </div>
@@ -604,7 +606,7 @@
                                     <div class="d-none d-sm-none d-md-none d-lg-block d-xl-block">
                                         <a class="carousel-control-next" href="#carouselTenantBesar" role="button"
                                             data-slide="next">
-                                            <img src="{{ asset('images/chevron-right-circle.png') }}">
+                                            <img src="{{ asset('images/chevron-right-circle.svg') }}">
                                             <span class="sr-only">Next</span>
                                         </a>
                                     </div>
@@ -612,7 +614,7 @@
                                     <div class="d-block d-sm-block d-md-block d-lg-none d-xl-none">
                                         <a class="carousel-control-next" href="#carouselTenantKecil" role="button"
                                             data-slide="next" style="margin-left: -12px">
-                                            <img src="{{ asset('images/chevron-right-circle.png') }}">
+                                            <img src="{{ asset('images/chevron-right-circle.svg') }}">
                                             <span class="sr-only">Next</span>
                                         </a>
                                     </div>
@@ -625,7 +627,7 @@
         </div>
         {{-- Bunga Kiri --}}
         <div class="d-none d-sm-none d-md-none d-lg-block d-xl-block position-absolute tenant-bunga-kiri">
-            <img src="{{ asset('images/bunga-kiri.png') }}">
+            <img src="{{ asset('images/bunga-tenant-kiri.svg') }}">
         </div>
     </div>
     {{-- Akhir Tenant Startup --}}
@@ -703,20 +705,20 @@
                 </div>
                 <div class="col-2">
                     <div class="position-absolute">
-                        <img src="{{ asset('images/tag-news.png') }}" alt="News" style="width: 130%">
+                        <img src="{{ asset('images/tag-news.svg') }}" alt="News" style="width: 130%">
                     </div>
                 </div>
             </div>
             <div class="row navigasi-news">
                 <div class="col-5 d-flex justify-content-center">
                     <a class="carousel-control-prev" href="#carouselNews" role="button" data-slide="prev">
-                        <img src="{{ asset('images/chevron-left-circle.png') }}">
+                        <img src="{{ asset('images/chevron-left-circle.svg') }}">
                         <span class="sr-only">Previous</span>
                     </a>
                 </div>
                 <div class="col-5">
                     <a class="carousel-control-next" href="#carouselNews" role="button" data-slide="next">
-                        <img src="{{ asset('images/chevron-right-circle.png') }}">
+                        <img src="{{ asset('images/chevron-right-circle.svg') }}">
                         <span class="sr-only">Next</span>
                     </a>
                 </div>
@@ -732,7 +734,7 @@
         <div class="row">
             <div class="col-2 d-flex align-items-end">
                 <div class=" d-none d-sm-none d-md-none d-lg-block d-xl-block">
-                    <img src="{{ asset('images/garis-merah-event.png') }}" style="width: 17vmax;">
+                    <img src="{{ asset('images/garis-merah-event.svg') }}" style="width: 17vmax;">
                 </div>
             </div>
             <div class="col">
@@ -751,7 +753,7 @@
             </div>
         </div>
         <div class="position-absolute d-none d-sm-none d-md-none d-lg-block d-xl-block" style="bottom: 0; right: 0">
-            <img src="{{ asset('images/bunga-event-kanan.png') }}" style="width: 11vmax;">
+            <img src="{{ asset('images/bunga-event-kanan.svg') }}" style="width: 11vmax;">
         </div>
     </div>
     {{-- Akhir Judul Event --}}
@@ -762,7 +764,7 @@
             <div class="col-2 d-flex justify-content-center">
                 <a class="carousel-control-prev" href="#carouselEvent" role="button" data-slide="prev"
                     style="left: auto">
-                    <img src="{{ asset('images/chevron-left-circle-dark.png') }}">
+                    <img src="{{ asset('images/chevron-left-circle-dark.svg') }}">
                     <span class="sr-only">Previous</span>
                 </a>
             </div>
@@ -849,13 +851,57 @@
             <div class="col-2 d-flex justify-content-center">
                 <a class="carousel-control-next" href="#carouselEvent" role="button" data-slide="next"
                     style="right: auto">
-                    <img src="{{ asset('images/chevron-right-circle-dark.png') }}">
+                    <img src="{{ asset('images/chevron-right-circle-dark.svg') }}">
                     <span class="sr-only">Next</span>
                 </a>
             </div>
         </div>
     </div>
     {{-- Akhir Event --}}
+
+    {{-- Contact Us --}}
+    <div class="container-fluid" style="margin-top: 4%">
+        <div class="container">
+            <div class="row">
+                <div class="col d-none d-sm-none d-md-none d-lg-block d-xl-block">
+                    <div>
+                        <img src="{{ asset('images/bunga-contact-kiri.svg') }}" style="width: 42%; margin-top: -10vmax">
+                    </div>
+                </div>
+                <div class="col">
+                    <h1 style="font-weight: bold;font-size: 5vmax;">Contact Us.</h1>
+                    <div class="my-4">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.376441222648!2d112.78024511535587!3d-7.311538773919023!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7faec95555555%3A0xf13eec4465c5a263!2sUniversitas%20Dinamika%20(STIKOM%20Surabaya)!5e0!3m2!1sen!2sid!4v1628061506423!5m2!1sen!2sid"
+                            width="150" height="150" style="border:0;" allowfullscreen="" loading="lazy"
+                            class="mr-2"></iframe>
+
+                        <p style="display: inline-block; vertical-align: top;"><span style="font-weight: bold;">Alamat
+                                :</span> <br>
+                            Gedung Universitas Dinamika lt.1 <br>
+                            Jl. Raya Kedung Baruk 98.</p>
+                    </div>
+                    <ul style="list-style-type: none; padding: 0" class="font-weight-bold">
+                        <li>
+                            <img src="{{ asset('images/instagram.svg') }}" alt="Instagram Tech.Inc" width="35px"
+                                style="margin-right: 10px">tech.inc_dinamika
+                        </li>
+                        <li>
+                            <img src="{{ asset('images/facebook.svg') }}" alt="Facebook Tech.Inc" width="35px"
+                                style="margin-right: 10px">Tech.inc
+                            Dinamika
+                        </li>
+                        <li>
+                            <img src="{{ asset('images/youtube.svg') }}" alt="Youtube Tech.Inc" width="35px"
+                                style="margin-right: 10px">Tech_inc
+                            Dinamika
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- Akhir Contact Us --}}
 
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
