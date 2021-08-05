@@ -341,7 +341,7 @@
                 <img src="{{ asset('images/bg1.jpg') }}" class="d-block">
             </div>
             <div class="carousel-item">
-                <img src="{{ asset('images/bg4.jpg') }}" class="d-block">
+                <img src="{{ asset('images/bg-3.jpg') }}" class="d-block">
             </div>
         </div>
 
