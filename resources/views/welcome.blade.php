@@ -72,13 +72,12 @@
             border-radius: 80px;
             margin-top: -6%;
             z-index: 3;
-            padding-bottom: 30px;
+            padding-bottom: 20px;
         }
 
         .tenant-box h3 {
             color: white;
-            font-size: 4vmax;
-            margin-top: 6%;
+            font-size: 6.5vw;
             margin-bottom: 5%;
             font-weight: bold;
         }
@@ -101,12 +100,12 @@
 
         .tenant-carousel .carousel-item img {
             margin: auto;
-            width: 15vmax;
+            width: 20vw;
         }
 
         .tenant-carousel .carousel-item .card-body {
             text-align: justify;
-            height: 400px;
+            height: 360px;
             overflow-y: auto;
         }
 
@@ -148,16 +147,14 @@
 
         .navigasi-news .carousel-control-prev {
             left: auto;
-            right: 20px;
         }
 
         .navigasi-news .carousel-control-next {
             right: auto;
-            left: 20px;
         }
 
         .navigasi-news img {
-            width: 6vmax;
+            width: 5vmax;
         }
 
         /* Akhir Style News */
@@ -179,6 +176,7 @@
             background: linear-gradient(to right, #313233, #59585A);
             border-radius: 0 0 50px 50px;
             margin-bottom: 10px;
+            width: 80%;
         }
 
         .carousel-event .carousel-item .card .card-body {
@@ -209,7 +207,7 @@
             background-size: cover;
             background-position-y: 20vmin;
             background-repeat: no-repeat;
-            margin-top: 10%;
+            margin-top: 3%;
             padding-bottom: 10vmax
         }
 
@@ -258,8 +256,12 @@
 
             /* Style Carousel Tenant */
 
+            .tenant-box h3 {
+                font-size: 4vw;
+            }
+
             .tenant-carousel .carousel-item img {
-                width: 15vmin;
+                width: 9vw;
             }
 
             .tenant-bunga-kiri {
@@ -270,12 +272,28 @@
                 width: 6vmax;
             }
 
+            .tenant-box .carousel-control-prev img,
+            .tenant-box .carousel-control-next img {
+                width: 5vmin;
+            }
+
             /* Akhir Style Carousel Tenant */
 
             /* Style News */
+            .navigasi-news .carousel-control-prev {
+                left: auto;
+                right: 0;
+            }
+
+            .navigasi-news .carousel-control-next {
+                right: auto;
+                left: 0;
+            }
+
             .navigasi-news img {
                 width: 8vmin;
             }
+
 
             /* Akhir Style News */
 
@@ -710,13 +728,16 @@
                 </div>
             </div>
             <div class="row navigasi-news">
-                <div class="col-5 d-flex justify-content-center">
+                <div class="col-4 d-flex justify-content-center">
                     <a class="carousel-control-prev" href="#carouselNews" role="button" data-slide="prev">
                         <img src="{{ asset('images/chevron-left-circle.svg') }}">
                         <span class="sr-only">Previous</span>
                     </a>
                 </div>
-                <div class="col-5">
+                <div class="col-4 d-flex justify-content-center align-items-center">
+                    <button type="button" class="btn btn-danger">Selengkapnya</button>
+                </div>
+                <div class="col-4 d-flex justify-content-center">
                     <a class="carousel-control-next" href="#carouselNews" role="button" data-slide="next">
                         <img src="{{ asset('images/chevron-right-circle.svg') }}">
                         <span class="sr-only">Next</span>
@@ -734,7 +755,7 @@
         <div class="row">
             <div class="col-2 d-flex align-items-end">
                 <div class=" d-none d-sm-none d-md-none d-lg-block d-xl-block">
-                    <img src="{{ asset('images/garis-merah-event.svg') }}" style="width: 17vmax;">
+                    <img src="{{ asset('images/bunga-event-kiri.svg') }}" style="width: 8vmax; margin-bottom: -90%;">
                 </div>
             </div>
             <div class="col">
@@ -773,7 +794,7 @@
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <div class="row">
-                                <div class="col">
+                                <div class="col d-flex justify-content-center">
                                     <div class="card">
                                         <img src="{{ asset('images/Launching website museum.png') }}"
                                             class="card-img-top">
@@ -790,7 +811,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col">
+                                <div class="col d-flex justify-content-center">
                                     <div class="card">
                                         <img src="{{ asset('images/Launching website museum.png') }}"
                                             class="card-img-top">
@@ -810,7 +831,7 @@
                         </div>
                         <div class="carousel-item">
                             <div class="row">
-                                <div class="col">
+                                <div class="col d-flex justify-content-center">
                                     <div class="card">
                                         <img src="{{ asset('images/Launching website museum.png') }}"
                                             class="card-img-top">
@@ -827,7 +848,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col">
+                                <div class="col d-flex justify-content-center">
                                     <div class="card">
                                         <img src="{{ asset('images/Launching website museum.png') }}"
                                             class="card-img-top">
@@ -863,10 +884,11 @@
     <div class="container-fluid" style="margin-top: 4%">
         <div class="container">
             <div class="row">
-                <div class="col d-none d-sm-none d-md-none d-lg-block d-xl-block">
-                    <div>
-                        <img src="{{ asset('images/bunga-contact-kiri.svg') }}" style="width: 42%; margin-top: -10vmax">
-                    </div>
+                <div class="col-6 d-none d-sm-none d-md-none d-lg-block d-xl-block">
+                    {{-- <div>
+                        <img src="{{ asset('images/bunga-contact-kiri.svg') }}"
+                            style="width: 42%; margin-top: -10vmax">
+                    </div> --}}
                 </div>
                 <div class="col">
                     <h1 style="font-weight: bold;font-size: 5vmax;">Contact Us.</h1>
