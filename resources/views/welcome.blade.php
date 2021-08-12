@@ -12,6 +12,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
+    {{-- Slick Slider --}}
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendors/slick/slick.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendors/slick/slick-theme.css') }}">
+
     {{-- Custom Style --}}
     <style>
         /* SEMUA VERSI / VERSI MOBILE */
@@ -213,6 +217,45 @@
 
         /* Akhir Style Event */
 
+        /* Style Contact Us */
+        .contact-us-container {
+            background-image: url("{{ asset('images/bg-contact-us.jpg') }}");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .contact-us-container .contact-us-col h1 {
+            font-weight: bold;
+            font-size: calc(1rem + 3.5vmax);
+        }
+
+        .contact-us-container .contact-us-col div p {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        /* Akhir Style Contact Us */
+
+        /* Style Partner */
+        .partner-container div h1 {
+            font-size: calc(1rem + 2vmax);
+        }
+
+        .padding-besar {
+            padding: 35px 15px !important;
+        }
+
+        .logo-partner div img{
+            width: 100%;
+        }
+
+        /* Akhir Style Partner */
+
+        /* ======================================================================================================================================================================================================== */
+        /* ======================================================================================================================================================================================================== */
+        /* ======================================================================================================================================================================================================== */
+        /* ======================================================================================================================================================================================================== */
+
         /* VERSI DESKTOP */
         @media (min-width: 992px) {
 
@@ -308,7 +351,23 @@
             }
 
             /* Akhir Style Event */
+
+            /* Style Partner */
+            .partner-container div h1 {
+                font-size: calc(1rem + 3vmax);
+            }
+
+            .padding-besar {
+                padding: 60px 25px !important;
+            }
+
+            /* Akhir Style Partner */
         }
+
+        /* ======================================================================================================================================================================================================== */
+        /* ======================================================================================================================================================================================================== */
+        /* ======================================================================================================================================================================================================== */
+        /* ======================================================================================================================================================================================================== */
 
     </style>
 
@@ -880,8 +939,35 @@
     </div>
     {{-- Akhir Event --}}
 
+    {{-- Partner --}}
+    <div class="container-fluid partner-container">
+        <div class="row">
+            <div class="col-6 text-white d-flex justify-content-center align-items-center padding-besar"
+                style="background-color: #ED1C24">
+                <h1 class="font-weight-bold">Partner</h1>
+            </div>
+            <div class="col-6 p-3 padding-besar">
+                <div class="logo-partner">
+                    <div>
+                        <img src="{{ asset('images/logoaibi.png') }}" alt="Aibi">
+                    </div>
+                    <div>
+                        <img src="{{ asset('images/logoaibi.png') }}" alt="Aibi">
+                    </div>
+                    <div>
+                        <img src="{{ asset('images/logoaibi.png') }}" alt="Aibi">
+                    </div>
+                    <div>
+                        <img src="{{ asset('images/logoaibi.png') }}" alt="Aibi">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- Akhir Partner --}}
+
     {{-- Contact Us --}}
-    <div class="container-fluid" style="margin-top: 4%">
+    <div class="container-fluid contact-us-container">
         <div class="container">
             <div class="row">
                 <div class="col-6 d-none d-sm-none d-md-none d-lg-block d-xl-block">
@@ -890,33 +976,33 @@
                             style="width: 42%; margin-top: -10vmax">
                     </div> --}}
                 </div>
-                <div class="col">
-                    <h1 style="font-weight: bold;font-size: 5vmax;">Contact Us.</h1>
+                <div class="col contact-us-col text-white pt-5">
+                    <h1>Contact Us.</h1>
                     <div class="my-4">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.376441222648!2d112.78024511535587!3d-7.311538773919023!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7faec95555555%3A0xf13eec4465c5a263!2sUniversitas%20Dinamika%20(STIKOM%20Surabaya)!5e0!3m2!1sen!2sid!4v1628061506423!5m2!1sen!2sid"
                             width="150" height="150" style="border:0;" allowfullscreen="" loading="lazy"
                             class="mr-2"></iframe>
 
-                        <p style="display: inline-block; vertical-align: top;"><span style="font-weight: bold;">Alamat
+                        <p><span style="font-weight: bold;">Alamat
                                 :</span> <br>
                             Gedung Universitas Dinamika lt.1 <br>
                             Jl. Raya Kedung Baruk 98.</p>
                     </div>
-                    <ul style="list-style-type: none; padding: 0" class="font-weight-bold">
-                        <li>
-                            <img src="{{ asset('images/instagram.svg') }}" alt="Instagram Tech.Inc" width="35px"
-                                style="margin-right: 10px">tech.inc_dinamika
+
+                    <p style="font-size: 1.5rem;" class="font-weight-bold">Stay Connected</p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <img src="{{ asset('images/red-email.svg') }}" alt="Email Tech.Inc" width="35px">
                         </li>
-                        <li>
-                            <img src="{{ asset('images/facebook.svg') }}" alt="Facebook Tech.Inc" width="35px"
-                                style="margin-right: 10px">Tech.inc
-                            Dinamika
+                        <li class="list-inline-item">
+                            <img src="{{ asset('images/red-instagram.svg') }}" alt="Instagram Tech.Inc" width="35px">
                         </li>
-                        <li>
-                            <img src="{{ asset('images/youtube.svg') }}" alt="Youtube Tech.Inc" width="35px"
-                                style="margin-right: 10px">Tech_inc
-                            Dinamika
+                        <li class="list-inline-item">
+                            <img src="{{ asset('images/red-facebook.svg') }}" alt="Facebook Tech.Inc" width="35px">
+                        </li>
+                        <li class="list-inline-item">
+                            <img src="{{ asset('images/red-youtube.svg') }}" alt="Youtube Tech.Inc" width="35px">
                         </li>
                     </ul>
                 </div>
@@ -932,6 +1018,45 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
+    </script>
+
+    {{-- Slick Slider JS --}}
+    <script type="text/javascript" src="{{ asset('vendors/slick/slick.min.js') }}"></script>
+
+    {{-- Custom Script --}}
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.logo-partner').slick({
+                infinite: true,
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                arrows: false,
+                responsive: [{
+                        breakpoint: 992,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 3
+                        }
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2
+                        }
+                    },
+                    {
+                        breakpoint: 576,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+            });
+        });
     </script>
 </body>
 
