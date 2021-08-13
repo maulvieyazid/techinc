@@ -239,7 +239,7 @@
         }
 
         .padding-besar {
-            padding: 35px 15px !important;
+            padding: 35px 15px 35px 25px !important;
         }
 
         .logo-partner div img {
@@ -364,7 +364,7 @@
             }
 
             .padding-besar {
-                padding: 60px 25px !important;
+                padding: 60px 25px 60px 35px !important;
             }
 
             /* Akhir Style Partner */
@@ -931,16 +931,16 @@
             <div class="col-6 p-3 padding-besar">
                 <div class="logo-partner">
                     <div>
-                        <img src="{{ asset('images/logoaibi.png') }}" alt="Aibi">
+                        <img src="{{ asset('images/logoaibi.png') }}" alt="Aibi" style="width:90%">
                     </div>
                     <div>
-                        <img src="{{ asset('images/logoaibi.png') }}" alt="Aibi">
+                        <img src="{{ asset('images/logoaibi.png') }}" alt="Aibi" style="width:90%">
                     </div>
                     <div>
-                        <img src="{{ asset('images/logoaibi.png') }}" alt="Aibi">
+                        <img src="{{ asset('images/logoaibi.png') }}" alt="Aibi" style="width:90%">
                     </div>
                     <div>
-                        <img src="{{ asset('images/logoaibi.png') }}" alt="Aibi">
+                        <img src="{{ asset('images/logoaibi.png') }}" alt="Aibi" style="width:90%">
                     </div>
                 </div>
             </div>
