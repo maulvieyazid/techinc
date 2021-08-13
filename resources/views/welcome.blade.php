@@ -158,7 +158,7 @@
         }
 
         .navigasi-news img {
-            width: 5vmax;
+            width: 5.5vmax;
         }
 
         /* Akhir Style News */
@@ -166,13 +166,17 @@
         /* Style Event */
         .judul-event h1 {
             font-size: 10vmax;
-            font-weight: bold;
+            font-weight: 800;
             color: #ED1C24
         }
 
         .judul-event h3 {
-            font-weight: bold;
+            font-weight: 800;
             font-size: 3vmax;
+        }
+
+        .carousel-event {
+            margin-top: -10%;
         }
 
         .carousel-event .carousel-item .card {
@@ -180,7 +184,7 @@
             background: linear-gradient(to right, #313233, #59585A);
             border-radius: 0 0 50px 50px;
             margin-bottom: 10px;
-            width: 80%;
+            /* width: 80%; */
         }
 
         .carousel-event .carousel-item .card .card-body {
@@ -203,16 +207,14 @@
 
         .event-container .carousel-control-prev img,
         .event-container .carousel-control-next img {
-            width: 6vmax;
+            width: 5.5vmax;
         }
 
         .event-container {
             background-image: url("{{ asset('images/bg-event-grey.svg') }}");
             background-size: cover;
-            background-position-y: 20vmin;
             background-repeat: no-repeat;
-            margin-top: 3%;
-            padding-bottom: 10vmax
+            margin-top: 12%;
         }
 
         /* Akhir Style Event */
@@ -245,7 +247,7 @@
             padding: 35px 15px !important;
         }
 
-        .logo-partner div img{
+        .logo-partner div img {
             width: 100%;
         }
 
@@ -334,7 +336,7 @@
             }
 
             .navigasi-news img {
-                width: 8vmin;
+                width: 6.5vmin;
             }
 
 
@@ -347,7 +349,7 @@
 
             .event-container .carousel-control-prev img,
             .event-container .carousel-control-next img {
-                width: 8vmin;
+                width: 6.5vmin;
             }
 
             /* Akhir Style Event */
@@ -813,12 +815,12 @@
     <div class="container-fluid position-relative" style="margin-top: 4%">
         <div class="row">
             <div class="col-2 d-flex align-items-end">
-                <div class=" d-none d-sm-none d-md-none d-lg-block d-xl-block">
-                    <img src="{{ asset('images/bunga-event-kiri.svg') }}" style="width: 8vmax; margin-bottom: -90%;">
+                <div class=" d-none d-sm-none d-md-none d-lg-block d-xl-block pl-3">
+                    <img src="{{ asset('images/bunga-event-kiri.svg') }}" style="width: 80%; margin-bottom: -83%;">
                 </div>
             </div>
             <div class="col">
-                <div class="container judul-event">
+                <div class="judul-event">
                     <div class="row">
                         <div class="col">
                             <h1>Event</h1>
@@ -826,7 +828,7 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                            <h3>Upcoming Event</h3>
+                            <h3>UPCOMING EVENT</h3>
                         </div>
                     </div>
                 </div>
@@ -841,13 +843,7 @@
     {{-- Event --}}
     <div class="container-fluid event-container">
         <div class="row">
-            <div class="col-2 d-flex justify-content-center">
-                <a class="carousel-control-prev" href="#carouselEvent" role="button" data-slide="prev"
-                    style="left: auto">
-                    <img src="{{ asset('images/chevron-left-circle-dark.svg') }}">
-                    <span class="sr-only">Previous</span>
-                </a>
-            </div>
+            <div class="col-2"></div>
             <div class="col">
                 <div id="carouselEvent" class="carousel slide carousel-event" data-ride="carousel">
                     <div class="carousel-inner">
@@ -858,7 +854,7 @@
                                         <img src="{{ asset('images/Launching website museum.png') }}"
                                             class="card-img-top">
                                         <div class="card-body">
-                                            <h6 class="card-subtitle text-right">19.07.2021</h6>
+                                            <h6 class="card-subtitle">19.07.2021</h6>
                                             <h5 class="card-title">
                                                 Enaknya ngadain apa?</h5>
                                             <ul>
@@ -875,7 +871,7 @@
                                         <img src="{{ asset('images/Launching website museum.png') }}"
                                             class="card-img-top">
                                         <div class="card-body">
-                                            <h6 class="card-subtitle text-right">19.07.2021</h6>
+                                            <h6 class="card-subtitle">19.07.2021</h6>
                                             <h5 class="card-title">Enaknya ngadain apa?</h5>
                                             <ul>
                                                 <li><img src="{{ asset('images/bell.png') }}"> 19.00-22.00</li>
@@ -895,7 +891,7 @@
                                         <img src="{{ asset('images/Launching website museum.png') }}"
                                             class="card-img-top">
                                         <div class="card-body">
-                                            <h6 class="card-subtitle text-right">19.07.2021</h6>
+                                            <h6 class="card-subtitle">19.07.2021</h6>
                                             <h5 class="card-title">
                                                 Enaknya ngadain apa?</h5>
                                             <ul>
@@ -912,7 +908,7 @@
                                         <img src="{{ asset('images/Launching website museum.png') }}"
                                             class="card-img-top">
                                         <div class="card-body">
-                                            <h6 class="card-subtitle text-right">19.07.2021</h6>
+                                            <h6 class="card-subtitle">19.07.2021</h6>
                                             <h5 class="card-title">Enaknya ngadain apa?</h5>
                                             <ul>
                                                 <li><img src="{{ asset('images/bell.png') }}"> 19.00-22.00</li>
@@ -928,9 +924,20 @@
                     </div>
                 </div>
             </div>
-            <div class="col-2 d-flex justify-content-center">
-                <a class="carousel-control-next" href="#carouselEvent" role="button" data-slide="next"
-                    style="right: auto">
+            <div class="col-2"></div>
+        </div>
+        <div class="row navigasi-news">
+            <div class="col-4 d-flex justify-content-center">
+                <a class="carousel-control-prev" href="#carouselEvent" role="button" data-slide="prev">
+                    <img src="{{ asset('images/chevron-left-circle-dark.svg') }}">
+                    <span class="sr-only">Previous</span>
+                </a>
+            </div>
+            <div class="col-4 d-flex justify-content-center align-items-center">
+                <button type="button" class="btn btn-danger">Selengkapnya</button>
+            </div>
+            <div class="col-4 d-flex justify-content-center">
+                <a class="carousel-control-next" href="#carouselEvent" role="button" data-slide="next">
                     <img src="{{ asset('images/chevron-right-circle-dark.svg') }}">
                     <span class="sr-only">Next</span>
                 </a>
