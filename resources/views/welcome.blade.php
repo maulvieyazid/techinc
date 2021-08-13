@@ -116,33 +116,42 @@
         /* Akhir Style Carousel Tenant */
 
         /* Style News */
-        .news-container-fluid {
+        .news-container {
             background-image: url("{{ asset('images/bg-news-grey.svg') }}");
             background-size: cover;
-            background-position-y: 20vmin;
+            /* background-position-y: 20vmin; */
             background-repeat: no-repeat;
-            margin-top: 10%
+            margin-top: 30%
         }
 
-        .carousel-news .card {
+        .news-slider {
+            margin-top: -13%;
+        }
+
+        .news-slider .card {
             border: none;
             border-radius: 50px;
             background-color: rgba(109, 109, 109, 0.5);
             color: white;
-            margin-bottom: 10px;
+            margin: 15px;
         }
 
-        .carousel-news .card .card-body {
+        .news-slider .card .card-body {
             margin-bottom: 25px;
         }
 
-        .carousel-news .card img {
+        .news-slider .card img {
             padding: 1.25rem;
             padding-top: 3rem;
         }
 
-        .carousel-news .card .card-text {
+        .news-slider .card .card-title {
+            font-weight: 700;
+        }
+
+        .news-slider .card .card-text {
             text-align: justify;
+            font-size: 0.7rem;
         }
 
         .navigasi-news {
@@ -320,6 +329,10 @@
             /* Akhir Style Carousel Tenant */
 
             /* Style News */
+            .news-container {
+                margin-top: 20%
+            }
+
             .navigasi-news .carousel-control-prev {
                 left: auto;
                 right: 0;
@@ -716,104 +729,75 @@
     {{-- Akhir Tenant Startup --}}
 
     {{-- News --}}
-    <div class="container-fluid position-relative news-container-fluid">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col" style="padding-top: 5%">
-                    <div id="carouselNews" class="carousel slide carousel-news" data-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="card">
-                                            <img src="{{ asset('images/DMK02927 1.png') }}" class="card-img-top">
-                                            <div class="card-body">
-                                                <h6 class="card-subtitle text-right">19.07.2021</h6>
-                                                <h5 class="card-title">Tech.Inc melakukan kerjasama dengan siapa?</h5>
-                                                <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing
-                                                    elit. Obcaecati voluptatum nam explicabo id nesciunt quis ad facilis
-                                                    consectetur veritatis fugiat non in fugit corrupti sapiente
-                                                    mollitia, recusandae ullam, ipsum aliquid.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="card">
-                                            <img src="{{ asset('images/DMK02927 1.png') }}" class="card-img-top">
-                                            <div class="card-body">
-                                                <h6 class="card-subtitle text-right">19.07.2021</h6>
-                                                <h5 class="card-title">Tech.Inc melakukan kerjasama dengan siapa?</h5>
-                                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing
-                                                    elit. Odit, modi possimus ex labore eaque perferendis rerum iure.
-                                                    Itaque nisi provident sed voluptatibus, laboriosam optio. Suscipit
-                                                    dolores dicta iste placeat vitae.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+    <div class="container-fluid news-container pb-5">
+        <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-9 col-10">
+                <div class="news-slider">
+                    <div>
+                        <div class="card">
+                            <img src="{{ asset('images/DMK02927 1.png') }}" class="card-img-top">
+                            <div class="card-body">
+                                <h6 class="card-subtitle text-right">19.07.2021</h6>
+                                <h5 class="card-title">Tech.Inc melakukan kerjasama dengan siapa?</h5>
+                                <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing
+                                    elit. Obcaecati voluptatum nam explicabo id nesciunt quis ad facilis
+                                    consectetur veritatis fugiat non in fugit corrupti sapiente
+                                    mollitia, recusandae ullam, ipsum aliquid.</p>
                             </div>
-                            <div class="carousel-item">
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="card">
-                                            <img src="{{ asset('images/DMK02927 1.png') }}" class="card-img-top">
-                                            <div class="card-body">
-                                                <h6 class="card-subtitle text-right">19.07.2021</h6>
-                                                <h5 class="card-title">Tech.Inc melakukan kerjasama dengan
-                                                    siapa?</h5>
-                                                <p class="card-text">Some quick example text
-                                                    to build on the
-                                                    card title
-                                                    and make up the bulk of the card's content.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="card">
-                                            <img src="{{ asset('images/DMK02927 1.png') }}" class="card-img-top">
-                                            <div class="card-body">
-                                                <h6 class="card-subtitle text-right">19.07.2021</h6>
-                                                <h5 class="card-title">Tech.Inc melakukan kerjasama dengan
-                                                    siapa?</h5>
-                                                <p class="card-text">Some quick example text to build on the
-                                                    card title
-                                                    and make up the bulk of the card's content.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="card">
+                            <img src="{{ asset('images/DMK02927 1.png') }}" class="card-img-top">
+                            <div class="card-body">
+                                <h6 class="card-subtitle text-right">19.07.2021</h6>
+                                <h5 class="card-title">Tech.Inc melakukan kerjasama dengan siapa?</h5>
+                                <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing
+                                    elit. Obcaecati voluptatum nam explicabo id nesciunt quis ad facilis
+                                    consectetur veritatis fugiat non in fugit corrupti sapiente
+                                    mollitia, recusandae ullam, ipsum aliquid.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="card">
+                            <img src="{{ asset('images/DMK02927 1.png') }}" class="card-img-top">
+                            <div class="card-body">
+                                <h6 class="card-subtitle text-right">19.07.2021</h6>
+                                <h5 class="card-title">Tech.Inc melakukan kerjasama dengan siapa?</h5>
+                                <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing
+                                    elit. Obcaecati voluptatum nam explicabo id nesciunt quis ad facilis
+                                    consectetur veritatis fugiat non in fugit corrupti sapiente
+                                    mollitia, recusandae ullam, ipsum aliquid.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-2">
-                    <div class="position-absolute">
-                        <img src="{{ asset('images/tag-news.svg') }}" alt="News" style="width: 130%">
-                    </div>
+            </div>
+            <div class="col-lg-2 col-2 pr-0">
+                <img src="{{ asset('images/tag-news.svg') }}" alt="News" style="width: 100%; margin-top: -110%;">
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-lg-5 col-3 d-flex justify-content-end align-items-center">
+                <div class="news-prev-arrow">
+                    <img src="{{ asset('images/chevron-left-circle.svg') }}" width="60%">
                 </div>
             </div>
-            <div class="row navigasi-news">
-                <div class="col-4 d-flex justify-content-center">
-                    <a class="carousel-control-prev" href="#carouselNews" role="button" data-slide="prev">
-                        <img src="{{ asset('images/chevron-left-circle.svg') }}">
-                        <span class="sr-only">Previous</span>
-                    </a>
-                </div>
-                <div class="col-4 d-flex justify-content-center align-items-center">
-                    <button type="button" class="btn btn-danger">Selengkapnya</button>
-                </div>
-                <div class="col-4 d-flex justify-content-center">
-                    <a class="carousel-control-next" href="#carouselNews" role="button" data-slide="next">
-                        <img src="{{ asset('images/chevron-right-circle.svg') }}">
-                        <span class="sr-only">Next</span>
-                    </a>
+            <div class="col-lg-1 col-4 d-flex justify-content-center align-items-center">
+                <button type="button" class="btn btn-danger">Selengkapnya</button>
+            </div>
+            <div class="col-lg-6 col-3 d-flex justify-content-start align-items-center">
+                <div class="news-next-arrow text-right">
+                    <img src="{{ asset('images/chevron-right-circle.svg') }}" width="60%">
                 </div>
             </div>
         </div>
 
+
     </div>
     {{-- Akhir News --}}
-
 
     {{-- Judul Event --}}
     <div class="container-fluid position-relative" style="margin-top: 4%">
@@ -847,8 +831,8 @@
     {{-- Event --}}
     <div class="container-fluid event-container pb-5">
         <div class="row">
-            <div class="col-lg-2 col-sm-1"></div>
-            <div class="col-lg-8 col-sm-10">
+            <div class="col-lg-2 col-1"></div>
+            <div class="col-lg-8 col-10">
                 <div class="event-slider">
                     <div>
                         <div class="card">
@@ -900,7 +884,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-2 col-sm-1"></div>
+            <div class="col-lg-2 col-1"></div>
         </div>
 
         <div class="row mt-2">
@@ -953,10 +937,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-6 d-none d-sm-none d-md-none d-lg-block d-xl-block">
-                    {{-- <div>
-                        <img src="{{ asset('images/bunga-contact-kiri.svg') }}"
-                            style="width: 42%; margin-top: -10vmax">
-                    </div> --}}
+
                 </div>
                 <div class="col contact-us-col text-white pt-5">
                     <h1>Contact Us.</h1>
@@ -1048,6 +1029,24 @@
                 autoplaySpeed: 2000,
                 prevArrow: $('.event-prev-arrow'),
                 nextArrow: $('.event-next-arrow'),
+                responsive: [{
+                    breakpoint: 576,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                    }
+                }]
+            });
+
+            $('.news-slider').slick({
+                infinite: true,
+                slidesToShow: 2,
+                slidesToScroll: 2,
+                arrows: true,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                prevArrow: $('.news-prev-arrow'),
+                nextArrow: $('.news-next-arrow'),
                 responsive: [{
                     breakpoint: 576,
                     settings: {
