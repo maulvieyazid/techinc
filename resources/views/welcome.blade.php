@@ -42,17 +42,6 @@
             z-index: 2;
         }
 
-        /* .call-to-action h1 {
-            font-size: 7vmax;
-            font-weight: 200;
-            color: white;
-        }
-
-        .call-to-action h1 span {
-            font-size: 10vmax;
-            font-weight: bold;
-        } */
-
         .call-to-action img {
             width: 50vmax;
             display: block;
@@ -68,15 +57,12 @@
 
         /* Akhir Style Carousel Header */
 
-
-
         /* Carousel Tenant */
         .tenant-box {
             background-color: #EB242C;
-            border-radius: 80px;
-            margin-top: -6%;
+            border-radius: 50px;
             z-index: 3;
-            padding-bottom: 20px;
+            margin-top: 10%;
         }
 
         .tenant-box h3 {
@@ -86,31 +72,26 @@
             font-weight: bold;
         }
 
-        .tenant-box .carousel-control-prev,
-        .tenant-box .carousel-control-next {
-            left: auto;
-            right: auto;
-        }
-
-        .tenant-box .carousel-control-prev img,
-        .tenant-box .carousel-control-next img {
-            width: 5vmax;
-        }
-
-
-        .tenant-carousel .card {
+        .tenant-slider .card {
             border-radius: 30px;
         }
 
-        .tenant-carousel .carousel-item img {
+        .tenant-slider .card img {
+            width: 40%;
             margin: auto;
-            width: 20vw;
         }
 
-        .tenant-carousel .carousel-item .card-body {
-            text-align: justify;
-            height: 360px;
+        .tenant-slider .card .card-body {
+            height: 20rem;
             overflow-y: auto;
+        }
+
+        .slick-dots li.slick-active button:before {
+            color: white !important;
+        }
+
+        .slick-dots li button:before {
+            color: white !important;
         }
 
         /* Akhir Style Carousel Tenant */
@@ -119,7 +100,6 @@
         .news-container {
             background-image: url("{{ asset('images/bg-news-grey.svg') }}");
             background-size: cover;
-            /* background-position-y: 20vmin; */
             background-repeat: no-repeat;
             margin-top: 30%
         }
@@ -265,7 +245,7 @@
         /* VERSI DESKTOP */
         @media (min-width: 992px) {
 
-            /* Style Carousel Header */
+            /* Style Carousel Header Desktop */
             .carousel-header {
                 margin-top: -125px;
             }
@@ -286,49 +266,27 @@
                 font-weight: bold;
             }
 
-            /* .call-to-action h1 {
-                font-size: 7vmax;
-                color: white;
-            }
-
-            .call-to-action h1 span {
-                font-size: 11vmax;
-                font-weight: bold;
-            } */
-
             .call-to-action .btn-action {
                 font-size: 1.5vmax;
                 width: 8vmax;
             }
 
-            /* Akhir Style Carousel Header */
+            /* Akhir Style Carousel Header Desktop */
 
-            /* Style Carousel Tenant */
+            /* Style Tenant Desktop */
+            .tenant-box {
+                border-radius: 80px;
+                padding-bottom: 20px;
+                margin-top: -6%;
+            }
 
             .tenant-box h3 {
                 font-size: 4vw;
             }
 
-            .tenant-carousel .carousel-item img {
-                width: 9vw;
-            }
+            /* Akhir Style Tenant Desktop */
 
-            .tenant-bunga-kiri {
-                bottom: -7vmax;
-            }
-
-            .tenant-bunga-kiri img {
-                width: 6vmax;
-            }
-
-            .tenant-box .carousel-control-prev img,
-            .tenant-box .carousel-control-next img {
-                width: 5vmin;
-            }
-
-            /* Akhir Style Carousel Tenant */
-
-            /* Style News */
+            /* Style News Desktop */
             .news-container {
                 margin-top: 20%
             }
@@ -348,9 +306,9 @@
             }
 
 
-            /* Akhir Style News */
+            /* Akhir Style News Desktop */
 
-            /* Style Event */
+            /* Style Event Desktop */
             .event-slider .card-title {
                 font-size: 3.2vmin;
             }
@@ -369,9 +327,9 @@
                 padding-bottom: 50px;
             }
 
-            /* Akhir Style Event */
+            /* Akhir Style Event Desktop */
 
-            /* Style Partner */
+            /* Style Partner Desktop */
             .partner-container div h1 {
                 font-size: calc(1rem + 3vmax);
             }
@@ -380,7 +338,7 @@
                 padding: 60px 25px 60px 35px !important;
             }
 
-            /* Akhir Style Partner */
+            /* Akhir Style Partner Desktop */
         }
 
         /* ======================================================================================================================================================================================================== */
@@ -428,7 +386,6 @@
     <div id="carouselHeader" class="carousel slide carousel-fade carousel-header" data-ride="carousel">
         <div class="carousel-inner">
             <div class="call-to-action">
-                {{-- <h1>Mau Buat <br><span>Startup ?</span></h1> --}}
                 <img src="{{ asset('images/text-cta.png') }}" alt="Mau Buat Startup?">
                 <button type="button" class="btn btn-danger btn-action">Mau</button>
                 <button type="button" class="btn btn-danger btn-action">Pelajari</button>
@@ -445,285 +402,105 @@
     {{-- Akhir Carousel --}}
 
     {{-- Tenant Startup --}}
-    <div class="container-fluid position-relative">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12 col-lg-11">
-                    <div class="card text-center tenant-box">
-                        <div class="card-body">
-                            <h3>Tenant Startup</h3>
-                            <div class="row flex-nowrap">
-                                <div class="col-1 d-flex align-items-center justify-content-center">
-                                    {{-- Tampil di layar besar --}}
-                                    <div class="d-none d-sm-none d-md-none d-lg-block d-xl-block">
-                                        <a class="carousel-control-prev" href="#carouselTenantBesar" role="button"
-                                            data-slide="prev">
-                                            <img src="{{ asset('images/chevron-left-circle.svg') }}">
-                                            <span class="sr-only">Previous</span>
-                                        </a>
-                                    </div>
-                                    {{-- Tampil di layar kecil --}}
-                                    <div class="d-block d-sm-block d-md-block d-lg-none d-xl-none">
-                                        <a class="carousel-control-prev" href="#carouselTenantKecil" role="button"
-                                            data-slide="prev">
-                                            <img src="{{ asset('images/chevron-left-circle.svg') }}">
-                                            <span class="sr-only">Previous</span>
-                                        </a>
-                                    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-1 d-flex align-items-end">
+                <div class="d-none d-sm-none d-md-none d-lg-block d-xl-block">
+                    <img src="{{ asset('images/bunga-tenant-kiri.svg') }}"
+                        style="width: 100%; margin-bottom: -100%;">
+                </div>
+            </div>
+            <div class="col-10">
+                <div class="card text-center tenant-box">
+                    <div class="card-body">
+                        <h3>Tenant Startup</h3>
+                        <div class="row">
+                            <div
+                                class="col-lg-1 d-none d-sm-none d-md-none d-lg-flex d-xl-flex align-items-center justify-content-center">
+                                <div class="tenant-prev-arrow">
+                                    <img src="{{ asset('images/chevron-left-circle.svg') }}" width="80%">
                                 </div>
-                                <div class="col-10">
-                                    {{-- Tampil di layar besar --}}
-                                    <div class="d-none d-sm-none d-md-none d-lg-block d-xl-block">
-                                        <div id="carouselTenantBesar" class="carousel slide tenant-carousel"
-                                            data-ride="carousel">
-                                            <div class="carousel-inner">
-                                                <div class="carousel-item active">
-                                                    <div class="row">
-                                                        <div class="col-4">
-                                                            <div class="card">
-                                                                <img src="{{ asset('images/logo-startup.png') }}">
-                                                                <div class="card-body">
-                                                                    Lorem ipsum dolor, sit amet consectetur adipisicing
-                                                                    elit.
-                                                                    Mollitia adipisci numquam minima consequuntur autem
-                                                                    impedit
-                                                                    voluptate alias, quidem quod, laboriosam dolorum,
-                                                                    harum
-                                                                    eaque nihil. Inventore aspernatur repudiandae
-                                                                    debitis
-                                                                    repellendus exercitationem.
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-4">
-                                                            <div class="card">
-                                                                <img src="{{ asset('images/logo-startup.png') }}">
-                                                                <div class="card-body">
-                                                                    Lorem ipsum dolor sit amet consectetur adipisicing
-                                                                    elit.
-                                                                    Ullam maxime consequuntur deserunt consectetur
-                                                                    veritatis
-                                                                    quia molestiae quibusdam itaque libero ratione! Nisi
-                                                                    molestiae deserunt expedita eius, quod eaque
-                                                                    laudantium
-                                                                    maxime ea quos totam excepturi eos ipsa quo earum
-                                                                    soluta
-                                                                    impedit quisquam maiores! Reprehenderit iusto sint
-                                                                    quos
-                                                                    numquam iure, ipsum nostrum autem harum, iste qui
-                                                                    aliquid dignissimos quasi minima quis maxime ut
-                                                                    eaque
-                                                                    at? Sequi accusamus ad nostrum natus ex optio, non
-                                                                    laboriosam doloremque unde corrupti ab ipsum culpa
-                                                                    nulla
-                                                                    perferendis voluptatum mollitia eum rem repellat
-                                                                    architecto odio? Temporibus repellat vero laborum,
-                                                                    aut
-                                                                    minima, ad, quam praesentium vitae suscipit odit
-                                                                    amet
-                                                                    odio!
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-4">
-                                                            <div class="card">
-                                                                <img src="{{ asset('images/logo-startup.png') }}">
-                                                                <div class="card-body">
-                                                                    Lorem ipsum dolor, sit amet consectetur adipisicing
-                                                                    elit.
-                                                                    Mollitia adipisci numquam minima consequuntur autem
-                                                                    impedit
-                                                                    voluptate alias, quidem quod, laboriosam dolorum,
-                                                                    harum
-                                                                    eaque nihil. Inventore aspernatur repudiandae
-                                                                    debitis
-                                                                    repellendus exercitationem.
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="carousel-item">
-                                                    <div class="row">
-                                                        <div class="col-4">
-                                                            <div class="card">
-                                                                <img src="{{ asset('images/logo-startup.png') }}">
-                                                                <div class="card-body">
-                                                                    Lorem ipsum dolor, sit amet consectetur adipisicing
-                                                                    elit.
-                                                                    Mollitia adipisci numquam minima consequuntur autem
-                                                                    impedit
-                                                                    voluptate alias, quidem quod, laboriosam dolorum,
-                                                                    harum
-                                                                    eaque nihil. Inventore aspernatur repudiandae
-                                                                    debitis
-                                                                    repellendus exercitationem.
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-4">
-                                                            <div class="card">
-                                                                <img src="{{ asset('images/logo-startup.png') }}">
-                                                                <div class="card-body">
-                                                                    Lorem ipsum dolor sit amet consectetur adipisicing
-                                                                    elit.
-                                                                    Ullam maxime consequuntur deserunt consectetur
-                                                                    veritatis
-                                                                    quia molestiae quibusdam itaque libero ratione! Nisi
-                                                                    molestiae deserunt expedita eius, quod eaque
-                                                                    laudantium
-                                                                    maxime ea quos totam excepturi eos ipsa quo earum
-                                                                    soluta
-                                                                    impedit quisquam maiores! Reprehenderit iusto sint
-                                                                    quos
-                                                                    numquam iure, ipsum nostrum autem harum, iste qui
-                                                                    aliquid dignissimos quasi minima quis maxime ut
-                                                                    eaque
-                                                                    at? Sequi accusamus ad nostrum natus ex optio, non
-                                                                    laboriosam doloremque unde corrupti ab ipsum culpa
-                                                                    nulla
-                                                                    perferendis voluptatum mollitia eum rem repellat
-                                                                    architecto odio? Temporibus repellat vero laborum,
-                                                                    aut
-                                                                    minima, ad, quam praesentium vitae suscipit odit
-                                                                    amet
-                                                                    odio!
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-4">
-                                                            <div class="card">
-                                                                <img src="{{ asset('images/logo-startup.png') }}">
-                                                                <div class="card-body">
-                                                                    Lorem ipsum dolor, sit amet consectetur adipisicing
-                                                                    elit.
-                                                                    Mollitia adipisci numquam minima consequuntur autem
-                                                                    impedit
-                                                                    voluptate alias, quidem quod, laboriosam dolorum,
-                                                                    harum
-                                                                    eaque nihil. Inventore aspernatur repudiandae
-                                                                    debitis
-                                                                    repellendus exercitationem.
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                            </div>
+                            <div class="col-lg-10 col-12">
+                                <div class="tenant-slider">
+                                    <div>
+                                        <div class="card text-justify mx-2">
+                                            <img src="{{ asset('images/logo-startup.png') }}">
+                                            <div class="card-body">
+                                                Lorem ipsum dolor, sit amet consectetur adipisicing
+                                                elit.
+                                                Mollitia adipisci numquam minima consequuntur autem
+                                                impedit
+                                                voluptate alias, quidem quod, laboriosam dolorum,
+                                                harum
+                                                eaque nihil. Inventore aspernatur repudiandae
+                                                debitis
+                                                repellendus exercitationem.
                                             </div>
                                         </div>
                                     </div>
-                                    {{-- Tampil di layar kecil --}}
-                                    <div class="d-block d-sm-block d-md-block d-lg-none d-xl-none">
-                                        <div id="carouselTenantKecil" class="carousel slide tenant-carousel"
-                                            data-ride="carousel">
-                                            <div class="carousel-inner">
-                                                <div class="carousel-item active">
-                                                    <div class="row">
-                                                        <div class="col">
-                                                            <div class="card">
-                                                                <img src="{{ asset('images/logo-startup.png') }}">
-                                                                <div class="card-body">
-                                                                    Lorem ipsum dolor, sit amet consectetur adipisicing
-                                                                    elit.
-                                                                    Mollitia adipisci numquam minima consequuntur autem
-                                                                    impedit
-                                                                    voluptate alias, quidem quod, laboriosam dolorum,
-                                                                    harum
-                                                                    eaque nihil. Inventore aspernatur repudiandae
-                                                                    debitis
-                                                                    repellendus exercitationem.
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="carousel-item">
-                                                    <div class="row">
-                                                        <div class="col">
-                                                            <div class="card">
-                                                                <img src="{{ asset('images/logo-startup.png') }}">
-                                                                <div class="card-body">
-                                                                    blablablablablablablabalbalbalablablablablablablablablablablabalbalbalablablablablablablablablablablabalbalbalablablablablablablablablablablabalbalbalablablablablablablablablablablabalbalbalablablablablablablablablablablabalbalbalablablablablablablablablablablabalbalbalablablablablablablablablablablabalbalbalablablabla
-                                                                    Lorem ipsum dolor, sit amet consectetur adipisicing
-                                                                    elit. Esse veritatis animi perspiciatis, ratione
-                                                                    cum, id
-                                                                    minus accusamus totam deleniti vitae voluptatum
-                                                                    impedit
-                                                                    quidem aliquid, perferendis velit? Laudantium magni
-                                                                    ipsa
-                                                                    incidunt est possimus quaerat, obcaecati corporis
-                                                                    fugiat
-                                                                    explicabo nam error minus iure neque repellendus id
-                                                                    deserunt harum sed, et impedit ab. Ab quaerat
-                                                                    officiis
-                                                                    animi, rerum neque dignissimos quam, tempora ullam
-                                                                    inventore asperiores ducimus cumque atque distinctio
-                                                                    doloremque error nostrum consequuntur suscipit
-                                                                    sapiente
-                                                                    iure praesentium nemo numquam recusandae! Sequi illo
-                                                                    cum
-                                                                    laudantium molestiae perferendis exercitationem
-                                                                    ipsam
-                                                                    doloremque! Animi perferendis dolor fuga corrupti
-                                                                    recusandae optio voluptates quam saepe, alias, nam
-                                                                    enim
-                                                                    dicta!
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="carousel-item">
-                                                    <div class="row">
-                                                        <div class="col">
-                                                            <div class="card">
-                                                                <img src="{{ asset('images/logo-startup.png') }}">
-                                                                <div class="card-body">
-                                                                    Lorem ipsum dolor, sit amet consectetur adipisicing
-                                                                    elit.
-                                                                    Mollitia adipisci numquam minima consequuntur autem
-                                                                    impedit
-                                                                    voluptate alias, quidem quod, laboriosam dolorum,
-                                                                    harum
-                                                                    eaque nihil. Inventore aspernatur repudiandae
-                                                                    debitis
-                                                                    repellendus exercitationem.
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                    <div>
+                                        <div class="card text-justify mx-2">
+                                            <img src="{{ asset('images/logo-startup.png') }}">
+                                            <div class="card-body">
+                                                Lorem ipsum dolor, sit amet consectetur adipisicing
+                                                elit.
+                                                Mollitia adipisci numquam minima consequuntur autem
+                                                impedit
+                                                voluptate alias, quidem quod, laboriosam dolorum,
+                                                harum
+                                                eaque nihil. Inventore aspernatur repudiandae
+                                                debitis
+                                                repellendus exercitationem.
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-1 d-flex align-items-center justify-content-center">
-                                    {{-- Tampil di layar besar --}}
-                                    <div class="d-none d-sm-none d-md-none d-lg-block d-xl-block">
-                                        <a class="carousel-control-next" href="#carouselTenantBesar" role="button"
-                                            data-slide="next">
-                                            <img src="{{ asset('images/chevron-right-circle.svg') }}">
-                                            <span class="sr-only">Next</span>
-                                        </a>
+                                    <div>
+                                        <div class="card text-justify mx-2">
+                                            <img src="{{ asset('images/logo-startup.png') }}">
+                                            <div class="card-body">
+                                                Lorem ipsum dolor, sit amet consectetur adipisicing
+                                                elit.
+                                                Mollitia adipisci numquam minima consequuntur autem
+                                                impedit
+                                                voluptate alias, quidem quod, laboriosam dolorum,
+                                                harum
+                                                eaque nihil. Inventore aspernatur repudiandae
+                                                debitis
+                                                repellendus exercitationem.
+                                            </div>
+                                        </div>
                                     </div>
-                                    {{-- Tampil di layar kecil --}}
-                                    <div class="d-block d-sm-block d-md-block d-lg-none d-xl-none">
-                                        <a class="carousel-control-next" href="#carouselTenantKecil" role="button"
-                                            data-slide="next" style="margin-left: -12px">
-                                            <img src="{{ asset('images/chevron-right-circle.svg') }}">
-                                            <span class="sr-only">Next</span>
-                                        </a>
+                                    <div>
+                                        <div class="card text-justify mx-2">
+                                            <img src="{{ asset('images/logo-startup.png') }}">
+                                            <div class="card-body">
+                                                Lorem ipsum dolor, sit amet consectetur adipisicing
+                                                elit.
+                                                Mollitia adipisci numquam minima consequuntur autem
+                                                impedit
+                                                voluptate alias, quidem quod, laboriosam dolorum,
+                                                harum
+                                                eaque nihil. Inventore aspernatur repudiandae
+                                                debitis
+                                                repellendus exercitationem.
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            <div
+                                class="col-lg-1 d-none d-sm-none d-md-none d-lg-flex d-xl-flex align-items-center justify-content-center">
+                                <div class="tenant-next-arrow">
+                                    <img src="{{ asset('images/chevron-right-circle.svg') }}" width="80%">
+                                </div>
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </div>
-        </div>
-        {{-- Bunga Kiri --}}
-        <div class="d-none d-sm-none d-md-none d-lg-block d-xl-block position-absolute tenant-bunga-kiri">
-            <img src="{{ asset('images/bunga-tenant-kiri.svg') }}">
+            <div class="col-1"></div>
         </div>
     </div>
     {{-- Akhir Tenant Startup --}}
@@ -917,15 +694,6 @@
                     <div>
                         <img src="{{ asset('images/logoaibi.png') }}" alt="Aibi" style="width:90%">
                     </div>
-                    <div>
-                        <img src="{{ asset('images/logoaibi.png') }}" alt="Aibi" style="width:90%">
-                    </div>
-                    <div>
-                        <img src="{{ asset('images/logoaibi.png') }}" alt="Aibi" style="width:90%">
-                    </div>
-                    <div>
-                        <img src="{{ asset('images/logoaibi.png') }}" alt="Aibi" style="width:90%">
-                    </div>
                 </div>
             </div>
         </div>
@@ -1055,6 +823,26 @@
                     }
                 }]
             });
+
+            $('.tenant-slider').slick({
+                infinite: true,
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                arrows: true,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                prevArrow: $('.tenant-prev-arrow'),
+                nextArrow: $('.tenant-next-arrow'),
+                responsive: [{
+                    breakpoint: 775,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        dots: true,
+                    }
+                }]
+            });
+
         });
     </script>
 </body>
