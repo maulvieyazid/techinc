@@ -99,19 +99,19 @@
             const image_preview = document.getElementById('image_preview')
 
             foto.addEventListener('change', function() {
-                Array.from(this.files).forEach(file => {
-                    if (file.size > 5242880) {
-                        Toastify({
-                            text: "Foto tidak boleh melebihi 5 MB",
-                            duration: 3000,
-                            close: true,
-                            gravity: "top",
-                            position: "right",
-                            backgroundColor: "#ff0000",
-                        }).showToast();
-                        this.value = ''
-                    }
-                })
+                // Array.from(this.files).forEach(file => {
+                //     if (file.size > 5242880) {
+                //         Toastify({
+                //             text: "Foto tidak boleh melebihi 5 MB",
+                //             duration: 3000,
+                //             close: true,
+                //             gravity: "top",
+                //             position: "right",
+                //             backgroundColor: "#ff0000",
+                //         }).showToast();
+                //         this.value = ''
+                //     }
+                // })
                 /* Kosongkan image_preview*/
                 image_preview.innerHTML = ''
                 previewImage();

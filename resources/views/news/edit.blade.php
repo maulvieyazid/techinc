@@ -106,7 +106,7 @@
             const image_preview = document.getElementById('image_preview')
 
             thumbnail.addEventListener('change', function() {
-                if (this.files[0].size > 5242880) {
+                if (this.files[0].size > 6291456) {
                     Toastify({
                         text: "Thumbnail tidak boleh melebihi 5 MB",
                         duration: 3000,

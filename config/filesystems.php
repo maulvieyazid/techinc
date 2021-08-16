@@ -100,6 +100,11 @@ return [
             'root'   => public_path('upload/galeri')
         ],
 
+        'logo_partner' => [
+            'driver' => 'local',
+            'root'   => public_path('upload/partner')
+        ],
+
         'image_ckeditor' => [
             'driver' => 'local',
             'root'   => public_path('upload/ckeditor'),

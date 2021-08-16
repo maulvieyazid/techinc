@@ -107,7 +107,7 @@
             const image_preview = document.getElementById('image_preview')
 
             foto.addEventListener('change', function() {
-                if (this.files[0].size > 5242880) {
+                if (this.files[0].size > 6291456) {
                     Toastify({
                         text: "Foto tidak boleh melebihi 5 MB",
                         duration: 3000,

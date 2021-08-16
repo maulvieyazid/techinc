@@ -1,4 +1,4 @@
-@extends('layouts.app', ['sidebar' => 'member'])
+@extends('layouts.app', ['sidebar' => 'partner'])
 
 @push('styles')
     <link rel="stylesheet" href="{{ asset('vendors/toastify/toastify.css') }}">
@@ -11,7 +11,7 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>Ubah Member</h3>
+                    <h3>Ubah Partner</h3>
                 </div>
             </div>
         </div>
@@ -23,7 +23,7 @@
                         <div class="card-header">
                             <div class="row">
                                 <div class="col d-flex justify-content-end">
-                                    <a href="{{ route('member.index') }}" class="btn btn-secondary">
+                                    <a href="{{ route('partner.index') }}" class="btn btn-secondary">
                                         <i class="bi bi-arrow-left-circle" style="vertical-align: sub"></i> Kembali
                                     </a>
                                 </div>
@@ -32,18 +32,18 @@
                         <div class="card-content">
                             <div class="card-body">
                                 <form class="form form-horizontal" method="POST"
-                                    action="{{ route('member.update', $member->id_member) }}"
+                                    action="{{ route('partner.update', $partner->id_partner) }}"
                                     enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
                                     <div class="form-body">
                                         <div class="row">
                                             <div class="col-md-2">
-                                                <label>Nama</label>
+                                                <label>Nama Partner</label>
                                             </div>
                                             <div class="col-md-10 form-group">
-                                                <input type="text" class="form-control" name="nama_member"
-                                                    placeholder="Nama" value="{{ $member->nama_member }}" required
+                                                <input type="text" class="form-control" name="nama_partner"
+                                                    placeholder="Nama Partner" value="{{ $partner->nama_partner }}" required
                                                     autofocus>
                                             </div>
 
@@ -56,7 +56,7 @@
                                             </div>
                                             <div class="col-5 mb-3">
                                                 <img id="image_preview"
-                                                    src="{{ asset($member->foto ?? 'images/no-photos.webp') }}"
+                                                    src="{{ asset($partner->foto ?? 'images/no-photos.webp') }}"
                                                     width="200" height="200">
                                             </div>
 

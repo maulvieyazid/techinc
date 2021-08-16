@@ -62,5 +62,8 @@ Route::middleware(['auth'])->group(function () {
 
         # Route Carousel Image
         Route::resource('carousel-image', 'CarouselImageController');
+
+        # Route Partner
+        Route::resource('partner', 'PartnerController');
     });
 });

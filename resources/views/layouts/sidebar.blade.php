@@ -112,6 +112,13 @@
                     </ul>
                 </li>
 
+                <li class="sidebar-item @if ($sidebar=='partner' ) {{ 'active' }} @endif">
+                    <a href="{{ route('partner.index') }}" class='sidebar-link'>
+                        <i class="bi bi-briefcase-fill"></i>
+                        <span>Partner</span>
+                    </a>
+                </li>
+
 
                 <li class="sidebar-item"><br><br></li>
 
