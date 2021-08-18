@@ -31,7 +31,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>Nama Partner</th>
-                                <th>Foto</th>
+                                <th>Logo Partner</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>

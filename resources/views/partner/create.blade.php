@@ -44,7 +44,7 @@
                                             </div>
 
                                             <div class="col-md-2 pe-0">
-                                                <label>Foto</label>
+                                                <label>Logo Partner</label>
                                             </div>
                                             <div class="col-md-5 form-group">
                                                 <input class="form-control" type="file" name="partner[0][foto]"
@@ -127,7 +127,7 @@
                         </div>
 
                         <div class="col-md-2 pe-0">
-                            <label>Foto</label>
+                            <label>Logo Partner</label>
                         </div>
                         <div class="col-md-5 form-group">
                             <input class="form-control" type="file" name="partner[${countItem}][foto]"
