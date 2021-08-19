@@ -21,6 +21,11 @@
         /* SEMUA VERSI / VERSI MOBILE */
 
         /* Style Carousel Header */
+        .navbar,
+        .navbar-brand .bigLogo {
+            transition: all .5s ease 0s;
+        }
+
         .navbar-brand img {
             width: 20vmin;
         }
@@ -74,15 +79,15 @@
 
         .tenant-slider .card {
             border-radius: 30px;
+            height: 30rem;
         }
 
         .tenant-slider .card img {
             width: 40%;
-            margin: auto;
+            margin: 20px auto;
         }
 
         .tenant-slider .card .card-body {
-            height: 20rem;
             overflow-y: auto;
         }
 
@@ -246,12 +251,8 @@
         @media (min-width: 992px) {
 
             /* Style Carousel Header Desktop */
-            .carousel-header {
-                margin-top: -125px;
-            }
 
             .navbar {
-                z-index: 2;
                 border-bottom: 2px solid white;
             }
 
@@ -353,10 +354,10 @@
 
 <body>
     {{-- Navbar --}}
-    <nav class="navbar navbar-expand-lg navbar-light mx-lg-5">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light mx-lg-5">
         {{-- Logo warna putih jika tampilan layar lebar --}}
         <a class="navbar-brand d-none d-sm-none d-md-none d-lg-block d-xl-block" href="#">
-            <img src="{{ asset('images/logo-techinc-putih.png') }}" alt="Tech.Inc">
+            <img class='bigLogo' src="{{ asset('images/logo-techinc-putih.png') }}" alt="Tech.Inc">
         </a>
         {{-- Logo warna hitam jika tampilan layar kecil --}}
         <a class="navbar-brand d-block d-sm-block d-md-block d-lg-none d-xl-none" href="#">
@@ -423,71 +424,20 @@
                             </div>
                             <div class="col-lg-10 col-12">
                                 <div class="tenant-slider">
-                                    <div>
-                                        <div class="card text-justify mx-2">
-                                            <img src="{{ asset('images/logo-startup.png') }}">
-                                            <div class="card-body">
-                                                Lorem ipsum dolor, sit amet consectetur adipisicing
-                                                elit.
-                                                Mollitia adipisci numquam minima consequuntur autem
-                                                impedit
-                                                voluptate alias, quidem quod, laboriosam dolorum,
-                                                harum
-                                                eaque nihil. Inventore aspernatur repudiandae
-                                                debitis
-                                                repellendus exercitationem.
+                                    @foreach ($allStartup as $startup)
+                                        <div>
+                                            <div class="card text-justify mx-2">
+                                                <img src="{{ asset($startup->logo) }}">
+                                                <div class="card-body">
+                                                    {{ $startup->deskripsi }}
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div>
-                                        <div class="card text-justify mx-2">
-                                            <img src="{{ asset('images/logo-startup.png') }}">
-                                            <div class="card-body">
-                                                Lorem ipsum dolor, sit amet consectetur adipisicing
-                                                elit.
-                                                Mollitia adipisci numquam minima consequuntur autem
-                                                impedit
-                                                voluptate alias, quidem quod, laboriosam dolorum,
-                                                harum
-                                                eaque nihil. Inventore aspernatur repudiandae
-                                                debitis
-                                                repellendus exercitationem.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="card text-justify mx-2">
-                                            <img src="{{ asset('images/logo-startup.png') }}">
-                                            <div class="card-body">
-                                                Lorem ipsum dolor, sit amet consectetur adipisicing
-                                                elit.
-                                                Mollitia adipisci numquam minima consequuntur autem
-                                                impedit
-                                                voluptate alias, quidem quod, laboriosam dolorum,
-                                                harum
-                                                eaque nihil. Inventore aspernatur repudiandae
-                                                debitis
-                                                repellendus exercitationem.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="card text-justify mx-2">
-                                            <img src="{{ asset('images/logo-startup.png') }}">
-                                            <div class="card-body">
-                                                Lorem ipsum dolor, sit amet consectetur adipisicing
-                                                elit.
-                                                Mollitia adipisci numquam minima consequuntur autem
-                                                impedit
-                                                voluptate alias, quidem quod, laboriosam dolorum,
-                                                harum
-                                                eaque nihil. Inventore aspernatur repudiandae
-                                                debitis
-                                                repellendus exercitationem.
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 </div>
+                                @if ($allStartup->isEmpty())
+                                    <h3>Belum ada Startup</h3>
+                                @endif
                             </div>
                             <div
                                 class="col-lg-1 d-none d-sm-none d-md-none d-lg-flex d-xl-flex align-items-center justify-content-center">
@@ -757,6 +707,48 @@
     {{-- Custom Script --}}
     <script type="text/javascript">
         $(document).ready(function() {
+            // Define the menu we are working with
+            var navbar = $('nav.navbar');
+
+            function navOnScroll() {
+                // Check the menus offset.
+                if ($(window).scrollTop() > 0) {
+
+                    //If it is indeed beyond the offset, affix it to the top.
+                    $(navbar).addClass('bg-secondary');
+                    $(navbar).removeClass('mx-lg-5');
+                    $('.navbar-brand .bigLogo').css('width', '10vmin');
+
+                    // $('#carouselHeader').css('margin-top', '0px');
+
+                } else {
+                    // Otherwise, un affix it.
+                    $(navbar).removeClass('bg-secondary');
+                    $(navbar).addClass('mx-lg-5');
+                    $('.navbar-brand .bigLogo').css('width', '20vmin');
+
+                    // $('#carouselHeader').css('margin-top', '-115px');
+                }
+            }
+
+            function navOnMobile() {
+                if ($(window).width() < 992) {
+                    $(navbar).addClass('bg-light');
+                }
+                else{
+                    $(navbar).removeClass('bg-light');
+                }
+            }
+            // Execute on first load
+            navOnScroll();
+            navOnMobile();
+
+            // Execute when scroll
+            document.onscroll = navOnScroll;
+
+            // Execute when resize
+            window.onresize = navOnMobile;
+
             $('.logo-partner').slick({
                 infinite: true,
                 slidesToShow: 3,
@@ -834,13 +826,22 @@
                 prevArrow: $('.tenant-prev-arrow'),
                 nextArrow: $('.tenant-next-arrow'),
                 responsive: [{
-                    breakpoint: 775,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                        dots: true,
-                    }
-                }]
+                        breakpoint: 775,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                            dots: true,
+                        }
+                    },
+                    {
+                        breakpoint: 1030,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2,
+                            // dots: true,
+                        }
+                    },
+                ]
             });
 
         });
