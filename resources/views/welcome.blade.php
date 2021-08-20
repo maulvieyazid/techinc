@@ -210,14 +210,16 @@
 
         /* Style Contact Us */
         .contact-us-container {
+            height: 100vh;
             background-image: url("{{ asset('images/bg-contact-us.jpg') }}");
             background-size: cover;
             background-repeat: no-repeat;
         }
 
-        .contact-us-container .contact-us-col h1 {
+        .contact-us-container .contact-us-col h3 {
             font-weight: bold;
-            font-size: calc(1rem + 3.5vmax);
+            /* font-size: calc(1rem + 3.5vmax); */
+            font-size: 2.5rem;
         }
 
         .contact-us-container .contact-us-col div p {
@@ -329,6 +331,15 @@
             }
 
             /* Akhir Style Event Desktop */
+
+            /* Style Contact Us Desktop */
+            .contact-us-container .contact-us-col h3 {
+                font-weight: bold;
+                /* font-size: calc(1rem + 3.5vmax); */
+                font-size: 3.5rem;
+            }
+
+            /* Akhir Style Contact Us Desktop */
 
             /* Style Partner Desktop */
             .partner-container div h1 {
@@ -652,25 +663,23 @@
 
     {{-- Contact Us --}}
     <div class="container-fluid contact-us-container">
-        <div class="container">
-            <div class="row">
-                <div class="col-6 d-none d-sm-none d-md-none d-lg-block d-xl-block">
-
-                </div>
-                <div class="col contact-us-col text-white pt-5">
-                    <h1>Contact Us.</h1>
+        <div class="row h-100 pt-3">
+            <div class="col-lg-6 d-flex justify-content-center align-items-center py-2">
+                <img src="{{ asset('images/Logo Techinc Full Putih.png') }}" alt="Tech.Inc" style="max-width: 70%">
+            </div>
+            <div class="col-lg-6 contact-us-col text-white d-flex justify-content-center align-items-center py-2">
+                <div>
+                    <h3>Contact Us.</h3>
                     <div class="my-4">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.376441222648!2d112.78024511535587!3d-7.311538773919023!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7faec95555555%3A0xf13eec4465c5a263!2sUniversitas%20Dinamika%20(STIKOM%20Surabaya)!5e0!3m2!1sen!2sid!4v1628061506423!5m2!1sen!2sid"
                             width="150" height="150" style="border:0;" allowfullscreen="" loading="lazy"
                             class="mr-2"></iframe>
-
                         <p><span style="font-weight: bold;">Alamat
                                 :</span> <br>
                             Gedung Universitas Dinamika lt.1 <br>
                             Jl. Raya Kedung Baruk 98.</p>
                     </div>
-
                     <p style="font-size: 1.5rem;" class="font-weight-bold">Stay Connected</p>
                     <ul class="list-inline">
                         <li class="list-inline-item">
@@ -734,8 +743,7 @@
             function navOnMobile() {
                 if ($(window).width() < 992) {
                     $(navbar).addClass('bg-light');
-                }
-                else{
+                } else {
                     $(navbar).removeClass('bg-light');
                 }
             }
