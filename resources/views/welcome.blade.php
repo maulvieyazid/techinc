@@ -472,46 +472,25 @@
             <div class="col-lg-1"></div>
             <div class="col-lg-9 col-10">
                 <div class="news-slider">
-                    <div>
-                        <div class="card">
-                            <img src="{{ asset('images/DMK02927 1.png') }}" class="card-img-top">
-                            <div class="card-body">
-                                <h6 class="card-subtitle text-right">19.07.2021</h6>
-                                <h5 class="card-title">Tech.Inc melakukan kerjasama dengan siapa?</h5>
-                                <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing
-                                    elit. Obcaecati voluptatum nam explicabo id nesciunt quis ad facilis
-                                    consectetur veritatis fugiat non in fugit corrupti sapiente
-                                    mollitia, recusandae ullam, ipsum aliquid.</p>
+                    @foreach ($allNews as $news)
+                        <div>
+                            <div class="card">
+                                <img src="{{ asset($news->thumbnail) }}" class="card-img-top">
+                                <div class="card-body">
+                                    <h6 class="card-subtitle text-right">{{ $news->created_at->format('j.m.Y') }}
+                                    </h6>
+                                    <h5 class="card-title">{{ $news->judul }}</h5>
+                                    <p class="card-text">
+                                        {{ \Illuminate\Support\Str::limit(strip_tags($news->deskripsi), 180, $end = '...') }}
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div>
-                        <div class="card">
-                            <img src="{{ asset('images/DMK02927 1.png') }}" class="card-img-top">
-                            <div class="card-body">
-                                <h6 class="card-subtitle text-right">19.07.2021</h6>
-                                <h5 class="card-title">Tech.Inc melakukan kerjasama dengan siapa?</h5>
-                                <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing
-                                    elit. Obcaecati voluptatum nam explicabo id nesciunt quis ad facilis
-                                    consectetur veritatis fugiat non in fugit corrupti sapiente
-                                    mollitia, recusandae ullam, ipsum aliquid.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="card">
-                            <img src="{{ asset('images/DMK02927 1.png') }}" class="card-img-top">
-                            <div class="card-body">
-                                <h6 class="card-subtitle text-right">19.07.2021</h6>
-                                <h5 class="card-title">Tech.Inc melakukan kerjasama dengan siapa?</h5>
-                                <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing
-                                    elit. Obcaecati voluptatum nam explicabo id nesciunt quis ad facilis
-                                    consectetur veritatis fugiat non in fugit corrupti sapiente
-                                    mollitia, recusandae ullam, ipsum aliquid.</p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
+                @if ($allNews->isEmpty())
+                    <h3 class="text-center font-weight-bold" style="font-size: 2rem">Belum ada News</h3>
+                @endif
             </div>
             <div class="col-lg-2 col-2 pr-0">
                 <img src="{{ asset('images/tag-news.svg') }}" alt="News" style="width: 100%; margin-top: -110%;">
@@ -572,55 +551,30 @@
             <div class="col-lg-2 col-1"></div>
             <div class="col-lg-8 col-10">
                 <div class="event-slider">
-                    <div>
-                        <div class="card">
-                            <img src="{{ asset('images/Launching website museum.png') }}" class="card-img-top">
-                            <div class="card-body">
-                                <h6 class="card-subtitle">19.07.2021</h6>
-                                <h5 class="card-title">
-                                    Enaknya ngadain apa?</h5>
-                                <ul>
-                                    <li><img src="{{ asset('images/bell.png') }}"> 19.00-22.00</li>
-                                </ul>
-                                <ul>
-                                    <li><img src="{{ asset('images/location.png') }}"> online</li>
-                                </ul>
+                    @foreach ($allEvent as $event)
+                        <div>
+                            <div class="card">
+                                <img src="{{ asset($event->file_photo()[0]) }}" class="card-img-top">
+                                <div class="card-body">
+                                    <h6 class="card-subtitle">{{ $event->tanggal_mulai->format('j.m.Y') }}</h6>
+                                    <h5 class="card-title">{{ $event->nama_event }}</h5>
+                                    <ul>
+                                        <li><img src="{{ asset('images/bell.png') }}">
+                                            {{ $event->tanggal_mulai->format('H.i') }}-{{ $event->tanggal_selesai->format('H.i') }}
+                                        </li>
+                                    </ul>
+                                    <ul>
+                                        <li><img src="{{ asset('images/location.png') }}"> online</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div>
-                        <div class="card">
-                            <img src="{{ asset('images/Launching website museum.png') }}" class="card-img-top">
-                            <div class="card-body">
-                                <h6 class="card-subtitle">19.07.2021</h6>
-                                <h5 class="card-title">
-                                    Enaknya ngadain apa?</h5>
-                                <ul>
-                                    <li><img src="{{ asset('images/bell.png') }}"> 19.00-22.00</li>
-                                </ul>
-                                <ul>
-                                    <li><img src="{{ asset('images/location.png') }}"> online</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="card">
-                            <img src="{{ asset('images/Launching website museum.png') }}" class="card-img-top">
-                            <div class="card-body">
-                                <h6 class="card-subtitle">19.07.2021</h6>
-                                <h5 class="card-title">
-                                    Enaknya ngadain apa?</h5>
-                                <ul>
-                                    <li><img src="{{ asset('images/bell.png') }}"> 19.00-22.00</li>
-                                </ul>
-                                <ul>
-                                    <li><img src="{{ asset('images/location.png') }}"> online</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
+
                 </div>
+                @if ($allEvent->isEmpty())
+                    <h3 class="text-center font-weight-bold" style="font-size: 2rem">Belum ada Event</h3>
+                @endif
             </div>
             <div class="col-lg-2 col-1"></div>
         </div>
@@ -652,9 +606,13 @@
             </div>
             <div class="col-6 p-3 padding-besar">
                 <div class="logo-partner">
-                    <div>
-                        <img src="{{ asset('images/logoaibi.png') }}" alt="Aibi" style="width:90%">
-                    </div>
+                    @foreach ($allPartner as $partner)
+                        <div>
+                            <img src="{{ asset($partner->foto) }}" alt="{{ $partner->nama_partner }}"
+                                style="width:90%">
+                        </div>
+                    @endforeach
+
                 </div>
             </div>
         </div>
@@ -683,16 +641,22 @@
                     <p style="font-size: 1.5rem;" class="font-weight-bold">Stay Connected</p>
                     <ul class="list-inline">
                         <li class="list-inline-item">
-                            <img src="{{ asset('images/red-email.svg') }}" alt="Email Tech.Inc" width="35px">
+                            <a href=""><img src="{{ asset('images/red-email.svg') }}" alt="Email Tech.Inc"
+                                    width="35px"></a>
                         </li>
                         <li class="list-inline-item">
-                            <img src="{{ asset('images/red-instagram.svg') }}" alt="Instagram Tech.Inc" width="35px">
+                            <a href="https://www.instagram.com/tech.inc_dinamika"><img
+                                    src="{{ asset('images/red-instagram.svg') }}" alt="Instagram Tech.Inc"
+                                    width="35px"></a>
                         </li>
                         <li class="list-inline-item">
-                            <img src="{{ asset('images/red-facebook.svg') }}" alt="Facebook Tech.Inc" width="35px">
+                            <a href=""><img src="{{ asset('images/red-facebook.svg') }}" alt="Facebook Tech.Inc"
+                                    width="35px"></a>
                         </li>
                         <li class="list-inline-item">
-                            <img src="{{ asset('images/red-youtube.svg') }}" alt="Youtube Tech.Inc" width="35px">
+                            <a href="https://www.youtube.com/channel/UCxFTCqnTaGkE5HQORTfvw3A"><img
+                                    src="{{ asset('images/red-youtube.svg') }}" alt="Youtube Tech.Inc"
+                                    width="35px"></a>
                         </li>
                     </ul>
                 </div>
