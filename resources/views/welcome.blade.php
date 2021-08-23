@@ -82,9 +82,20 @@
             height: 30rem;
         }
 
+        .tenant-slider .card-header {
+            position: relative;
+            min-height: 30%;
+            overflow: hidden;
+            padding: 0;
+            margin: 0;
+        }
+
         .tenant-slider .card img {
-            width: 40%;
-            margin: 20px auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: 45%;
+            transform: translate(-50%, -50%);
         }
 
         .tenant-slider .card .card-body {
@@ -276,7 +287,7 @@
 
             /* Akhir Style Carousel Header Desktop */
 
-            /* Style Tenant Desktop */
+            /* Style Carousel Tenant Desktop */
             .tenant-box {
                 border-radius: 80px;
                 padding-bottom: 20px;
@@ -287,7 +298,11 @@
                 font-size: 4vw;
             }
 
-            /* Akhir Style Tenant Desktop */
+            .tenant-slider .card img {
+                height: 70%;
+            }
+
+            /* Akhir Style Carousel Tenant Desktop */
 
             /* Style News Desktop */
             .news-container {
@@ -438,7 +453,9 @@
                                     @foreach ($allStartup as $startup)
                                         <div>
                                             <div class="card text-justify mx-2">
-                                                <img src="{{ asset($startup->logo) }}">
+                                                <div class="card-header">
+                                                    <img src="{{ asset($startup->logo) }}">
+                                                </div>
                                                 <div class="card-body">
                                                     {{ $startup->deskripsi }}
                                                 </div>
