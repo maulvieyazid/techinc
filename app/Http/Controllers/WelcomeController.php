@@ -18,4 +18,9 @@ class WelcomeController extends Controller
         $allPartner = Partner::all();
         return view('welcome', compact('allStartup', 'allNews', 'allEvent', 'allPartner'));
     }
+
+    public function about()
+    {
+        return view('about');
+    }
 }

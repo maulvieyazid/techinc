@@ -1,43 +1,10 @@
-<!doctype html>
-<html lang="en">
+@extends('layouts.front.techinc', ['navbar' => 'home'])
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-
-    {{-- Slick Slider --}}
-    <link rel="stylesheet" type="text/css" href="{{ asset('vendors/slick/slick.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('vendors/slick/slick-theme.css') }}">
-
-    {{-- Custom Style --}}
+@push('styles')
     <style>
         /* SEMUA VERSI / VERSI MOBILE */
 
         /* Style Carousel Header */
-        .navbar,
-        .navbar-brand .bigLogo {
-            transition: all .5s ease 0s;
-        }
-
-        .navbar{
-            background-color: #EB242C;
-        }
-
-        .navbar-brand img {
-            width: 20vmin;
-        }
-
-        .navbar-nav .nav-link {
-            margin-right: 50px;
-        }
-
         .carousel-header .carousel-item img {
             width: 100vw;
             height: 90vh;
@@ -223,27 +190,6 @@
 
         /* Akhir Style Event */
 
-        /* Style Contact Us */
-        .contact-us-container {
-            height: 100vh;
-            background-image: url("{{ asset('images/bg-contact-us.jpg') }}");
-            background-size: cover;
-            background-repeat: no-repeat;
-        }
-
-        .contact-us-container .contact-us-col h3 {
-            font-weight: bold;
-            /* font-size: calc(1rem + 3.5vmax); */
-            font-size: 2.5rem;
-        }
-
-        .contact-us-container .contact-us-col div p {
-            display: inline-block;
-            vertical-align: top;
-        }
-
-        /* Akhir Style Contact Us */
-
         /* Style Partner */
         .partner-container div h1 {
             font-size: calc(1rem + 2vmax);
@@ -268,25 +214,6 @@
         @media (min-width: 992px) {
 
             /* Style Carousel Header Desktop */
-
-            /* .navbar {
-                border-bottom: 2px solid white;
-            } */
-
-            /* .navbar-nav .nav-link {
-                color: white !important;
-            } */
-
-            .navbar-brand img {
-                width: 10vmin;
-            }
-
-            .btn-gabung {
-                color: white;
-                border-radius: 20px;
-                border: 5px solid white;
-                font-weight: bold;
-            }
 
             .call-to-action .btn-action {
                 font-size: 1.5vmax;
@@ -331,7 +258,6 @@
                 width: 6.5vmin;
             }
 
-
             /* Akhir Style News Desktop */
 
             /* Style Event Desktop */
@@ -355,15 +281,6 @@
 
             /* Akhir Style Event Desktop */
 
-            /* Style Contact Us Desktop */
-            .contact-us-container .contact-us-col h3 {
-                font-weight: bold;
-                /* font-size: calc(1rem + 3.5vmax); */
-                font-size: 3.5rem;
-            }
-
-            /* Akhir Style Contact Us Desktop */
-
             /* Style Partner Desktop */
             .partner-container div h1 {
                 font-size: calc(1rem + 3vmax);
@@ -382,46 +299,11 @@
         /* ======================================================================================================================================================================================================== */
 
     </style>
+@endpush
 
-    <title>Tech.Inc</title>
-</head>
-
-<body>
-    {{-- Navbar --}}
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark px-5">
-        {{-- Logo warna putih jika tampilan layar lebar --}}
-        {{-- <a class="navbar-brand d-none d-sm-none d-md-none d-lg-block d-xl-block" href="#">
-            <img class='bigLogo' src="{{ asset('images/logo-techinc-putih.png') }}" alt="Tech.Inc">
-        </a> --}}
-        <a class="navbar-brand" href="#">
-            <img src="{{ asset('images/Logo Techinc Full Putih.png') }}" alt="Tech.Inc">
-        </a>
-        {{-- Logo warna hitam jika tampilan layar kecil --}}
-        {{-- <a class="navbar-brand d-block d-sm-block d-md-block d-lg-none d-xl-none" href="#">
-            <img src="{{ asset('images/logo-techinc-hitam.png') }}" alt="Tech.Inc">
-        </a> --}}
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav m-auto font-weight-bold">
-                <a class="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-                <a class="nav-link" href="#">About Us</a>
-                <a class="nav-link" href="#">Program & Facilities</a>
-            </div>
-            {{-- Button warna transparan jika tampilan layar lebar --}}
-            <a class="nav-link btn btn-outline-light btn-gabung d-none d-sm-none d-md-none d-lg-block d-xl-block"
-                href="#">GABUNG</a>
-            {{-- Button warna gray jika tampilan layar kecil --}}
-            <a class="nav-link btn btn-secondary btn-gabung d-block d-sm-block d-md-block d-lg-none d-xl-none mt-3"
-                href="#">GABUNG</a>
-        </div>
-    </nav>
-    {{-- Akhir Navbar --}}
-
+@section('content')
     {{-- Carousel --}}
-    <div id="carouselHeader" class="carousel slide carousel-fade carousel-header" data-ride="carousel">
+    <section id="carouselHeader" class="carousel slide carousel-fade carousel-header" data-ride="carousel">
         <div class="carousel-inner">
             <div class="call-to-action">
                 <img src="{{ asset('images/text-cta.png') }}" alt="Mau Buat Startup?">
@@ -435,17 +317,15 @@
                 <img src="{{ asset('images/bg-3.jpg') }}" class="d-block">
             </div>
         </div>
-
-    </div>
+    </section>
     {{-- Akhir Carousel --}}
 
     {{-- Tenant Startup --}}
-    <div class="container-fluid">
+    <section id="tenant" class="container-fluid">
         <div class="row">
             <div class="col-1 d-flex align-items-end">
                 <div class="d-none d-sm-none d-md-none d-lg-block d-xl-block">
-                    <img src="{{ asset('images/bunga-tenant-kiri.svg') }}"
-                        style="width: 100%; margin-bottom: -100%;">
+                    <img src="{{ asset('images/bunga-tenant-kiri.svg') }}" style="width: 100%; margin-bottom: -100%;">
                 </div>
             </div>
             <div class="col-10">
@@ -491,11 +371,11 @@
             </div>
             <div class="col-1"></div>
         </div>
-    </div>
+    </section>
     {{-- Akhir Tenant Startup --}}
 
     {{-- News --}}
-    <div class="container-fluid news-container pb-5">
+    <section id="news" class="container-fluid news-container pb-5">
         <div class="row">
             <div class="col-lg-1"></div>
             <div class="col-lg-9 col-10">
@@ -541,11 +421,11 @@
         </div>
 
 
-    </div>
+    </section>
     {{-- Akhir News --}}
 
     {{-- Judul Event --}}
-    <div class="container-fluid position-relative" style="margin-top: 4%">
+    <section id="judulEvent" class="container-fluid position-relative" style="margin-top: 4%">
         <div class="row">
             <div class="col-2 d-flex align-items-end">
                 <div class=" d-none d-sm-none d-md-none d-lg-block d-xl-block pl-3">
@@ -570,11 +450,11 @@
         <div class="position-absolute d-none d-sm-none d-md-none d-lg-block d-xl-block" style="bottom: 0; right: 0">
             <img src="{{ asset('images/bunga-event-kanan.svg') }}" style="width: 11vmax;">
         </div>
-    </div>
+    </section>
     {{-- Akhir Judul Event --}}
 
     {{-- Event --}}
-    <div class="container-fluid event-container pb-5">
+    <section id="event" class="container-fluid event-container pb-5">
         <div class="row">
             <div class="col-lg-2 col-1"></div>
             <div class="col-lg-8 col-10">
@@ -622,11 +502,11 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
     {{-- Akhir Event --}}
 
     {{-- Partner --}}
-    <div class="container-fluid partner-container">
+    <section id="partner" class="container-fluid partner-container">
         <div class="row">
             <div class="col-6 text-white d-flex justify-content-center align-items-center padding-besar"
                 style="background-color: #ED1C24">
@@ -644,111 +524,14 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
     {{-- Akhir Partner --}}
 
-    {{-- Contact Us --}}
-    <div class="container-fluid contact-us-container">
-        <div class="row h-100 pt-3">
-            <div class="col-lg-6 d-flex justify-content-center align-items-center py-2">
-                <img src="{{ asset('images/Logo Techinc Full Putih.png') }}" alt="Tech.Inc" style="max-width: 70%">
-            </div>
-            <div class="col-lg-6 contact-us-col text-white d-flex justify-content-center align-items-center py-2">
-                <div>
-                    <h3>Contact Us.</h3>
-                    <div class="my-4">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.376441222648!2d112.78024511535587!3d-7.311538773919023!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7faec95555555%3A0xf13eec4465c5a263!2sUniversitas%20Dinamika%20(STIKOM%20Surabaya)!5e0!3m2!1sen!2sid!4v1628061506423!5m2!1sen!2sid"
-                            width="150" height="150" style="border:0;" allowfullscreen="" loading="lazy"
-                            class="mr-2"></iframe>
-                        <p><span style="font-weight: bold;">Alamat
-                                :</span> <br>
-                            Gedung Universitas Dinamika lt.1 <br>
-                            Jl. Raya Kedung Baruk 98.</p>
-                    </div>
-                    <p style="font-size: 1.5rem;" class="font-weight-bold">Stay Connected</p>
-                    <ul class="list-inline">
-                        <li class="list-inline-item">
-                            <a href=""><img src="{{ asset('images/red-email.svg') }}" alt="Email Tech.Inc"
-                                    width="35px"></a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="https://www.instagram.com/tech.inc_dinamika"><img
-                                    src="{{ asset('images/red-instagram.svg') }}" alt="Instagram Tech.Inc"
-                                    width="35px"></a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href=""><img src="{{ asset('images/red-facebook.svg') }}" alt="Facebook Tech.Inc"
-                                    width="35px"></a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="https://www.youtube.com/channel/UCxFTCqnTaGkE5HQORTfvw3A"><img
-                                    src="{{ asset('images/red-youtube.svg') }}" alt="Youtube Tech.Inc"
-                                    width="35px"></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- Akhir Contact Us --}}
+@endsection
 
-
-    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
-    </script>
-
-    {{-- Slick Slider JS --}}
-    <script type="text/javascript" src="{{ asset('vendors/slick/slick.min.js') }}"></script>
-
-    {{-- Custom Script --}}
+@push('js')
     <script type="text/javascript">
         $(document).ready(function() {
-            // // Define the menu we are working with
-            // var navbar = $('nav.navbar');
-
-            // function navOnScroll() {
-            //     // Check the menus offset.
-            //     if ($(window).scrollTop() > 0) {
-
-            //         //If it is indeed beyond the offset, affix it to the top.
-            //         $(navbar).addClass('bg-secondary');
-            //         $(navbar).removeClass('mx-lg-5');
-            //         $('.navbar-brand .bigLogo').css('width', '10vmin');
-
-            //         // $('#carouselHeader').css('margin-top', '0px');
-
-            //     } else {
-            //         // Otherwise, un affix it.
-            //         $(navbar).removeClass('bg-secondary');
-            //         $(navbar).addClass('mx-lg-5');
-            //         $('.navbar-brand .bigLogo').css('width', '20vmin');
-
-            //         // $('#carouselHeader').css('margin-top', '-115px');
-            //     }
-            // }
-
-            // function navOnMobile() {
-            //     if ($(window).width() < 992) {
-            //         $(navbar).addClass('bg-light');
-            //     } else {
-            //         $(navbar).removeClass('bg-light');
-            //     }
-            // }
-            // // Execute on first load
-            // navOnScroll();
-            // navOnMobile();
-
-            // // Execute when scroll
-            // document.onscroll = navOnScroll;
-
-            // // Execute when resize
-            // window.onresize = navOnMobile;
-
             $('.logo-partner').slick({
                 infinite: true,
                 slidesToShow: 3,
@@ -843,9 +626,6 @@
                     },
                 ]
             });
-
         });
     </script>
-</body>
-
-</html>
+@endpush
