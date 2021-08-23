@@ -26,6 +26,10 @@
             transition: all .5s ease 0s;
         }
 
+        .navbar{
+            background-color: #EB242C;
+        }
+
         .navbar-brand img {
             width: 20vmin;
         }
@@ -265,12 +269,16 @@
 
             /* Style Carousel Header Desktop */
 
-            .navbar {
+            /* .navbar {
                 border-bottom: 2px solid white;
-            }
+            } */
 
-            .navbar-nav .nav-link {
+            /* .navbar-nav .nav-link {
                 color: white !important;
+            } */
+
+            .navbar-brand img {
+                width: 10vmin;
             }
 
             .btn-gabung {
@@ -380,21 +388,24 @@
 
 <body>
     {{-- Navbar --}}
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light mx-lg-5">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark px-5">
         {{-- Logo warna putih jika tampilan layar lebar --}}
-        <a class="navbar-brand d-none d-sm-none d-md-none d-lg-block d-xl-block" href="#">
+        {{-- <a class="navbar-brand d-none d-sm-none d-md-none d-lg-block d-xl-block" href="#">
             <img class='bigLogo' src="{{ asset('images/logo-techinc-putih.png') }}" alt="Tech.Inc">
+        </a> --}}
+        <a class="navbar-brand" href="#">
+            <img src="{{ asset('images/Logo Techinc Full Putih.png') }}" alt="Tech.Inc">
         </a>
         {{-- Logo warna hitam jika tampilan layar kecil --}}
-        <a class="navbar-brand d-block d-sm-block d-md-block d-lg-none d-xl-none" href="#">
+        {{-- <a class="navbar-brand d-block d-sm-block d-md-block d-lg-none d-xl-none" href="#">
             <img src="{{ asset('images/logo-techinc-hitam.png') }}" alt="Tech.Inc">
-        </a>
+        </a> --}}
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav m-auto">
+            <div class="navbar-nav m-auto font-weight-bold">
                 <a class="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
                 <a class="nav-link" href="#">About Us</a>
                 <a class="nav-link" href="#">Program & Facilities</a>
@@ -697,46 +708,46 @@
     {{-- Custom Script --}}
     <script type="text/javascript">
         $(document).ready(function() {
-            // Define the menu we are working with
-            var navbar = $('nav.navbar');
+            // // Define the menu we are working with
+            // var navbar = $('nav.navbar');
 
-            function navOnScroll() {
-                // Check the menus offset.
-                if ($(window).scrollTop() > 0) {
+            // function navOnScroll() {
+            //     // Check the menus offset.
+            //     if ($(window).scrollTop() > 0) {
 
-                    //If it is indeed beyond the offset, affix it to the top.
-                    $(navbar).addClass('bg-secondary');
-                    $(navbar).removeClass('mx-lg-5');
-                    $('.navbar-brand .bigLogo').css('width', '10vmin');
+            //         //If it is indeed beyond the offset, affix it to the top.
+            //         $(navbar).addClass('bg-secondary');
+            //         $(navbar).removeClass('mx-lg-5');
+            //         $('.navbar-brand .bigLogo').css('width', '10vmin');
 
-                    // $('#carouselHeader').css('margin-top', '0px');
+            //         // $('#carouselHeader').css('margin-top', '0px');
 
-                } else {
-                    // Otherwise, un affix it.
-                    $(navbar).removeClass('bg-secondary');
-                    $(navbar).addClass('mx-lg-5');
-                    $('.navbar-brand .bigLogo').css('width', '20vmin');
+            //     } else {
+            //         // Otherwise, un affix it.
+            //         $(navbar).removeClass('bg-secondary');
+            //         $(navbar).addClass('mx-lg-5');
+            //         $('.navbar-brand .bigLogo').css('width', '20vmin');
 
-                    // $('#carouselHeader').css('margin-top', '-115px');
-                }
-            }
+            //         // $('#carouselHeader').css('margin-top', '-115px');
+            //     }
+            // }
 
-            function navOnMobile() {
-                if ($(window).width() < 992) {
-                    $(navbar).addClass('bg-light');
-                } else {
-                    $(navbar).removeClass('bg-light');
-                }
-            }
-            // Execute on first load
-            navOnScroll();
-            navOnMobile();
+            // function navOnMobile() {
+            //     if ($(window).width() < 992) {
+            //         $(navbar).addClass('bg-light');
+            //     } else {
+            //         $(navbar).removeClass('bg-light');
+            //     }
+            // }
+            // // Execute on first load
+            // navOnScroll();
+            // navOnMobile();
 
-            // Execute when scroll
-            document.onscroll = navOnScroll;
+            // // Execute when scroll
+            // document.onscroll = navOnScroll;
 
-            // Execute when resize
-            window.onresize = navOnMobile;
+            // // Execute when resize
+            // window.onresize = navOnMobile;
 
             $('.logo-partner').slick({
                 infinite: true,
