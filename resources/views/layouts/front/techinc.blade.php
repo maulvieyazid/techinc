@@ -71,7 +71,7 @@
             /* Style Navbar Desktop */
 
             .navbar-brand img {
-                width: 10vmin;
+                width: 15vmin;
             }
 
             .btn-gabung {
@@ -107,7 +107,7 @@
 <body>
     {{-- Navbar --}}
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark px-5">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/">
             <img src="{{ asset('images/Logo Techinc Full Putih.png') }}" alt="Tech.Inc">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
