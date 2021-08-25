@@ -49,6 +49,23 @@
             background-color: #ED1C24
         }
 
+        .team-card {
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(to right, #313233, #59585A);
+            color: white;
+        }
+
+        .avatar {
+            width: 200px;
+            height: 200px;
+            margin: 8% auto;
+            display: flex;
+            justify-content: center;
+            align-items: end;
+            overflow: hidden;
+        }
+
         /*  Akhir Utilities */
 
         /* ======================================================================================================================================================================================================== */
@@ -152,58 +169,20 @@
             </div>
         </div>
         <div class="row row-cols-1 row-cols-lg-3 row-cols-md-2 my-5">
-            <div class="col my-3">
-                <div class="card"
-                    style="border: none; border-radius: 50px; background: linear-gradient(to right, #313233, #59585A); color: white;">
-                    <div class="rounded-circle bg-white"
-                        style="width: 200px; height: 200px; margin: 8% auto; display: flex; justify-content: center; align-items: end; overflow: hidden;">
-                        <img src="{{ asset('images/020393.webp') }}" class="card-img-top mt-1" alt="Bu meli">
-                    </div>
-                    <div class="card-body text-center pt-0" style="height: 250px;">
-                        <h5 class="card-title">Tan Amelia, S.Kom., M.MT., MCP</h5>
-                        <p class="card-text">Tim Pengelola Inkubator Bisnis dan Teknologi Tech.Inc Dinamika</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col my-3">
-                <div class="card"
-                    style="border: none; border-radius: 50px; background: linear-gradient(to right, #313233, #59585A); color: white;">
-                    <div class="rounded-circle bg-white"
-                        style="width: 200px; height: 200px; margin: 8% auto; display: flex; justify-content: center; align-items: end; overflow: hidden;">
-                        <img src="{{ asset('images/180875.webp') }}" class="card-img-top mt-1" alt="Bu meli">
-                    </div>
-                    <div class="card-body text-center pt-0" style="height: 250px;">
-                        <h5 class="card-title">Wigananda Firdaus Putra Aditya, S.Kom.</h5>
-                        <p class="card-text">Pendamping startup Picnicker</p>
+            @foreach ($allMember as $member)
+                <div class="col my-3">
+                    <div class="card team-card">
+                        <div class="rounded-circle bg-white avatar">
+                            <img src="{{ asset($member->foto) }}" class="card-img-top mt-1" alt="{{ $member->nama_member }}">
+                        </div>
+                        <div class="card-body text-center pt-0" style="height: 250px;">
+                            <h5 class="card-title">{{ $member->nama_member }}</h5>
+                            <p class="card-text">{{ $member->deskripsi }}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col my-3">
-                <div class="card"
-                    style="border: none; border-radius: 50px; background: linear-gradient(to right, #313233, #59585A); color: white;">
-                    <div class="rounded-circle bg-white"
-                        style="width: 200px; height: 200px; margin: 8% auto; display: flex; justify-content: center; align-items: end; overflow: hidden;">
-                        <img src="{{ asset('images/020393.webp') }}" class="card-img-top mt-1" alt="Bu meli">
-                    </div>
-                    <div class="card-body text-center pt-0" style="height: 250px;">
-                        <h5 class="card-title">Tan Amelia, S.Kom., M.MT., MCP</h5>
-                        <p class="card-text">Tim Pengelola Inkubator Bisnis dan Teknologi Tech.Inc Dinamika</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col my-3">
-                <div class="card"
-                    style="border: none; border-radius: 50px; background: linear-gradient(to right, #313233, #59585A); color: white;">
-                    <div class="rounded-circle bg-white"
-                        style="width: 200px; height: 200px; margin: 8% auto; display: flex; justify-content: center; align-items: end; overflow: hidden;">
-                        <img src="{{ asset('images/020393.webp') }}" class="card-img-top mt-1" alt="Bu meli">
-                    </div>
-                    <div class="card-body text-center pt-0" style="height: 250px;">
-                        <h5 class="card-title">Tan Amelia, S.Kom., M.MT., MCP</h5>
-                        <p class="card-text">Tim Pengelola Inkubator Bisnis dan Teknologi Tech.Inc Dinamika</p>
-                    </div>
-                </div>
-            </div>
+            @endforeach
+
         </div>
     </section>
 

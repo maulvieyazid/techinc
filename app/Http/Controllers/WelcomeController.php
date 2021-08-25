@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\Member;
 use App\News;
 use App\Partner;
 use Illuminate\Http\Request;
@@ -21,6 +22,7 @@ class WelcomeController extends Controller
 
     public function about()
     {
-        return view('about');
+        $allMember = Member::all();
+        return view('about', compact('allMember'));
     }
 }
