@@ -173,10 +173,16 @@
                 <div class="col my-3">
                     <div class="card team-card">
                         <div class="rounded-circle bg-white avatar">
-                            <img src="{{ asset($member->foto) }}" class="card-img-top mt-1" alt="{{ $member->nama_member }}">
+                            <img src="{{ asset($member->foto) }}" class="card-img-top mt-1"
+                                alt="{{ $member->nama_member }}">
                         </div>
                         <div class="card-body text-center pt-0" style="height: 250px;">
                             <h5 class="card-title">{{ $member->nama_member }}</h5>
+                            <p class="card-text">
+                                @foreach ($member->jenisMember as $jenis)
+                                    {{ $jenis->nama_jenis }} @if (!$loop->last) / @endif
+                                @endforeach
+                            </p>
                             <p class="card-text">{{ $member->deskripsi }}</p>
                         </div>
                     </div>

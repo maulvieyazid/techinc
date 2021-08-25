@@ -51,7 +51,7 @@
 
                                             <div class="col-md-12 d-flex justify-content-center">
                                                 <button type="button" class="btn btn-success" id="add" onclick="addItem()">
-                                                    <i class="bi bi-plus-circle" style="vertical-align: sub"></i> Tambah Member
+                                                    <i class="bi bi-plus-circle" style="vertical-align: sub"></i> Tambah Jenis Member
                                                 </button>
                                             </div>
 
