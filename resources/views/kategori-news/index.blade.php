@@ -49,10 +49,6 @@
                                             </button>
                                             <div class="dropdown-menu">
                                                 <a class="dropdown-item"
-                                                    href="{{ route('kategori-news.show', $kategoriNews->slug) }}">
-                                                    <i class="bi bi-eye-fill me-50"></i> Lihat
-                                                </a>
-                                                <a class="dropdown-item"
                                                     href="{{ route('kategori-news.edit', $kategoriNews->slug) }}">
                                                     <i class="bi bi-pencil-square me-50"></i> Ubah
                                                 </a>

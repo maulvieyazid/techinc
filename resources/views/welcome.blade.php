@@ -383,6 +383,7 @@
                     @foreach ($allNews as $news)
                         <div>
                             <div class="card">
+                                {{-- <a href="{{ route('detail.news', $news->slug) }}" class="stretched-link"></a> --}}
                                 <img src="{{ asset($news->thumbnail) }}" class="card-img-top">
                                 <div class="card-body">
                                     <h6 class="card-subtitle text-right">{{ $news->created_at->format('j.m.Y') }}
@@ -437,11 +438,6 @@
                     <div class="row">
                         <div class="col">
                             <h1>Event</h1>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <h3>UPCOMING EVENT</h3>
                         </div>
                     </div>
                 </div>

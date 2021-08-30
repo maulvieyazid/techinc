@@ -39,6 +39,41 @@
         /* Akhir Style Navbar */
 
 
+        /* Style Floating Sidebar */
+        .floating-sidebar {
+            position: fixed;
+            left: 0;
+            top: calc(50% / 2);
+            z-index: 1030;
+            margin-left: -3.7rem;
+            transition: all .3s;
+        }
+
+        .floating-sidebar-expand {
+            margin-left: 0;
+        }
+
+        .floating-menu {
+            background-color: rgba(18, 18, 18, 0.5);
+            padding: 15px;
+            display: inline-block;
+        }
+
+        .floating-item img {
+            width: 1.8rem;
+
+        }
+
+        .floating-sidebar-toggler {
+            height: 7rem;
+            position: absolute;
+            top: calc(50% / 1.5);
+            cursor: pointer;
+        }
+
+        /* Akhir Style Floating Sidebar */
+
+
         /* Style Contact Us */
         .contact-us-container {
             height: 100vh;
@@ -115,15 +150,83 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav m-auto font-weight-bold">
-                <a class="nav-link @if ($navbar=='home' ) {{ 'active' }} @endif" href="{{ route('welcome') }}">Home</a>
-                <a class="nav-link @if ($navbar=='about' ) {{ 'active' }} @endif" href="{{ route('about') }}">About Us</a>
-                <a class="nav-link @if ($navbar=='program' ) {{ 'active' }} @endif" href="#">Program & Facilities</a>
+            <div class="navbar-nav m-auto font-weight-bold navbar-nav-scroll" style="max-height: 200px;">
+                <a class="nav-link @if ($navbar == 'home') {{ 'active' }} @endif" href="{{ route('welcome') }}">Home</a>
+                <a class="nav-link @if ($navbar == 'about') {{ 'active' }} @endif" href="{{ route('about') }}">About Us</a>
+                <a class="nav-link @if ($navbar == 'program') {{ 'active' }} @endif" href="#">Program & Facilities</a>
+                <a class="nav-link d-block d-sm-block d-md-block d-lg-none d-xl-none @if ($navbar == 'event') {{ 'active' }} @endif"
+                    href="#">Event</a>
+                <a class="nav-link d-block d-sm-block d-md-block d-lg-none d-xl-none @if ($navbar == 'announcement') {{ 'active' }} @endif"
+                    href="#">Announcement</a>
+                <a class="nav-link d-block d-sm-block d-md-block d-lg-none d-xl-none @if ($navbar == 'gallery') {{ 'active' }} @endif"
+                    href="#">Gallery</a>
+                <a class="nav-link d-block d-sm-block d-md-block d-lg-none d-xl-none @if ($navbar == 'tenant-startup') {{ 'active' }} @endif"
+                    href="#">Tenant Startup</a>
+                <a class="nav-link d-block d-sm-block d-md-block d-lg-none d-xl-none @if ($navbar == 'news') {{ 'active' }} @endif"
+                    href="#">News</a>
+                <a class="nav-link d-block d-sm-block d-md-block d-lg-none d-xl-none @if ($navbar == 'document') {{ 'active' }} @endif"
+                    href="#">Document</a>
+                <a class="nav-link d-block d-sm-block d-md-block d-lg-none d-xl-none @if ($navbar == 'contact-us') {{ 'active' }} @endif"
+                    href="#">Contact Us</a>
             </div>
             <a class="nav-link btn btn-outline-light btn-gabung" href="#">GABUNG</a>
         </div>
     </nav>
     {{-- Akhir Navbar --}}
+
+    {{-- Floating Sidebar --}}
+    <div class="floating-sidebar d-none d-sm-none d-md-none d-lg-block d-xl-block">
+        <div class="floating-menu">
+            <a href="/" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right" title="Home">
+                <img src="{{ asset('images/home-icon.png') }}">
+            </a>
+            <a href="/about-us" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
+                title="About Us">
+                <img src="{{ asset('images/about-icon.png') }}">
+            </a>
+            <a href="/about-us" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
+                title="Program & Facilities">
+                <img src="{{ asset('images/program-facilities-icon.png') }}">
+            </a>
+            <a href="/about-us" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
+                title="Event">
+                <img src="{{ asset('images/event-icon.png') }}">
+            </a>
+            <a href="/about-us" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
+                title="Announcement">
+                <img src="{{ asset('images/announcement-icon.png') }}">
+            </a>
+            <a href="/about-us" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
+                title="Gallery">
+                <img src="{{ asset('images/gallery-icon.png') }}">
+            </a>
+            <a href="/about-us" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
+                title="Tenant Startup">
+                <img src="{{ asset('images/tenant-startup-icon.png') }}">
+            </a>
+            <a href="/about-us" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
+                title="Registration">
+                <img src="{{ asset('images/registration-icon.png') }}">
+            </a>
+            <a href="/about-us" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
+                title="News">
+                <img src="{{ asset('images/news-icon.png') }}">
+            </a>
+            <a href="/about-us" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
+                title="Document">
+                <img src="{{ asset('images/document-icon.png') }}">
+            </a>
+            <a href="/about-us" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
+                title="Contact Us">
+                <img src="{{ asset('images/contact-icon.png') }}">
+            </a>
+        </div>
+
+        {{-- Btn Toggler --}}
+        <img class="floating-sidebar-toggler" src="{{ asset('images/sidebar-collapsible-button.svg') }}">
+        {{-- Akhir Btn Toggler --}}
+    </div>
+    {{-- Akhir Floating Sidebar --}}
 
     @yield('content')
 
@@ -206,6 +309,19 @@
             // Execute when resize
             window.onresize = btnGabungOnMobile;
 
+            $('[data-toggle="tooltip"]').tooltip()
+
+        });
+
+        $(document).click(function(e) {
+            // Jika diklik toggler sidebarnya, maka akan mentoggle class floating-sidebar-expand
+            if ($(e.target).is('.floating-sidebar-toggler')) {
+                $('.floating-sidebar').toggleClass('floating-sidebar-expand');
+            }
+            // Jika yang diklik elemen lain, maka akan langsung menghapus class floating-sidebar-expand
+            else {
+                $('.floating-sidebar').removeClass('floating-sidebar-expand');
+            }
         });
     </script>
 </body>

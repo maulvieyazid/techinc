@@ -23,8 +23,11 @@ class WelcomeController extends Controller
     public function about()
     {
         $allMember = Member::with('jenisMember')->get();
-        // $x = Member::with('jenisMember')->get();
-        // dd($x[0]->jenisMember[1]->nama_jenis);
         return view('about', compact('allMember'));
+    }
+
+    public function detailNews()
+    {
+        return view('detailNews');
     }
 }
