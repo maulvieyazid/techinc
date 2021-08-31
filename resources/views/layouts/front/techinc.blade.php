@@ -177,10 +177,10 @@
     {{-- Floating Sidebar --}}
     <div class="floating-sidebar d-none d-sm-none d-md-none d-lg-block d-xl-block">
         <div class="floating-menu">
-            <a href="/" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right" title="Home">
+            <a href="{{ route('welcome') }}" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right" title="Home">
                 <img src="{{ asset('images/home-icon.png') }}">
             </a>
-            <a href="/about-us" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
+            <a href="{{ route('about') }}" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
                 title="About Us">
                 <img src="{{ asset('images/about-icon.png') }}">
             </a>
@@ -208,7 +208,7 @@
                 title="Registration">
                 <img src="{{ asset('images/registration-icon.png') }}">
             </a>
-            <a href="/about-us" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
+            <a href="{{ route('all.news') }}" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
                 title="News">
                 <img src="{{ asset('images/news-icon.png') }}">
             </a>

@@ -91,11 +91,11 @@
             margin-top: 30%
         }
 
-        .news-slider {
-            margin-top: -13%;
+        .news-card {
+            /* margin-top: -13%; */
         }
 
-        .news-slider .card {
+        .news-card .card {
             border: none;
             border-radius: 50px;
             background-color: rgba(109, 109, 109, 0.5);
@@ -103,20 +103,20 @@
             margin: 15px;
         }
 
-        .news-slider .card .card-body {
+        .news-card .card .card-body {
             margin-bottom: 25px;
         }
 
-        .news-slider .card img {
+        .news-card .card img {
             padding: 1.25rem;
             padding-top: 3rem;
         }
 
-        .news-slider .card .card-title {
+        .news-card .card .card-title {
             font-weight: 700;
         }
 
-        .news-slider .card .card-text {
+        .news-card .card .card-text {
             text-align: justify;
             font-size: 0.7rem;
         }
@@ -379,7 +379,25 @@
         <div class="row">
             <div class="col-lg-1"></div>
             <div class="col-lg-9 col-10">
-                <div class="news-slider">
+                <div class="row">
+                    @foreach ($allNews as $news)
+                        <div class="col-12 col-lg-6 news-card">
+                            <div class="card ">
+                                <a href="{{ route('detail.news', $news->slug) }}" class="stretched-link"></a>
+                                <img src="{{ asset($news->thumbnail) }}" class="card-img-top">
+                                <div class="card-body">
+                                    <h6 class="card-subtitle text-right">{{ $news->created_at->format('j.m.Y') }}
+                                    </h6>
+                                    <h5 class="card-title">{{ $news->judul }}</h5>
+                                    <p class="card-text">
+                                        {{ \Illuminate\Support\Str::limit(strip_tags($news->deskripsi), 180, $end = '...') }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+                {{-- <div class="news-slider">
                     @foreach ($allNews as $news)
                         <div>
                             <div class="card">
@@ -396,7 +414,7 @@
                             </div>
                         </div>
                     @endforeach
-                </div>
+                </div> --}}
                 @if ($allNews->isEmpty())
                     <h3 class="text-center font-weight-bold" style="font-size: 2rem">Belum ada News</h3>
                 @endif
@@ -407,17 +425,17 @@
         </div>
         <div class="row mt-2">
             <div class="col-lg-5 col-3 d-flex justify-content-end align-items-center">
-                <div class="news-prev-arrow">
+                {{-- <div class="news-prev-arrow">
                     <img src="{{ asset('images/chevron-left-circle.svg') }}" width="60%">
-                </div>
+                </div> --}}
             </div>
             <div class="col-lg-1 col-4 d-flex justify-content-center align-items-center">
-                <button type="button" class="btn btn-danger">Selengkapnya</button>
+                <a href="{{ route('all.news') }}" class="btn btn-danger">Selengkapnya</a>
             </div>
             <div class="col-lg-6 col-3 d-flex justify-content-start align-items-center">
-                <div class="news-next-arrow text-right">
+                {{-- <div class="news-next-arrow text-right">
                     <img src="{{ asset('images/chevron-right-circle.svg') }}" width="60%">
-                </div>
+                </div> --}}
             </div>
         </div>
 
@@ -577,23 +595,23 @@
                 }]
             });
 
-            $('.news-slider').slick({
-                infinite: true,
-                slidesToShow: 2,
-                slidesToScroll: 2,
-                arrows: true,
-                autoplay: true,
-                autoplaySpeed: 2000,
-                prevArrow: $('.news-prev-arrow'),
-                nextArrow: $('.news-next-arrow'),
-                responsive: [{
-                    breakpoint: 576,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                    }
-                }]
-            });
+            // $('.news-slider').slick({
+            //     infinite: true,
+            //     slidesToShow: 2,
+            //     slidesToScroll: 2,
+            //     arrows: true,
+            //     autoplay: true,
+            //     autoplaySpeed: 2000,
+            //     prevArrow: $('.news-prev-arrow'),
+            //     nextArrow: $('.news-next-arrow'),
+            //     responsive: [{
+            //         breakpoint: 576,
+            //         settings: {
+            //             slidesToShow: 2,
+            //             slidesToScroll: 2,
+            //         }
+            //     }]
+            // });
 
             $('.tenant-slider').slick({
                 infinite: true,

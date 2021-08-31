@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\Kategori;
+use App\KategoriNews;
 use App\Member;
 use App\News;
 use App\Partner;
@@ -14,7 +16,7 @@ class WelcomeController extends Controller
     public function index()
     {
         $allStartup = Startup::all();
-        $allNews = News::all();
+        $allNews = News::orderBy('created_at', 'desc')->take(2)->get();
         $allEvent = Event::where('tanggal_selesai', '>=', date('Y-m-d H:i:s'))->get();
         $allPartner = Partner::all();
         return view('welcome', compact('allStartup', 'allNews', 'allEvent', 'allPartner'));
@@ -24,6 +26,23 @@ class WelcomeController extends Controller
     {
         $allMember = Member::with('jenisMember')->get();
         return view('about', compact('allMember'));
+    }
+
+    public function news(Request $request)
+    {
+        $kategori = $request->input('kategori');
+        // dd($kategori);
+
+        $allKategori = KategoriNews::orderBy('nama_kategori', 'asc')->get();
+
+        $allNews = News::query()
+            ->when($kategori, function ($query, $kategori) {
+                return $query->where('slug_kategori', $kategori);
+            })
+            ->orderBy('created_at', 'desc')
+            ->paginate(6);
+
+        return view('news', compact('allNews', 'allKategori','kategori'));
     }
 
     public function detailNews(News $news)

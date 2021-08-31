@@ -6,7 +6,7 @@
 
         /* Style About */
 
-        section#about-us {
+        header {
             background-image: url("{{ asset('images/bg-template-header.png') }}");
             background-size: cover;
             background-repeat: no-repeat;
@@ -92,7 +92,7 @@
 @endpush
 
 @section('content')
-    <section id="about-us" class="container-fluid vh-100">
+    <header class="container-fluid vh-100">
         <div class="row align-items-end h-50">
             <div class="col-lg-2 col-1">
                 <img src="{{ asset('images/kiri-template-header.svg') }}"
@@ -112,7 +112,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </header>
 
     <section id="misi" class="container-fluid mt-5">
         <div class="row">
