@@ -1,30 +1,20 @@
-@extends('layouts.front.techinc', ['navbar' => 'about'])
+@extends('layouts.front.techinc', ['navbar' => 'news'])
 
 @push('styles')
     <style>
         /* SEMUA VERSI / VERSI MOBILE */
 
-        /* Style About */
+        /* Style  */
 
-        section#about-us {
-            background-image: url("{{ asset('images/bg-about-us.png') }}");
+        header {
+            background-image: url("{{ asset('images/bg-template-header.png') }}");
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
         }
 
-        /* Akhir Style About */
+        /* Akhir Style  */
 
-        /* Style Tujuan */
-
-        section#tujuan {
-            background-image: url("{{ asset('images/bg-tujuan.svg') }}");
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-        }
-
-        /* Akhir Style Tujuan */
 
         /* Utilities */
         .judul {
@@ -92,77 +82,64 @@
 @endpush
 
 @section('content')
-    <section id="about-us" class="container-fluid vh-100">
+    <header class="container-fluid vh-100">
         <div class="row align-items-end h-50">
             <div class="col-lg-2 col-1">
-                <img src="{{ asset('images/kiri-about-us.svg') }}"
+                <img src="{{ asset('images/kiri-template-header.svg') }}"
                     class="w-100 d-none d-sm-none d-md-none d-lg-block d-xl-block">
             </div>
             <div class="col-lg-10 col-10">
-                <h1 class="text-white m-0 judul">About Us.</h1>
+                <h1 class="text-white m-0 judul">News</h1>
             </div>
         </div>
-        <div class="row align-items-center h-50">
+        <div class="row align-items-end h-50">
             <div class="col-lg-2 col-1"></div>
-            <div class="col-lg-6 col-9">
+            {{-- <div class="col-lg-6 col-9">
                 <div>
-                    <h2 class="judul teks-merah">Visi</h2>
-                    <p class="isi">Menjadi Inkubator Bisnis Teknologi yang produktif dalam
-                        berinovasi guna mendorong lahirnya Technopreneur di Indonesia</p>
+                    <h2 class="judul teks-merah" style="font-size: 4vmax;">The Lean Startup</h2>
+                </div>
+            </div> --}}
+        </div>
+    </header>
+
+    <section id="content" class="container-fluid mt-1">
+        <div class="row" style="margin-top: -270px;">
+            <div class="col-lg-2 col-1"></div>
+            <div class="col-lg-6 col-9 pr-0">
+                <div>
+                    <h2 class="judul teks-merah" style="font-size: 4vmax;">{{ $news->judul }}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-bottom: 100px">
+            <div class="col-lg-2 col-1"></div>
+            <div class="col-lg-9 col-10 pr-0">
+                <div>
+                    <img src="{{ asset($news->thumbnail) }}" class="w-100">
+                    <p>{{ $news->created_at->translatedFormat('l, d F Y') }}</p>
+                    <textarea id="deskripsi">{!! $news->deskripsi !!}</textarea>
                 </div>
             </div>
         </div>
     </section>
-
-    <section id="misi" class="container-fluid mt-5">
-        <div class="row">
-            <div class="col-lg-2 col-1"></div>
-            <div class="col-lg-4 col-4">
-                <img src="{{ asset('images/kiri-misi.svg') }}" class="w-75">
-            </div>
-            <div class="col-lg-6 col-6 pr-0">
-                <div>
-                    <h2 class="judul teks-merah">Misi</h2>
-                    <ol class="isi" style="padding-left: 5%;">
-                        <li>Memberikan fasilitas dan dukungan terhadap ide inovatif, agar menjadi startup unggulan di
-                            masyarakat.</li>
-                        <li>Menyelenggarakan inkubasi perusahaan pemula berbasis teknologi secara profesional.</li>
-                        <li>Menghasilkan startup yang siap berkarya di masyarakat.</li>
-                        <li>Mempercepat komersialisasi produk inovasi.</li>
-                    </ol>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="tujuan" class="container-fluid" style="margin-top: 15%">
-        <div class="row">
-            <div class="col-lg-2 col-1"></div>
-            <div class="col-lg-4 col-4">
-                <img src="{{ asset('images/tujuan.svg') }}" class="w-75" style="margin-top: -15%">
-            </div>
-            <div class="col-lg-5 col-6 pr-0">
-                <ol class="isi p-0 text-white">
-                    <li>Meningkatkan alih teknologi hasil riset lembaga penelitian untuk meningkatkan
-                        daya saing perusahaan baru berbasis inovasi teknologi.</li>
-                    <li>Mendorong lahirnya wirausaha-wirausaha muda berbasis teknologi dan Perusahaan
-                        Baru Berbasis Teknologi.</li>
-                    <li>Memperkuat daya saing industri dalam negeri menuju ekonomi berbasis inovasi.
-                    </li>
-                    <li>Menciptakan lapangan pekerjaan baru berbasis inovasi teknologi bagi warga
-                        masyarakat berpendidikan tinggi.</li>
-                    <li>Meningkatkan kemandirian sumber pendanaan riset dari komersialisasi HKI/hasil
-                        riset UNIVERSITAS DINAMIKA.</li>
-                </ol>
-            </div>
-        </div>
-    </section>
-
 
 
 @endsection
 
 
 @push('js')
+    <script src="{{ asset('vendors/ckeditor/ckeditor.js') }}"></script>
 
+    <script>
+        ClassicEditor
+            .create(document.getElementById('deskripsi'), {
+                toolbar: [],
+            })
+            .then(editor => {
+                editor.isReadOnly = true;
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
 @endpush

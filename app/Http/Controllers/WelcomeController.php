@@ -26,8 +26,8 @@ class WelcomeController extends Controller
         return view('about', compact('allMember'));
     }
 
-    public function detailNews()
+    public function detailNews(News $news)
     {
-        return view('detailNews');
+        return view('detailNews', compact('news'));
     }
 }

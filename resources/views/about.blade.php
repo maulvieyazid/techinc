@@ -7,7 +7,7 @@
         /* Style About */
 
         section#about-us {
-            background-image: url("{{ asset('images/bg-about-us.png') }}");
+            background-image: url("{{ asset('images/bg-template-header.png') }}");
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
@@ -95,7 +95,7 @@
     <section id="about-us" class="container-fluid vh-100">
         <div class="row align-items-end h-50">
             <div class="col-lg-2 col-1">
-                <img src="{{ asset('images/kiri-about-us.svg') }}"
+                <img src="{{ asset('images/kiri-template-header.svg') }}"
                     class="w-100 d-none d-sm-none d-md-none d-lg-block d-xl-block">
             </div>
             <div class="col-lg-10 col-10">
