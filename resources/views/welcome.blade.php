@@ -91,10 +91,6 @@
             margin-top: 30%
         }
 
-        .news-card .card:hover {
-            box-shadow: 0px 0px 3px 8px rgb(119 120 123);
-        }
-
         .news-card .card {
             border: none;
             border-radius: 50px;

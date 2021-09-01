@@ -128,9 +128,8 @@
         </div> --}}
     </header>
 
-    <section class="container-fluid mt-5 my-5">
-        <div class="row">
-            <div class="col-xl-1"></div>
+    <section class="container-fluid mb-5" style="margin-top: -300px;">
+        <div class="row" style="padding-left: 40px">
             <div class="col-lg-3 col-xl-2 my-3">
                 <h3 style="border-left: 3px solid #ED1C24; padding-left: 15px;">Kategori</h3>
 
@@ -143,7 +142,7 @@
                     @endforeach
                 </div>
             </div>
-            <div class="col-lg-9">
+            <div class="col-lg-9 col-xl-10">
                 <div class="row row-cols-xl-3 row-cols-lg-2 row-cols-1">
                     @foreach ($allNews as $news)
                         <div class="col my-3">
@@ -164,9 +163,9 @@
                 <hr>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-3"></div>
-            <div class="col-lg-9">
+        <div class="row" style="padding-left: 40px">
+            <div class="col-lg-3 col-xl-2"></div>
+            <div class="col-lg-9 col-xl-10">
                 {{ $allNews->withQueryString()->links() }}
             </div>
         </div>
