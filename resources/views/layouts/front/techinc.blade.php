@@ -163,7 +163,7 @@
                 <a class="nav-link d-block d-sm-block d-md-block d-lg-none d-xl-none @if ($navbar == 'tenant-startup') {{ 'active' }} @endif"
                     href="#">Tenant Startup</a>
                 <a class="nav-link d-block d-sm-block d-md-block d-lg-none d-xl-none @if ($navbar == 'news') {{ 'active' }} @endif"
-                    href="#">News</a>
+                    href="{{ route('all.news') }}">News</a>
                 <a class="nav-link d-block d-sm-block d-md-block d-lg-none d-xl-none @if ($navbar == 'document') {{ 'active' }} @endif"
                     href="#">Document</a>
                 <a class="nav-link d-block d-sm-block d-md-block d-lg-none d-xl-none @if ($navbar == 'contact-us') {{ 'active' }} @endif"

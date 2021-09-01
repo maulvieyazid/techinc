@@ -18,8 +18,9 @@ class WelcomeController extends Controller
         $allStartup = Startup::all();
         $allNews = News::orderBy('created_at', 'desc')->take(2)->get();
         $allEvent = Event::where('tanggal_selesai', '>=', date('Y-m-d H:i:s'))->get();
+        $allKategori = Kategori::all();
         $allPartner = Partner::all();
-        return view('welcome', compact('allStartup', 'allNews', 'allEvent', 'allPartner'));
+        return view('welcome', compact('allStartup', 'allNews', 'allEvent', 'allKategori', 'allPartner'));
     }
 
     public function about()
@@ -31,7 +32,6 @@ class WelcomeController extends Controller
     public function news(Request $request)
     {
         $kategori = $request->input('kategori');
-        // dd($kategori);
 
         $allKategori = KategoriNews::orderBy('nama_kategori', 'asc')->get();
 

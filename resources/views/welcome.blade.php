@@ -91,8 +91,8 @@
             margin-top: 30%
         }
 
-        .news-card {
-            /* margin-top: -13%; */
+        .news-card .card:hover {
+            box-shadow: 0px 0px 3px 8px rgb(119 120 123);
         }
 
         .news-card .card {
@@ -101,6 +101,7 @@
             background-color: rgba(109, 109, 109, 0.5);
             color: white;
             margin: 15px;
+            transition: .3s;
         }
 
         .news-card .card .card-body {
@@ -120,6 +121,8 @@
             text-align: justify;
             font-size: 0.7rem;
         }
+
+
 
         .navigasi-news {
             height: 100px;
@@ -189,6 +192,27 @@
         }
 
         /* Akhir Style Event */
+
+        /* Style Gallery */
+
+        .gallery-container {
+            background: linear-gradient(to right, #313233, #59585A);
+        }
+
+        .bg-merah {
+            background-color: #ED1C24
+        }
+
+        .judul {
+            font-weight: 800;
+            font-size: 7vmax;
+        }
+
+        .bunga-gallery {
+            width: 100%
+        }
+
+        /* Akhir Style Gallery */
 
         /* Style Partner */
         .partner-container div h1 {
@@ -280,6 +304,13 @@
             }
 
             /* Akhir Style Event Desktop */
+
+            /* Style Gallery Desktop */
+            .bunga-gallery {
+                width: 25%
+            }
+
+            /* Akhir Style Gallery Desktop */
 
             /* Style Partner Desktop */
             .partner-container div h1 {
@@ -518,6 +549,35 @@
         </div>
     </section>
     {{-- Akhir Event --}}
+
+
+    {{-- Gallery --}}
+    <section id="gallery" class="container-fluid gallery-container">
+        <div class="row pt-5 mb-4">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-5 col-4 d-flex justify-content-end align-items-center">
+                <img src="{{ asset('images/kiri-gallery.png') }}" class="bunga-gallery">
+            </div>
+            <div class="col-lg-5 col-8 bg-merah d-flex align-items-center">
+                <h1 class="judul text-white">Gallery</h1>
+            </div>
+        </div>
+        <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 mx-3 pb-5">
+            @foreach ($allKategori as $kategori)
+                <div class="col my-3">
+                    <div class="card bg-dark text-white gallery-item" style="height: 300px;">
+                        <a href="#" class="stretched-link"></a>
+                        <img src="{{ asset($kategori->file_photo()[0] ?? 'images/no-photos.webp') }}" class="card-img"
+                            style="filter: brightness(50%);width: 100%;height: 100%;object-fit: cover;">
+                        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                            <h5 class="card-title text-center">{{ $kategori->nama_kategori }}</h5>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </section>
+    {{-- Akhir Gallery --}}
 
     {{-- Partner --}}
     <section id="partner" class="container-fluid partner-container">

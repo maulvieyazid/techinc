@@ -4,10 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Support\Facades\Storage;
+
 
 class Kategori extends Model
 {
     use Sluggable;
+
+    public static $pathFoto = 'upload/galeri';
 
     protected $primaryKey = 'slug';
 
@@ -18,6 +22,11 @@ class Kategori extends Model
     protected $table = 'kategori';
 
     protected $guarded = [];
+
+    public function file_photo(){
+        $semuaFoto = Storage::allFiles(self::$pathFoto . '/' . $this->folder_kategori);
+        return $semuaFoto;
+    }
 
     /**
      * Return the sluggable configuration array for this model.
