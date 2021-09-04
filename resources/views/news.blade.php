@@ -128,7 +128,7 @@
         </div> --}}
     </header>
 
-    <section class="container-fluid mb-5" style="margin-top: -300px;">
+    <section class="container-fluid mb-5" style="margin-top: -200px;">
         <div class="row" style="padding-left: 40px">
             <div class="col-lg-3 col-xl-2 my-3">
                 <h3 style="border-left: 3px solid #ED1C24; padding-left: 15px;">Kategori</h3>

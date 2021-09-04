@@ -92,6 +92,7 @@
 @endpush
 
 @section('content')
+    {{-- <img src="{{ asset('images/bg-template-header.png') }}" class="position-absolute w-100 h-100"> --}}
     <header class="container-fluid vh-100">
         <div class="row align-items-end h-50">
             <div class="col-lg-2 col-1">

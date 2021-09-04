@@ -118,8 +118,6 @@
             font-size: 0.7rem;
         }
 
-
-
         .navigasi-news {
             height: 100px;
         }
@@ -671,8 +669,8 @@
 
             $('.tenant-slider').slick({
                 infinite: true,
-                slidesToShow: 3,
-                slidesToScroll: 3,
+                slidesToShow: 2,
+                slidesToScroll: 2,
                 arrows: true,
                 autoplay: true,
                 autoplaySpeed: 3000,

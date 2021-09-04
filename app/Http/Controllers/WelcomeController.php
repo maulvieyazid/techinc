@@ -47,6 +47,7 @@ class WelcomeController extends Controller
 
     public function detailNews(News $news)
     {
-        return view('detailNews', compact('news'));
+        $otherNews = News::where('slug', '!=', $news->slug)->orderBy('created_at', 'desc')->take(5)->get();
+        return view('detailNews', compact('news', 'otherNews'));
     }
 }
