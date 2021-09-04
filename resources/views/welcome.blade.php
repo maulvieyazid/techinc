@@ -137,6 +137,7 @@
         /* Akhir Style News */
 
         /* Style Event */
+
         .judul-event h1 {
             font-size: 10vmax;
             font-weight: 800;
@@ -148,42 +149,39 @@
             font-size: 3vmax;
         }
 
-        .event-slider {
-            margin-top: -10%;
+        /* ========== Event Card ===================== */
+        .event-card {
+            border: 4px solid #EB242C;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            background-color: transparent;
+            border-radius: 50px;
         }
 
-        .event-slider .card {
-            color: white;
-            background: linear-gradient(to right, #313233, #59585A);
-            border-radius: 0 0 50px 50px;
-            margin: 15px;
+        .event-card .card-img-top {
+            padding: 2rem;
+            padding-top: 3rem;
         }
 
-        .event-slider .card .card-body {
+        .event-card .card-body {
             padding-left: 20px;
         }
 
-        .event-slider .card-title {
+        .event-card .card-title {
             font-weight: bold;
             margin-bottom: 30px
         }
 
-        .event-slider .card ul {
+        .event-card ul {
             list-style-type: none;
             padding: 0;
         }
 
-        .event-slider .card ul img {
+        .event-card ul img {
             width: 3vmax;
             display: inline-block;
         }
 
-        .event-container {
-            background-image: url("{{ asset('images/bg-event-grey.svg') }}");
-            background-size: cover;
-            background-repeat: no-repeat;
-            margin-top: 12%;
-        }
+        /* ========== Event Card ===================== */
 
         /* Akhir Style Event */
 
@@ -279,23 +277,22 @@
             /* Akhir Style News Desktop */
 
             /* Style Event Desktop */
-            .event-slider .card-title {
+
+            /* ============= Event Card ========= */
+            .event-card .card-title {
                 font-size: 3.2vmin;
             }
 
-            .event-slider .card ul img {
+            .event-card ul img {
                 width: 4vmin;
             }
 
-            .event-slider .card {
-                border-radius: 0 0 100px 100px;
-                margin: 15px;
-            }
-
-            .event-slider .card .card-body {
+            .event-card .card-body {
                 padding-left: 35px;
                 padding-bottom: 50px;
             }
+
+            /* ============= Event Card ========= */
 
             /* Akhir Style Event Desktop */
 
@@ -400,11 +397,11 @@
     {{-- Akhir Tenant Startup --}}
 
     {{-- News --}}
-    <section id="news" class="container-fluid news-container pb-5">
+    <section id="news" class="container-fluid news-container position-relative pb-5">
         <div class="row">
             <div class="col-lg-1"></div>
             <div class="col-lg-9 col-10">
-                <div class="row">
+                <div class="row" style="margin-top: -15%">
                     @foreach ($allNews as $news)
                         <div class="col-12 col-lg-6 news-card">
                             <div class="card ">
@@ -445,11 +442,11 @@
                 @endif
             </div>
             <div class="col-lg-2 col-2 pr-0">
-                <img src="{{ asset('images/tag-news.svg') }}" alt="News" style="width: 100%; margin-top: -110%;">
+                <img src="{{ asset('images/tag-news.svg') }}" alt="News" style="width: 100%; margin-top: -90%;">
             </div>
         </div>
-        <div class="row mt-2">
-            <div class="col-lg-5 col-3 d-flex justify-content-end align-items-center">
+        <div class="row mt-5">
+            <div class="col-lg-5 col-3">
                 {{-- <div class="news-prev-arrow">
                     <img src="{{ asset('images/chevron-left-circle.svg') }}" width="60%">
                 </div> --}}
@@ -457,24 +454,25 @@
             <div class="col-lg-1 col-4 d-flex justify-content-center align-items-center">
                 <a href="{{ route('all.news') }}" class="btn btn-danger">Selengkapnya</a>
             </div>
-            <div class="col-lg-6 col-3 d-flex justify-content-start align-items-center">
+            <div class="col-lg-6 col-3">
                 {{-- <div class="news-next-arrow text-right">
                     <img src="{{ asset('images/chevron-right-circle.svg') }}" width="60%">
                 </div> --}}
             </div>
         </div>
-
-
+        <div class="position-absolute d-none d-sm-none d-md-none d-lg-block d-xl-block" style="top: 77%; right: 0">
+            <img src="{{ asset('images/bunga-event-kanan.svg') }}" style="width: 10vmax;">
+        </div>
     </section>
     {{-- Akhir News --}}
 
-    {{-- Judul Event --}}
-    <section id="judulEvent" class="container-fluid position-relative" style="margin-top: 4%">
+    {{-- Event --}}
+    <section id="event" class="container-fluid pb-5">
         <div class="row">
             <div class="col-2 d-flex align-items-end">
-                <div class=" d-none d-sm-none d-md-none d-lg-block d-xl-block pl-3">
+                {{-- <div class=" d-none d-sm-none d-md-none d-lg-block d-xl-block pl-3">
                     <img src="{{ asset('images/bunga-event-kiri.svg') }}" style="width: 80%; margin-bottom: -83%;">
-                </div>
+                </div> --}}
             </div>
             <div class="col">
                 <div class="judul-event pl-lg-3">
@@ -486,18 +484,42 @@
                 </div>
             </div>
         </div>
-        <div class="position-absolute d-none d-sm-none d-md-none d-lg-block d-xl-block" style="bottom: 0; right: 0">
-            <img src="{{ asset('images/bunga-event-kanan.svg') }}" style="width: 11vmax;">
-        </div>
-    </section>
-    {{-- Akhir Judul Event --}}
-
-    {{-- Event --}}
-    <section id="event" class="container-fluid event-container pb-5">
         <div class="row">
             <div class="col-lg-2 col-1"></div>
             <div class="col-lg-8 col-10">
-                <div class="event-slider">
+                <div class="row">
+                    @foreach ($allEvent as $event)
+                        <div class="col-12 col-lg-6">
+                            <div class="card event-card">
+                                <a href="#" class="stretched-link"></a>
+                                <img src="{{ asset($event->file_photo()[0]) }}" class="card-img-top">
+                                <div class="card-body">
+                                    <h6 class="card-subtitle text-right">{{ $event->tanggal_mulai->format('j.m.Y') }}</h6>
+                                    <h5 class="card-title">{{ $event->nama_event }}</h5>
+                                    <ul>
+                                        <li><img src="{{ asset('images/bell-dark.png') }}">
+                                            {{ $event->tanggal_mulai->format('H.i') }}-{{ $event->tanggal_selesai->format('H.i') }}
+                                        </li>
+                                    </ul>
+                                    <ul>
+                                        <li><img src="{{ asset('images/location-dark.png') }}"> online</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                    @if ($allEvent->isEmpty())
+                        <div class="col-12 col-lg-6">
+                            <div class="card event-card">
+                                <img src="{{ asset('images/no-event-img.png') }}" class="card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title">Belum Ada Event</h5>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+                </div>
+                {{-- <div class="event-slider">
                     @foreach ($allEvent as $event)
                         <div>
                             <div class="card">
@@ -518,36 +540,31 @@
                         </div>
                     @endforeach
 
-                </div>
-                @if ($allEvent->isEmpty())
-                    <h3 class="text-center font-weight-bold" style="font-size: 2rem">Belum ada Event</h3>
-                @endif
+                </div> --}}
             </div>
-            <div class="col-lg-2 col-1"></div>
         </div>
-
-        <div class="row mt-2">
+        <div class="row mt-5">
             <div class="col-4 col-lg-5 d-flex justify-content-end align-items-center">
-                <div class="event-prev-arrow">
+                {{-- <div class="event-prev-arrow">
                     <img src="{{ asset('images/chevron-left-circle-dark.svg') }}" width="70%">
-                </div>
+                </div> --}}
             </div>
             <div class="col-4 col-lg-2 d-flex justify-content-center align-items-center">
                 <button type="button" class="btn btn-danger">Selengkapnya</button>
             </div>
             <div class="col-4 col-lg-5 d-flex justify-content-start align-items-center">
-                <div class="event-next-arrow text-right">
+                {{-- <div class="event-next-arrow text-right">
                     <img src="{{ asset('images/chevron-right-circle-dark.svg') }}" width="70%">
-                </div>
+                </div> --}}
             </div>
         </div>
+
     </section>
     {{-- Akhir Event --}}
 
-
     {{-- Gallery --}}
     <section id="gallery" class="container-fluid gallery-container">
-        <div class="row pt-5 mb-4">
+        <div class="row pt-5 mb-5">
             <div class="col-lg-2"></div>
             <div class="col-lg-5 col-4 d-flex justify-content-end align-items-center">
                 <img src="{{ asset('images/kiri-gallery.png') }}" class="bunga-gallery">
@@ -561,7 +578,8 @@
                 <div class="col my-3">
                     <div class="card bg-dark text-white gallery-item" style="height: 300px;">
                         <a href="#" class="stretched-link"></a>
-                        <img src="{{ asset($kategori->file_photo()[0] ?? 'images/no-photos.webp') }}" class="card-img"
+                        <img src="{{ asset($kategori->file_photo()[0] ?? 'images/no-photos.webp') }}"
+                            class="card-img"
                             style="filter: brightness(50%);width: 100%;height: 100%;object-fit: cover;">
                         <div class="card-img-overlay d-flex justify-content-center align-items-center">
                             <h5 class="card-title text-center">{{ $kategori->nama_kategori }}</h5>
@@ -631,23 +649,23 @@
                 ]
             });
 
-            $('.event-slider').slick({
-                infinite: true,
-                slidesToShow: 2,
-                slidesToScroll: 2,
-                arrows: true,
-                autoplay: true,
-                autoplaySpeed: 2000,
-                prevArrow: $('.event-prev-arrow'),
-                nextArrow: $('.event-next-arrow'),
-                responsive: [{
-                    breakpoint: 576,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                    }
-                }]
-            });
+            // $('.event-slider').slick({
+            //     infinite: true,
+            //     slidesToShow: 2,
+            //     slidesToScroll: 2,
+            //     arrows: true,
+            //     autoplay: true,
+            //     autoplaySpeed: 2000,
+            //     prevArrow: $('.event-prev-arrow'),
+            //     nextArrow: $('.event-next-arrow'),
+            //     responsive: [{
+            //         breakpoint: 576,
+            //         settings: {
+            //             slidesToShow: 1,
+            //             slidesToScroll: 1,
+            //         }
+            //     }]
+            // });
 
             // $('.news-slider').slick({
             //     infinite: true,
@@ -669,8 +687,8 @@
 
             $('.tenant-slider').slick({
                 infinite: true,
-                slidesToShow: 2,
-                slidesToScroll: 2,
+                slidesToShow: 3,
+                slidesToScroll: 3,
                 arrows: true,
                 autoplay: true,
                 autoplaySpeed: 3000,

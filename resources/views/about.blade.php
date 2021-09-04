@@ -62,7 +62,7 @@
             margin: 8% auto;
             display: flex;
             justify-content: center;
-            align-items: end;
+            align-items: start;
             overflow: hidden;
         }
 
