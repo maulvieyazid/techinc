@@ -196,7 +196,7 @@
                 title="Announcement">
                 <img src="{{ asset('images/announcement-icon.png') }}">
             </a>
-            <a href="/about-us" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
+            <a href="/galeri" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
                 title="Gallery">
                 <img src="{{ asset('images/gallery-icon.png') }}">
             </a>

@@ -563,7 +563,7 @@
     {{-- Akhir Event --}}
 
     {{-- Gallery --}}
-    <section id="gallery" class="container-fluid gallery-container">
+    <section id="gallery" class="container-fluid gallery-container pb-5">
         <div class="row pt-5 mb-5">
             <div class="col-lg-2"></div>
             <div class="col-lg-5 col-4 d-flex justify-content-end align-items-center">
@@ -573,11 +573,11 @@
                 <h1 class="judul text-white">Gallery</h1>
             </div>
         </div>
-        <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 mx-3 pb-5">
+        <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 mx-3">
             @foreach ($allKategori as $kategori)
                 <div class="col my-3">
                     <div class="card bg-dark text-white gallery-item" style="height: 300px;">
-                        <a href="#" class="stretched-link"></a>
+                        <a href="{{ route('detail.galeri', $kategori->slug) }}" class="stretched-link"></a>
                         <img src="{{ asset($kategori->file_photo()[0] ?? 'images/no-photos.webp') }}"
                             class="card-img"
                             style="filter: brightness(50%);width: 100%;height: 100%;object-fit: cover;">
@@ -587,6 +587,13 @@
                     </div>
                 </div>
             @endforeach
+        </div>
+        <div class="row mt-5">
+            <div class="col-4 col-lg-5"></div>
+            <div class="col-4 col-lg-2 d-flex justify-content-center align-items-center">
+                <a href="{{ route('all.galeri') }}" class="btn btn-danger">Selengkapnya</a>
+            </div>
+            <div class="col-4 col-lg-5"></div>
         </div>
     </section>
     {{-- Akhir Gallery --}}

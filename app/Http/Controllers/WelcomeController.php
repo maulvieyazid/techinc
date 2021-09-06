@@ -17,10 +17,10 @@ class WelcomeController extends Controller
     public function index()
     {
         $allStartup = Startup::all();
-        $allNews = News::orderBy('created_at', 'desc')->take(2)->get();
+        $allNews = News::latest()->take(2)->get();
         $allEvent = Event::where('tanggal_selesai', '>=', date('Y-m-d H:i:s'))->get();
-        $allKategori = Kategori::all();
-        $allPartner = Partner::all();
+        $allKategori = Kategori::latest()->take(3)->get();
+        $allPartner = Partner::latest()->get();
         return view('welcome', compact('allStartup', 'allNews', 'allEvent', 'allKategori', 'allPartner'));
     }
 
@@ -48,14 +48,23 @@ class WelcomeController extends Controller
 
     public function detailNews(News $news)
     {
-        $otherNews = News::where('slug', '!=', $news->slug)->orderBy('created_at', 'desc')->take(5)->get();
+        $otherNews = News::where('slug', '!=', $news->slug)->latest()->take(5)->get();
+
         return view('detailNews', compact('news', 'otherNews'));
+    }
+
+    public function galeri()
+    {
+        $allKategori = Kategori::latest()->get();
+
+        return view('galeri', compact('allKategori'));
     }
 
     public function detailGaleri($slug_kategori)
     {
         $kategori = Kategori::findOrFail($slug_kategori);
         $allGaleri = Galeri::where('slug_kategori', $slug_kategori)->get();
+
         return view('detailGaleri', compact('allGaleri', 'kategori'));
     }
 }

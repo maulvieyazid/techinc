@@ -89,26 +89,24 @@
             <div class="col-lg-2 col-1"></div>
             <div class="col-lg-6 col-9">
                 <div>
-                    <h2 class="judul teks-merah" style="font-size: 4vmax;">{{ $kategori->nama_kategori }}</h2>
+                    <h2 class="judul teks-merah" style="font-size: 4vmax;"></h2>
                 </div>
             </div>
         </div>
-        <div class="row mt-3 pb-5">
-            <div class="col-lg-2 col-1"></div>
-            <div class="col-lg-9 col-9">
-                <div class="card-columns spotlight-group">
-                    @foreach ($allGaleri as $galeri)
-                        <div class="card d-inline-block spotlight" data-src="{{ asset($galeri->file_galeri) }}"
-                            @if ($galeri->tipe == '1') data-media="video" @endif>
-                            @if ($galeri->tipe == '1')
-                                <video controls src="{{ asset($galeri->file_galeri) }}" class="w-100"></video>
-                            @elseif ($galeri->tipe == '2')
-                                <img src="{{ asset($galeri->file_galeri) }}" class="card-img">
-                            @endif
+        <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 mt-3 pb-5">
+            @foreach ($allKategori as $kategori)
+                <div class="col my-3">
+                    <div class="card bg-dark text-white gallery-item" style="height: 300px;">
+                        <a href="{{ route('detail.galeri', $kategori->slug) }}" class="stretched-link"></a>
+                        <img src="{{ asset($kategori->file_photo()[0] ?? 'images/no-photos.webp') }}"
+                            class="card-img"
+                            style="filter: brightness(50%);width: 100%;height: 100%;object-fit: cover;">
+                        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                            <h5 class="card-title text-center">{{ $kategori->nama_kategori }}</h5>
                         </div>
-                    @endforeach
+                    </div>
                 </div>
-            </div>
+            @endforeach
         </div>
     </section>
 
