@@ -23,7 +23,8 @@ class Kategori extends Model
 
     protected $guarded = [];
 
-    public function file_photo(){
+    public function file_photo()
+    {
         $semuaFoto = Storage::allFiles(self::$pathFoto . '/' . $this->folder_kategori);
         return $semuaFoto;
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\Galeri;
 use App\Kategori;
 use App\KategoriNews;
 use App\Member;
@@ -42,12 +43,19 @@ class WelcomeController extends Controller
             ->orderBy('created_at', 'desc')
             ->paginate(6);
 
-        return view('news', compact('allNews', 'allKategori','kategori'));
+        return view('news', compact('allNews', 'allKategori', 'kategori'));
     }
 
     public function detailNews(News $news)
     {
         $otherNews = News::where('slug', '!=', $news->slug)->orderBy('created_at', 'desc')->take(5)->get();
         return view('detailNews', compact('news', 'otherNews'));
+    }
+
+    public function detailGaleri($slug_kategori)
+    {
+        $kategori = Kategori::findOrFail($slug_kategori);
+        $allGaleri = Galeri::where('slug_kategori', $slug_kategori)->get();
+        return view('detailGaleri', compact('allGaleri', 'kategori'));
     }
 }

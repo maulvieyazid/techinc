@@ -116,8 +116,8 @@
         </div>
     </header>
 
-    <section id="content" class="container-fluid mt-1">
-        <div class="row" style="margin-top: -270px;">
+    <section id="content" class="container-fluid" style="margin-top: -200px;">
+        <div class="row">
             <div class="col-lg-2 col-1"></div>
             <div class="col-lg-6 col-9">
                 <div>
@@ -125,7 +125,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row mt-3">
             <div class="col-lg-2 col-1"></div>
             <div class="col-lg-6 col-10">
                 <div>
