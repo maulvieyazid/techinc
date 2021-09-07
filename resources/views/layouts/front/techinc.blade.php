@@ -21,6 +21,15 @@
     @stack('styles')
 
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .dropdown-item:focus,
+        .dropdown-item:hover {
+            background-color: #ad191e;
+        }
+
         /* SEMUA VERSI / VERSI MOBILE */
 
         /* Style Navbar */
@@ -153,13 +162,23 @@
             <div class="navbar-nav m-auto font-weight-bold navbar-nav-scroll" style="max-height: 200px;">
                 <a class="nav-link @if ($navbar == 'home') {{ 'active' }} @endif" href="{{ route('welcome') }}">Home</a>
                 <a class="nav-link @if ($navbar == 'about') {{ 'active' }} @endif" href="{{ route('about') }}">About Us</a>
-                <a class="nav-link @if ($navbar == 'program') {{ 'active' }} @endif" href="#">Program & Facilities</a>
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle @if ($navbar == 'program') {{ 'active' }} @endif" href="#" id="navbarDropdownMenuLink"
+                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Program & Facilities
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"
+                        style="background-color: #EB242C">
+                        <a class="dropdown-item text-white" href="#">Program</a>
+                        <a class="dropdown-item text-white" href="#">Facilities</a>
+                    </div>
+                </div>
                 <a class="nav-link d-block d-sm-block d-md-block d-lg-none d-xl-none @if ($navbar == 'event') {{ 'active' }} @endif"
-                    href="#">Event</a>
+                    href="{{ route('all.event') }}">Event</a>
                 <a class="nav-link d-block d-sm-block d-md-block d-lg-none d-xl-none @if ($navbar == 'announcement') {{ 'active' }} @endif"
                     href="#">Announcement</a>
                 <a class="nav-link d-block d-sm-block d-md-block d-lg-none d-xl-none @if ($navbar == 'gallery') {{ 'active' }} @endif"
-                    href="#">Gallery</a>
+                    href="{{ route('all.galeri') }}">Gallery</a>
                 <a class="nav-link d-block d-sm-block d-md-block d-lg-none d-xl-none @if ($navbar == 'tenant-startup') {{ 'active' }} @endif"
                     href="#">Tenant Startup</a>
                 <a class="nav-link d-block d-sm-block d-md-block d-lg-none d-xl-none @if ($navbar == 'news') {{ 'active' }} @endif"
@@ -167,7 +186,7 @@
                 <a class="nav-link d-block d-sm-block d-md-block d-lg-none d-xl-none @if ($navbar == 'document') {{ 'active' }} @endif"
                     href="#">Document</a>
                 <a class="nav-link d-block d-sm-block d-md-block d-lg-none d-xl-none @if ($navbar == 'contact-us') {{ 'active' }} @endif"
-                    href="#">Contact Us</a>
+                    href="#contact-us">Contact Us</a>
             </div>
             <a class="nav-link btn btn-outline-light btn-gabung" href="#">GABUNG</a>
         </div>
@@ -177,27 +196,28 @@
     {{-- Floating Sidebar --}}
     <div class="floating-sidebar d-none d-sm-none d-md-none d-lg-block d-xl-block">
         <div class="floating-menu">
-            <a href="{{ route('welcome') }}" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right" title="Home">
+            <a href="{{ route('welcome') }}" class="floating-item d-block my-2" data-toggle="tooltip"
+                data-placement="right" title="Home">
                 <img src="{{ asset('images/home-icon.png') }}">
             </a>
-            <a href="{{ route('about') }}" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
-                title="About Us">
+            <a href="{{ route('about') }}" class="floating-item d-block my-2" data-toggle="tooltip"
+                data-placement="right" title="About Us">
                 <img src="{{ asset('images/about-icon.png') }}">
             </a>
             <a href="/about-us" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
                 title="Program & Facilities">
                 <img src="{{ asset('images/program-facilities-icon.png') }}">
             </a>
-            <a href="{{ route('all.event') }}" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
-                title="Event">
+            <a href="{{ route('all.event') }}" class="floating-item d-block my-2" data-toggle="tooltip"
+                data-placement="right" title="Event">
                 <img src="{{ asset('images/event-icon.png') }}">
             </a>
             <a href="/about-us" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
                 title="Announcement">
                 <img src="{{ asset('images/announcement-icon.png') }}">
             </a>
-            <a href="{{ route('all.galeri') }}" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
-                title="Gallery">
+            <a href="{{ route('all.galeri') }}" class="floating-item d-block my-2" data-toggle="tooltip"
+                data-placement="right" title="Gallery">
                 <img src="{{ asset('images/gallery-icon.png') }}">
             </a>
             <a href="/about-us" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
@@ -208,15 +228,15 @@
                 title="Registration">
                 <img src="{{ asset('images/registration-icon.png') }}">
             </a>
-            <a href="{{ route('all.news') }}" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
-                title="News">
+            <a href="{{ route('all.news') }}" class="floating-item d-block my-2" data-toggle="tooltip"
+                data-placement="right" title="News">
                 <img src="{{ asset('images/news-icon.png') }}">
             </a>
             <a href="/about-us" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
                 title="Document">
                 <img src="{{ asset('images/document-icon.png') }}">
             </a>
-            <a href="/about-us" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
+            <a href="#contact-us" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
                 title="Contact Us">
                 <img src="{{ asset('images/contact-icon.png') }}">
             </a>
@@ -231,7 +251,7 @@
     @yield('content')
 
     {{-- Contact Us --}}
-    <div class="container-fluid contact-us-container">
+    <section id="contact-us" class="container-fluid contact-us-container">
         <div class="row h-100 pt-3">
             <div class="col-lg-6 d-flex justify-content-center align-items-center py-2">
                 <img src="{{ asset('images/Logo Techinc Full Putih.png') }}" alt="Tech.Inc" style="max-width: 70%">
@@ -273,7 +293,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
     {{-- Akhir Contact Us --}}
 
 
