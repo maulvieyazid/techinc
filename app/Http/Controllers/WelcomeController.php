@@ -30,6 +30,11 @@ class WelcomeController extends Controller
         return view('about', compact('allMember'));
     }
 
+    public function program()
+    {
+        return view('program');
+    }
+
     public function news(Request $request)
     {
         $kategori = $request->input('kategori');

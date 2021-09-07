@@ -21,6 +21,8 @@
     @stack('styles')
 
     <style>
+        /* Utilities Global */
+
         html {
             scroll-behavior: smooth;
         }
@@ -29,6 +31,16 @@
         .dropdown-item:hover {
             background-color: #ad191e;
         }
+
+        .ck.ck-toolbar.ck-toolbar_grouping {
+            border: none;
+        }
+
+        .ck.ck-content.ck-read-only {
+            border: none;
+        }
+
+        /* Akhir Utilities Global */
 
         /* SEMUA VERSI / VERSI MOBILE */
 
@@ -169,7 +181,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"
                         style="background-color: #EB242C">
-                        <a class="dropdown-item text-white" href="#">Program</a>
+                        <a class="dropdown-item text-white" href="{{ route('program') }}">Program</a>
                         <a class="dropdown-item text-white" href="#">Facilities</a>
                     </div>
                 </div>
@@ -204,7 +216,7 @@
                 data-placement="right" title="About Us">
                 <img src="{{ asset('images/about-icon.png') }}">
             </a>
-            <a href="/about-us" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
+            <a href="{{ route('program') }}" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
                 title="Program & Facilities">
                 <img src="{{ asset('images/program-facilities-icon.png') }}">
             </a>

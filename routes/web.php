@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'WelcomeController@index')->name('welcome');
 Route::get('/about-us', 'WelcomeController@about')->name('about');
+Route::get('/program', 'WelcomeController@program')->name('program');
 Route::get('/news', 'WelcomeController@news')->name('all.news');
 Route::get('/news/{news}', 'WelcomeController@detailNews')->name('detail.news');
 Route::get('/galeri', 'WelcomeController@galeri')->name('all.galeri');
