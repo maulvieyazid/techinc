@@ -166,9 +166,30 @@
                     </a>
                 </div>
                 <h5>Tanggal</h5>
-                <p>08 September 2021</p>
+                <p>
+                    @if ($event->tanggal_mulai->toDateString() == $event->tanggal_selesai->toDateString())
+                        {{ $event->tanggal_selesai->translatedFormat('d F Y') }}
+                    @else
+                        {{ $event->tanggal_mulai->translatedFormat('d') }} -
+                        {{ $event->tanggal_selesai->translatedFormat('d F Y') }}
+                    @endif
+                </p>
                 <h5>Pukul</h5>
-                <p>12.00-13.00</p>
+                <p>{{ $event->tanggal_mulai->format('H.i') }}-{{ $event->tanggal_selesai->format('H.i') }}</p>
+                <h5>Status</h5>
+                <h5>
+                {{-- Jika Tanggal Mulai (>) sekarang --}}
+                @if ($event->tanggal_mulai->gt(date('Y-m-d H:i:s')))
+                    <span class="badge bg-primary text-white">Akan Datang</span>
+                    {{-- Jika Tanggal Mulai (<) sekarang && Tanggal Selesai (>) sekarang --}}
+                @elseif ($event->tanggal_mulai->lt(date('Y-m-d H:i:s')) && $event->tanggal_selesai->gt(date('Y-m-d
+                    H:i:s')) )
+                    <span class="badge bg-warning text-dark">Sedang Berlangsung</span>
+                    {{-- Jika Tanggal Selesai (<) sekarang --}}
+                @elseif ($event->tanggal_selesai->lt(date('Y-m-d H:i:s')) )
+                    <span class="badge bg-success text-white">Selesai</span>
+                @endif
+                </h5>
                 @if ($event->link_daftar)
                     <a href="{{ $event->link_daftar }}" class="btn btn-danger mb-4" target="_blank">DAFTAR</a>
                 @endif
@@ -197,7 +218,8 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-2 col-1 d-none d-sm-none d-md-none d-lg-flex d-xl-flex align-items-center justify-content-end">
+            <div
+                class="col-lg-2 col-1 d-none d-sm-none d-md-none d-lg-flex d-xl-flex align-items-center justify-content-end">
                 <div class="event-prev-arrow text-right">
                     <img src="{{ asset('images/chevron-left-circle-dark.svg') }}" width="70%">
                 </div>
@@ -210,7 +232,8 @@
                                 <a href="{{ route('detail.event', $event->slug) }}" class="stretched-link"></a>
                                 <img src="{{ asset($event->file_photo()[0]) }}" class="card-img-top">
                                 <div class="card-body">
-                                    <h6 class="card-subtitle text-right">{{ $event->tanggal_mulai->format('j.m.Y') }}</h6>
+                                    <h6 class="card-subtitle text-right">{{ $event->tanggal_mulai->format('j.m.Y') }}
+                                    </h6>
                                     <h5 class="card-title">{{ $event->nama_event }}</h5>
                                     <ul>
                                         <li><img src="{{ asset('images/bell-dark.png') }}">
