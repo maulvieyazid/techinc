@@ -21,23 +21,6 @@
             font-size: 7vmax;
         }
 
-        .isi {
-            font-weight: 500;
-            font-size: 1rem;
-        }
-
-        ol.isi li {
-            margin: 20px 0;
-        }
-
-        .teks-merah {
-            color: #ED1C24;
-        }
-
-        .bg-merah {
-            background-color: #ED1C24
-        }
-
         .lingkaran-merah {
             display: inline-block;
             width: 20px;
@@ -72,10 +55,6 @@
         /* VERSI DESKTOP */
 
         @media (min-width: 992px) {
-
-            .isi {
-                font-size: 1.5rem;
-            }
 
             /* Utilities Desktop */
 

@@ -35,6 +35,11 @@ class WelcomeController extends Controller
         return view('program');
     }
 
+    public function facilities()
+    {
+        return view('facilities');
+    }
+
     public function news(Request $request)
     {
         $kategori = $request->input('kategori');

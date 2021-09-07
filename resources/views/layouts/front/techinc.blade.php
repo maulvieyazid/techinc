@@ -28,9 +28,12 @@
         }
 
         .dropdown-item:focus,
-        .dropdown-item:hover {
+        .dropdown-item:hover,
+        .dropdown-item.active,
+        .dropdown-item:active {
             background-color: #ad191e;
         }
+
 
         .ck.ck-toolbar.ck-toolbar_grouping {
             border: none;
@@ -175,14 +178,14 @@
                 <a class="nav-link @if ($navbar == 'home') {{ 'active' }} @endif" href="{{ route('welcome') }}">Home</a>
                 <a class="nav-link @if ($navbar == 'about') {{ 'active' }} @endif" href="{{ route('about') }}">About Us</a>
                 <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle @if ($navbar == 'program') {{ 'active' }} @endif" href="#" id="navbarDropdownMenuLink"
+                    <a class="nav-link dropdown-toggle @if ($navbar == 'program' || $navbar == 'facilities') {{ 'active' }} @endif" href="#" id="navbarDropdownMenuLink"
                         role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Program & Facilities
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"
                         style="background-color: #EB242C">
-                        <a class="dropdown-item text-white" href="{{ route('program') }}">Program</a>
-                        <a class="dropdown-item text-white" href="#">Facilities</a>
+                        <a class="dropdown-item text-white @if ($navbar == 'program') {{ 'active' }} @endif" href="{{ route('program') }}">Program</a>
+                        <a class="dropdown-item text-white @if ($navbar == 'facilities') {{ 'active' }} @endif" href="#">Facilities</a>
                     </div>
                 </div>
                 <a class="nav-link d-block d-sm-block d-md-block d-lg-none d-xl-none @if ($navbar == 'event') {{ 'active' }} @endif"
@@ -216,8 +219,8 @@
                 data-placement="right" title="About Us">
                 <img src="{{ asset('images/about-icon.png') }}">
             </a>
-            <a href="{{ route('program') }}" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
-                title="Program & Facilities">
+            <a href="{{ route('program') }}" class="floating-item d-block my-2" data-toggle="tooltip"
+                data-placement="right" title="Program & Facilities">
                 <img src="{{ asset('images/program-facilities-icon.png') }}">
             </a>
             <a href="{{ route('all.event') }}" class="floating-item d-block my-2" data-toggle="tooltip"
