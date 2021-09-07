@@ -188,7 +188,7 @@
                 title="Program & Facilities">
                 <img src="{{ asset('images/program-facilities-icon.png') }}">
             </a>
-            <a href="/about-us" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
+            <a href="{{ route('all.event') }}" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
                 title="Event">
                 <img src="{{ asset('images/event-icon.png') }}">
             </a>
@@ -196,7 +196,7 @@
                 title="Announcement">
                 <img src="{{ asset('images/announcement-icon.png') }}">
             </a>
-            <a href="/galeri" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
+            <a href="{{ route('all.galeri') }}" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
                 title="Gallery">
                 <img src="{{ asset('images/gallery-icon.png') }}">
             </a>

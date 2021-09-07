@@ -232,7 +232,7 @@
                                 <a href="{{ route('detail.event', $event->slug) }}" class="stretched-link"></a>
                                 <img src="{{ asset($event->file_photo()[0]) }}" class="card-img-top">
                                 <div class="card-body">
-                                    <h6 class="card-subtitle text-right">{{ $event->tanggal_mulai->format('j.m.Y') }}
+                                    <h6 class="card-subtitle text-right">{{ $event->tanggal_mulai->format('d.m.Y') }}
                                     </h6>
                                     <h5 class="card-title">{{ $event->nama_event }}</h5>
                                     <ul>

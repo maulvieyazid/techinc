@@ -19,6 +19,7 @@ Route::get('/news', 'WelcomeController@news')->name('all.news');
 Route::get('/news/{news}', 'WelcomeController@detailNews')->name('detail.news');
 Route::get('/galeri', 'WelcomeController@galeri')->name('all.galeri');
 Route::get('/galeri/{slug_kategori}', 'WelcomeController@detailGaleri')->name('detail.galeri');
+Route::get('/event', 'WelcomeController@event')->name('all.event');
 Route::get('/event/{event}', 'WelcomeController@detailEvent')->name('detail.event');
 
 Auth::routes();

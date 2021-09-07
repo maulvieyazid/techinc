@@ -419,24 +419,6 @@
                         </div>
                     @endforeach
                 </div>
-                {{-- <div class="news-slider">
-                    @foreach ($allNews as $news)
-                        <div>
-                            <div class="card">
-                                <a href="{{ route('detail.news', $news->slug) }}" class="stretched-link"></a>
-                                <img src="{{ asset($news->thumbnail) }}" class="card-img-top">
-                                <div class="card-body">
-                                    <h6 class="card-subtitle text-right">{{ $news->created_at->format('j.m.Y') }}
-                                    </h6>
-                                    <h5 class="card-title">{{ $news->judul }}</h5>
-                                    <p class="card-text">
-                                        {{ \Illuminate\Support\Str::limit(strip_tags($news->deskripsi), 180, $end = '...') }}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div> --}}
                 @if ($allNews->isEmpty())
                     <h3 class="text-center font-weight-bold" style="font-size: 2rem">Belum ada News</h3>
                 @endif
@@ -446,19 +428,11 @@
             </div>
         </div>
         <div class="row mt-5">
-            <div class="col-lg-5 col-3">
-                {{-- <div class="news-prev-arrow">
-                    <img src="{{ asset('images/chevron-left-circle.svg') }}" width="60%">
-                </div> --}}
-            </div>
+            <div class="col-lg-5 col-3"></div>
             <div class="col-lg-1 col-4 d-flex justify-content-center align-items-center">
                 <a href="{{ route('all.news') }}" class="btn btn-danger">Selengkapnya</a>
             </div>
-            <div class="col-lg-6 col-3">
-                {{-- <div class="news-next-arrow text-right">
-                    <img src="{{ asset('images/chevron-right-circle.svg') }}" width="60%">
-                </div> --}}
-            </div>
+            <div class="col-lg-6 col-3"></div>
         </div>
         <div class="position-absolute d-none d-sm-none d-md-none d-lg-block d-xl-block" style="top: 77%; right: 0">
             <img src="{{ asset('images/bunga-event-kanan.svg') }}" style="width: 10vmax;">
@@ -494,7 +468,7 @@
                                 <a href="{{ route('detail.event', $event->slug) }}" class="stretched-link"></a>
                                 <img src="{{ asset($event->file_photo()[0]) }}" class="card-img-top">
                                 <div class="card-body">
-                                    <h6 class="card-subtitle text-right">{{ $event->tanggal_mulai->format('j.m.Y') }}</h6>
+                                    <h6 class="card-subtitle text-right">{{ $event->tanggal_mulai->format('d.m.Y') }}</h6>
                                     <h5 class="card-title">{{ $event->nama_event }}</h5>
                                     <ul>
                                         <li><img src="{{ asset('images/bell-dark.png') }}">
@@ -519,44 +493,14 @@
                         </div>
                     @endif
                 </div>
-                {{-- <div class="event-slider">
-                    @foreach ($allEvent as $event)
-                        <div>
-                            <div class="card">
-                                <img src="{{ asset($event->file_photo()[0]) }}" class="card-img-top">
-                                <div class="card-body">
-                                    <h6 class="card-subtitle">{{ $event->tanggal_mulai->format('j.m.Y') }}</h6>
-                                    <h5 class="card-title">{{ $event->nama_event }}</h5>
-                                    <ul>
-                                        <li><img src="{{ asset('images/bell.png') }}">
-                                            {{ $event->tanggal_mulai->format('H.i') }}-{{ $event->tanggal_selesai->format('H.i') }}
-                                        </li>
-                                    </ul>
-                                    <ul>
-                                        <li><img src="{{ asset('images/location.png') }}"> online</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-
-                </div> --}}
             </div>
         </div>
         <div class="row mt-5">
-            <div class="col-4 col-lg-5 d-flex justify-content-end align-items-center">
-                {{-- <div class="event-prev-arrow">
-                    <img src="{{ asset('images/chevron-left-circle-dark.svg') }}" width="70%">
-                </div> --}}
-            </div>
+            <div class="col-4 col-lg-5"></div>
             <div class="col-4 col-lg-2 d-flex justify-content-center align-items-center">
                 <button type="button" class="btn btn-danger">Selengkapnya</button>
             </div>
-            <div class="col-4 col-lg-5 d-flex justify-content-start align-items-center">
-                {{-- <div class="event-next-arrow text-right">
-                    <img src="{{ asset('images/chevron-right-circle-dark.svg') }}" width="70%">
-                </div> --}}
-            </div>
+            <div class="col-4 col-lg-5"></div>
         </div>
 
     </section>
@@ -655,42 +599,6 @@
                     }
                 ]
             });
-
-            // $('.event-slider').slick({
-            //     infinite: true,
-            //     slidesToShow: 2,
-            //     slidesToScroll: 2,
-            //     arrows: true,
-            //     autoplay: true,
-            //     autoplaySpeed: 2000,
-            //     prevArrow: $('.event-prev-arrow'),
-            //     nextArrow: $('.event-next-arrow'),
-            //     responsive: [{
-            //         breakpoint: 576,
-            //         settings: {
-            //             slidesToShow: 1,
-            //             slidesToScroll: 1,
-            //         }
-            //     }]
-            // });
-
-            // $('.news-slider').slick({
-            //     infinite: true,
-            //     slidesToShow: 2,
-            //     slidesToScroll: 2,
-            //     arrows: true,
-            //     autoplay: true,
-            //     autoplaySpeed: 2000,
-            //     prevArrow: $('.news-prev-arrow'),
-            //     nextArrow: $('.news-next-arrow'),
-            //     responsive: [{
-            //         breakpoint: 576,
-            //         settings: {
-            //             slidesToShow: 2,
-            //             slidesToScroll: 2,
-            //         }
-            //     }]
-            // });
 
             $('.tenant-slider').slick({
                 infinite: true,

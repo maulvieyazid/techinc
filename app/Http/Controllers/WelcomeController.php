@@ -68,6 +68,11 @@ class WelcomeController extends Controller
         return view('detailGaleri', compact('allGaleri', 'kategori'));
     }
 
+    public function event()
+    {
+        $allEvent = Event::latest()->paginate(6);
+        return view('event', compact('allEvent'));
+    }
 
     public function detailEvent(Event $event)
     {

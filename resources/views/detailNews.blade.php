@@ -171,7 +171,7 @@
                                 <a href="{{ route('detail.news', $other->slug) }}" class="stretched-link"></a>
                                 <img src="{{ asset($other->thumbnail) }}" class="card-img-top">
                                 <div class="card-body">
-                                    <h6 class="card-subtitle text-right">{{ $other->created_at->format('j.m.Y') }}</h6>
+                                    <h6 class="card-subtitle text-right">{{ $other->created_at->format('d.m.Y') }}</h6>
                                     <h5 class="card-title">{{ $other->judul }}</h5>
                                     <p class="card-text">
                                         {{ \Illuminate\Support\Str::limit(strip_tags($other->deskripsi), 180, $end = '...') }}
