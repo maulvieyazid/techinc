@@ -278,7 +278,7 @@
 
             /* Style Event Desktop */
 
-            /* ============= Event Card ========= */
+            /* ============= Event Card Desktop ========= */
             .event-card .card-title {
                 font-size: 3.2vmin;
             }
@@ -292,7 +292,7 @@
                 padding-bottom: 50px;
             }
 
-            /* ============= Event Card ========= */
+            /* ============= Event Card Desktop ========= */
 
             /* Akhir Style Event Desktop */
 
@@ -491,7 +491,7 @@
                     @foreach ($allEvent as $event)
                         <div class="col-12 col-lg-6">
                             <div class="card event-card">
-                                <a href="#" class="stretched-link"></a>
+                                <a href="{{ route('detail.event', $event->slug) }}" class="stretched-link"></a>
                                 <img src="{{ asset($event->file_photo()[0]) }}" class="card-img-top">
                                 <div class="card-body">
                                     <h6 class="card-subtitle text-right">{{ $event->tanggal_mulai->format('j.m.Y') }}</h6>

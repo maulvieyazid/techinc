@@ -67,4 +67,11 @@ class WelcomeController extends Controller
 
         return view('detailGaleri', compact('allGaleri', 'kategori'));
     }
+
+
+    public function detailEvent(Event $event)
+    {
+        $otherEvent = Event::where('slug', '!=', $event->slug)->latest()->take(5)->get();
+        return view('detailEvent', compact('event', 'otherEvent'));
+    }
 }
