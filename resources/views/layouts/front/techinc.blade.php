@@ -185,7 +185,7 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"
                         style="background-color: #EB242C">
                         <a class="dropdown-item text-white @if ($navbar == 'program') {{ 'active' }} @endif" href="{{ route('program') }}">Program</a>
-                        <a class="dropdown-item text-white @if ($navbar == 'facilities') {{ 'active' }} @endif" href="#">Facilities</a>
+                        <a class="dropdown-item text-white @if ($navbar == 'facilities') {{ 'active' }} @endif" href="{{ route('facilities') }}">Facilities</a>
                     </div>
                 </div>
                 <a class="nav-link d-block d-sm-block d-md-block d-lg-none d-xl-none @if ($navbar == 'event') {{ 'active' }} @endif"
