@@ -27,6 +27,11 @@
             scroll-behavior: smooth;
         }
 
+        body {
+            overflow-x: hidden;
+            /* Prevent scroll on narrow devices */
+        }
+
         .dropdown-item:focus,
         .dropdown-item:hover,
         .dropdown-item.active,
@@ -53,12 +58,40 @@
         }
 
         .navbar-brand img {
-            width: 20vmin;
+            width: 85px;
         }
 
         .navbar-nav .nav-link {
             margin-right: 50px;
         }
+
+        /* Style Offcanvas Navbar */
+        @media (max-width: 991.98px) {
+            .offcanvas-collapse {
+                position: fixed;
+                top: 65px;
+                bottom: 0;
+                left: 100%;
+                width: 100%;
+                padding-right: 1rem;
+                padding-left: 1rem;
+                padding-top: 1rem;
+                overflow-y: auto;
+                visibility: hidden;
+                background-color: #EB242C;
+                transition: visibility .3s ease-in-out, -webkit-transform .3s ease-in-out;
+                transition: transform .3s ease-in-out, visibility .3s ease-in-out;
+                transition: transform .3s ease-in-out, visibility .3s ease-in-out, -webkit-transform .3s ease-in-out;
+            }
+
+            .offcanvas-collapse.open {
+                visibility: visible;
+                -webkit-transform: translateX(-100%);
+                transform: translateX(-100%);
+            }
+        }
+
+        /* Akhir Style Offcanvas Navbar */
 
         /* Akhir Style Navbar */
 
@@ -166,15 +199,15 @@
 <body>
     {{-- Navbar --}}
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark px-5">
-        <a class="navbar-brand" href="/">
+        <a class="navbar-brand" href="{{ route('welcome') }}">
             <img src="{{ asset('images/Logo Techinc Full Putih.png') }}" alt="Tech.Inc">
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        <button class="navbar-toggler" type="button" data-toggle="offcanvas" data-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav m-auto font-weight-bold navbar-nav-scroll" style="max-height: 200px;">
+        <div class="offcanvas-collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav m-auto font-weight-bold navbar-nav-scroll">
                 <a class="nav-link @if ($navbar == 'home') {{ 'active' }} @endif" href="{{ route('welcome') }}">Home</a>
                 <a class="nav-link @if ($navbar == 'about') {{ 'active' }} @endif" href="{{ route('about') }}">About Us</a>
                 <div class="nav-item dropdown">
@@ -184,8 +217,10 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"
                         style="background-color: #EB242C">
-                        <a class="dropdown-item text-white @if ($navbar == 'program') {{ 'active' }} @endif" href="{{ route('program') }}">Program</a>
-                        <a class="dropdown-item text-white @if ($navbar == 'facilities') {{ 'active' }} @endif" href="{{ route('facilities') }}">Facilities</a>
+                        <a class="dropdown-item text-white @if ($navbar == 'program') {{ 'active' }} @endif"
+                            href="{{ route('program') }}">Program</a>
+                        <a class="dropdown-item text-white @if ($navbar == 'facilities') {{ 'active' }} @endif"
+                            href="{{ route('facilities') }}">Facilities</a>
                     </div>
                 </div>
                 <a class="nav-link d-block d-sm-block d-md-block d-lg-none d-xl-none @if ($navbar == 'event') {{ 'active' }} @endif"
@@ -235,8 +270,8 @@
                 data-placement="right" title="Gallery">
                 <img src="{{ asset('images/gallery-icon.png') }}">
             </a>
-            <a href="{{ route('all.startup') }}" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
-                title="Tenant Startup">
+            <a href="{{ route('all.startup') }}" class="floating-item d-block my-2" data-toggle="tooltip"
+                data-placement="right" title="Tenant Startup">
                 <img src="{{ asset('images/tenant-startup-icon.png') }}">
             </a>
             <a href="/about-us" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
@@ -358,6 +393,14 @@
                 $('.floating-sidebar').removeClass('floating-sidebar-expand');
             }
         });
+
+        $(function() {
+            'use strict'
+
+            $('[data-toggle="offcanvas"]').on('click', function() {
+                $('.offcanvas-collapse').toggleClass('open')
+            })
+        })
     </script>
 </body>
 
