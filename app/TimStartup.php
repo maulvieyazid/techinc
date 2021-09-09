@@ -18,4 +18,9 @@ class TimStartup extends Model
     {
         return $this->belongsTo(Startup::class, 'slug_startup', 'slug');
     }
+
+    public function scopeAktif($query)
+    {
+        return $query->where('status', 1);
+    }
 }

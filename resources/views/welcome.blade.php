@@ -367,7 +367,9 @@
                                         <div>
                                             <div class="card text-justify mx-2">
                                                 <div class="card-header">
-                                                    <img src="{{ asset($startup->logo) }}">
+                                                    <a href="{{ route('detail.startup', $startup->slug) }}">
+                                                        <img src="{{ asset($startup->logo) }}">
+                                                    </a>
                                                 </div>
                                                 <div class="card-body">
                                                     {{ $startup->deskripsi }}
@@ -498,7 +500,7 @@
         <div class="row mt-5">
             <div class="col-4 col-lg-5"></div>
             <div class="col-4 col-lg-2 d-flex justify-content-center align-items-center">
-                <button type="button" class="btn btn-danger">Selengkapnya</button>
+                <a href="{{ route('all.event') }}" class="btn btn-danger">Selengkapnya</a>
             </div>
             <div class="col-4 col-lg-5"></div>
         </div>

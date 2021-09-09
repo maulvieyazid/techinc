@@ -194,8 +194,8 @@
                     href="#">Announcement</a>
                 <a class="nav-link d-block d-sm-block d-md-block d-lg-none d-xl-none @if ($navbar == 'gallery') {{ 'active' }} @endif"
                     href="{{ route('all.galeri') }}">Gallery</a>
-                <a class="nav-link d-block d-sm-block d-md-block d-lg-none d-xl-none @if ($navbar == 'tenant-startup') {{ 'active' }} @endif"
-                    href="#">Tenant Startup</a>
+                <a class="nav-link d-block d-sm-block d-md-block d-lg-none d-xl-none @if ($navbar == 'startup') {{ 'active' }} @endif"
+                    href="{{ route('all.startup') }}">Tenant Startup</a>
                 <a class="nav-link d-block d-sm-block d-md-block d-lg-none d-xl-none @if ($navbar == 'news') {{ 'active' }} @endif"
                     href="{{ route('all.news') }}">News</a>
                 <a class="nav-link d-block d-sm-block d-md-block d-lg-none d-xl-none @if ($navbar == 'document') {{ 'active' }} @endif"
@@ -235,7 +235,7 @@
                 data-placement="right" title="Gallery">
                 <img src="{{ asset('images/gallery-icon.png') }}">
             </a>
-            <a href="/about-us" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
+            <a href="{{ route('all.startup') }}" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
                 title="Tenant Startup">
                 <img src="{{ asset('images/tenant-startup-icon.png') }}">
             </a>

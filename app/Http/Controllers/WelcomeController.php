@@ -11,12 +11,13 @@ use App\News;
 use App\Partner;
 use Illuminate\Http\Request;
 use App\Startup;
+use App\TimStartup;
 
 class WelcomeController extends Controller
 {
     public function index()
     {
-        $allStartup = Startup::all();
+        $allStartup = Startup::latest()->get();
         $allNews = News::latest()->take(2)->get();
         $allEvent = Event::where('tanggal_selesai', '>=', date('Y-m-d H:i:s'))->get();
         $allKategori = Kategori::latest()->take(3)->get();
@@ -88,5 +89,17 @@ class WelcomeController extends Controller
     {
         $otherEvent = Event::where('slug', '!=', $event->slug)->latest()->take(5)->get();
         return view('detailEvent', compact('event', 'otherEvent'));
+    }
+
+    public function startup()
+    {
+        $allStartup = Startup::latest()->get();
+        return view('startup', compact('allStartup'));
+    }
+
+    public function detailStartup(Startup $startup)
+    {
+        $timStartup = TimStartup::where('slug_startup', $startup->slug)->aktif()->get();
+        return view('detailStartup', compact('startup', 'timStartup'));
     }
 }
