@@ -27,7 +27,7 @@
         }
 
         .startup-card {
-            box-shadow: 10px 10px 6px 0px rgba(0,0,0,0.3);
+            box-shadow: 10px 10px 6px 0px rgba(0, 0, 0, 0.3);
         }
 
         /*  Akhir Utilities */
@@ -66,29 +66,27 @@
         </div>
     </header>
 
-    <section id="content" class="container-fluid ">
+    <section id="content" class="container-fluid pb-5" style="margin-top: -200px;">
         <div class="row">
-            <div class="col-lg-2 col-1"></div>
-            <div class="col-lg-6 col-9">
-                <div>
-                    <h2 class="judul teks-merah" style="font-size: 4vmax;"></h2>
+            <div class="col-xl-1 col-lg-2 col-md-1"></div>
+            <div class="col-lg-7 col-md-10 col-12">
+                {{-- <div class="row row-cols-xl-5 row-cols-lg-3 row-cols-md-2 row-cols-1 mt-3 startup-row"> --}}
+                <div class="row row-cols-xl-3 row-cols-md-2 row-cols-1">
+                    @foreach ($allStartup as $startup)
+                        <div class="col my-4 d-flex justify-content-center align-items-center">
+                            <div class="card startup-card" style="width: 200px; height: 200px; padding: 2rem;">
+                                <a href="{{ route('detail.startup', $startup->slug) }}" class="stretched-link"></a>
+                                <img src="{{ asset($startup->logo) }}"
+                                    style="width: 100%; height: 100%; object-fit: contain;">
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
-        </div>
-        <div class="row row-cols-xl-5 row-cols-lg-3 row-cols-md-2 row-cols-1 mt-3 startup-row">
-            @foreach ($allStartup as $startup)
-                <div class="col my-4 d-flex justify-content-center align-items-center">
-                    <div class="card startup-card" style="width: 200px; height: 200px; padding: 2rem;">
-                        <a href="{{ route('detail.startup', $startup->slug) }}" class="stretched-link"></a>
-                        <img src="{{ asset($startup->logo) }}" style="width: 100%; height: 100%; object-fit: contain;">
-                    </div>
-                </div>
-            @endforeach
         </div>
     </section>
 
 @endsection
-
 
 @push('js')
 

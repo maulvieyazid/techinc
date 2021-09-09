@@ -85,14 +85,6 @@
     </header>
 
     <section id="content" class="container-fluid " style="margin-top: -200px;">
-        <div class="row">
-            <div class="col-lg-2 col-1"></div>
-            <div class="col-lg-6 col-9">
-                <div>
-                    <h2 class="judul teks-merah" style="font-size: 4vmax;"></h2>
-                </div>
-            </div>
-        </div>
         <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 mt-3 pb-5">
             @foreach ($allKategori as $kategori)
                 <div class="col my-3">

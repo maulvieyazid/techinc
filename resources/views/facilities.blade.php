@@ -63,7 +63,7 @@
         </div>
     </header>
 
-    <section id="content" class="container-fluid " style="margin-top: -200px;">
+    <section id="content" class="container-fluid pb-5" style="margin-top: -200px;">
         <div class="row">
             <div class="col-lg-1 col-md-1"></div>
             <div class="col-lg-7 col-md-10 col-12">
