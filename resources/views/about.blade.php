@@ -108,8 +108,7 @@
             <div class="col-lg-6 col-9">
                 <div>
                     <h2 class="judul teks-merah">Visi</h2>
-                    <p class="isi">Menjadi Inkubator Bisnis Teknologi yang produktif dalam
-                        berinovasi guna mendorong lahirnya Technopreneur di Indonesia</p>
+                    <p class="isi">{{ $about->visi }}</p>
                 </div>
             </div>
         </div>
@@ -121,16 +120,17 @@
             <div class="col-lg-4 col-4">
                 <img src="{{ asset('images/kiri-misi.svg') }}" class="w-75">
             </div>
-            <div class="col-lg-6 col-6 pr-0">
+            <div class="col-lg-5 col-6 pr-0">
                 <div>
                     <h2 class="judul teks-merah">Misi</h2>
-                    <ol class="isi" style="padding-left: 5%;">
+                    <p class="isi my-4 text-justify">{!! str_replace(PHP_EOL, '<br>', $about->misi) !!}</p>
+                    {{-- <ol class="isi" style="padding-left: 5%;">
                         <li>Memberikan fasilitas dan dukungan terhadap ide inovatif, agar menjadi startup unggulan di
                             masyarakat.</li>
                         <li>Menyelenggarakan inkubasi perusahaan pemula berbasis teknologi secara profesional.</li>
                         <li>Menghasilkan startup yang siap berkarya di masyarakat.</li>
                         <li>Mempercepat komersialisasi produk inovasi.</li>
-                    </ol>
+                    </ol> --}}
                 </div>
             </div>
         </div>
@@ -143,7 +143,8 @@
                 <img src="{{ asset('images/tujuan.svg') }}" class="w-75" style="margin-top: -15%">
             </div>
             <div class="col-lg-5 col-6 pr-0">
-                <ol class="isi p-0 text-white">
+                <p class="isi text-white my-4">{!! str_replace(PHP_EOL, '<br>', $about->tujuan) !!}</p>
+                {{-- <ol class="isi p-0 text-white">
                     <li>Meningkatkan alih teknologi hasil riset lembaga penelitian untuk meningkatkan
                         daya saing perusahaan baru berbasis inovasi teknologi.</li>
                     <li>Mendorong lahirnya wirausaha-wirausaha muda berbasis teknologi dan Perusahaan
@@ -154,7 +155,7 @@
                         masyarakat berpendidikan tinggi.</li>
                     <li>Meningkatkan kemandirian sumber pendanaan riset dari komersialisasi HKI/hasil
                         riset UNIVERSITAS DINAMIKA.</li>
-                </ol>
+                </ol> --}}
             </div>
         </div>
     </section>

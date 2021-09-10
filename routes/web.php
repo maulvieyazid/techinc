@@ -81,5 +81,8 @@ Route::middleware(['auth'])->group(function () {
 
         # Route Document
         Route::resource('document', 'DocumentController');
+
+        # Route About
+        Route::resource('about', 'AboutController');
     });
 });

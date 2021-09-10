@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\About;
 use App\Document;
 use App\Event;
 use App\Galeri;
@@ -29,7 +30,12 @@ class WelcomeController extends Controller
     public function about()
     {
         $allMember = Member::with('jenisMember')->get();
-        return view('about', compact('allMember'));
+        $about = About::first();
+
+        // echo str_replace(PHP_EOL,"<br>",$about->misi);
+        // // echo($about->misi);
+        // die();
+        return view('about', compact('allMember', 'about'));
     }
 
     public function program()

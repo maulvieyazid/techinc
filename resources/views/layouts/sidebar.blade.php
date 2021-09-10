@@ -20,16 +20,19 @@
                     </a>
                 </li>
 
-                <li class="sidebar-item @if (collect(['carouselImage' ])->
+                <li class="sidebar-item @if (collect(['carouselImage', 'about' ])->
                     contains($sidebar)) {{ 'active' }} @endif has-sub">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-front"></i>
                         <span>Front</span>
                     </a>
-                    <ul class="submenu @if (collect(['carouselImage' ])->
+                    <ul class="submenu @if (collect(['carouselImage', 'about' ])->
                         contains($sidebar)) {{ 'active' }} @endif">
                         <li class="submenu-item @if ($sidebar=='carouselImage' ) {{ 'active' }} @endif">
                             <a href="{{ route('carousel-image.index') }}">Carousel</a>
+                        </li>
+                        <li class="submenu-item @if ($sidebar=='about' ) {{ 'active' }} @endif">
+                            <a href="{{ route('about.index') }}">About</a>
                         </li>
                     </ul>
                 </li>
