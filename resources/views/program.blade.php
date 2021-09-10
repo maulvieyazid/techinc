@@ -106,19 +106,11 @@
         <div class="row">
             <div class="col-lg-1 col-md-1"></div>
             <div class="col-lg-8 col-md-10 col-12">
-                <div class="lingkaran-merah"></div>
-                <div class="tahap">Pra Inkubasi</div>
-                <div class="deskripsi">Peserta mengikuti bootcamp, matrikulasi bisnis dan workshop yang diselenggarakan
-                    oleh Inkubator Bisnis dan Teknologi.</div>
-                <div class="lingkaran-merah"></div>
-                <div class="tahap">Inkubasi</div>
-                <div class="deskripsi">Tahap Inkubasi merupakan tahap dimana tenant akan mendapatkan berbagai macam
-                    mekanisme dan metode pendampingan serta berbagai materi yang dibutuhkan. Inkubasi tahap awal meliputi
-                    coaching business, mentoring, training/workshop hingga pendampingan pendaftaran HKI.</div>
-                <div class="lingkaran-merah"></div>
-                <div class="tahap">Pasca Inkubasi</div>
-                <div class="deskripsi" style="border-color: transparent;">Pada tahap pasca Inkubasi adalah proses
-                    setelah tenant melalui program Inkubasi yang dijalankan.</div>
+                @foreach ($semuaProgram as $program)
+                    <div class="lingkaran-merah"></div>
+                    <div class="tahap">{{ $program->tahap }}</div>
+                    <div class="deskripsi" @if ($loop->last) style="border-color: transparent;" @endif>{{ $program->deskripsi }}</div>
+                @endforeach
             </div>
         </div>
     </section>

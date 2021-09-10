@@ -11,6 +11,7 @@ use App\KategoriNews;
 use App\Member;
 use App\News;
 use App\Partner;
+use App\Program;
 use Illuminate\Http\Request;
 use App\Startup;
 use App\TimStartup;
@@ -32,15 +33,14 @@ class WelcomeController extends Controller
         $allMember = Member::with('jenisMember')->get();
         $about = About::first();
 
-        // echo str_replace(PHP_EOL,"<br>",$about->misi);
-        // // echo($about->misi);
-        // die();
         return view('about', compact('allMember', 'about'));
     }
 
     public function program()
     {
-        return view('program');
+        $semuaProgram = Program::orderBy('urutan', 'asc')->get();
+
+        return view('program', compact('semuaProgram'));
     }
 
     public function facilities()
