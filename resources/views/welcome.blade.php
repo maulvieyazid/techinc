@@ -332,12 +332,11 @@
                 <button type="button" class="btn btn-danger btn-action">Mau</button>
                 <button type="button" class="btn btn-danger btn-action">Pelajari</button>
             </div>
-            <div class="carousel-item active">
-                <img src="{{ asset('images/bg1.jpg') }}" class="d-block">
+            @foreach ($allCarouselImage as $carouselImage)
+            <div class="carousel-item @if($loop->first) active @endif">
+                <img src="{{ asset($carouselImage->foto) }}" class="d-block">
             </div>
-            <div class="carousel-item">
-                <img src="{{ asset('images/bg-3.jpg') }}" class="d-block">
-            </div>
+            @endforeach
         </div>
     </section>
     {{-- Akhir Carousel --}}

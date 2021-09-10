@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\About;
+use App\CarouselImage;
 use App\Document;
 use App\Event;
 use App\Galeri;
@@ -20,12 +21,13 @@ class WelcomeController extends Controller
 {
     public function index()
     {
+        $allCarouselImage = CarouselImage::orderBy('urutan', 'asc')->get();
         $allStartup = Startup::latest()->get();
         $allNews = News::latest()->take(2)->get();
         $allEvent = Event::where('tanggal_selesai', '>=', date('Y-m-d H:i:s'))->get();
         $allKategori = Kategori::latest()->take(3)->get();
         $allPartner = Partner::latest()->get();
-        return view('welcome', compact('allStartup', 'allNews', 'allEvent', 'allKategori', 'allPartner'));
+        return view('welcome', compact('allCarouselImage', 'allStartup', 'allNews', 'allEvent', 'allKategori', 'allPartner'));
     }
 
     public function about()
