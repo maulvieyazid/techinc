@@ -28,6 +28,9 @@ Route::get('/startup/{startup}', 'WelcomeController@detailStartup')->name('detai
 
 Auth::routes();
 
+Route::get('show/file/{document}', 'DocumentController@showFile')->name('document.show.file');
+Route::get('download/file/{document}', 'DocumentController@downloadFile')->name('document.download.file');
+
 Route::middleware(['auth'])->group(function () {
     Route::prefix('admin')->group(function () {
         Route::get('/home', 'HomeController@index')->name('home');
@@ -74,5 +77,8 @@ Route::middleware(['auth'])->group(function () {
 
         # Route Partner
         Route::resource('partner', 'PartnerController');
+
+        # Route Document
+        Route::resource('document', 'DocumentController');
     });
 });

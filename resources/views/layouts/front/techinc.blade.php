@@ -262,7 +262,7 @@
                 data-placement="right" title="Event">
                 <img src="{{ asset('images/event-icon.png') }}">
             </a>
-            <a href="/about-us" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
+            <a href="/" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
                 title="Announcement">
                 <img src="{{ asset('images/announcement-icon.png') }}">
             </a>
@@ -274,7 +274,7 @@
                 data-placement="right" title="Tenant Startup">
                 <img src="{{ asset('images/tenant-startup-icon.png') }}">
             </a>
-            <a href="/about-us" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
+            <a href="/" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
                 title="Registration">
                 <img src="{{ asset('images/registration-icon.png') }}">
             </a>
@@ -282,7 +282,7 @@
                 data-placement="right" title="News">
                 <img src="{{ asset('images/news-icon.png') }}">
             </a>
-            <a href="/about-us" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
+            <a href="/" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
                 title="Document">
                 <img src="{{ asset('images/document-icon.png') }}">
             </a>

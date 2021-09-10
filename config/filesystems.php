@@ -105,6 +105,11 @@ return [
             'root'   => public_path('upload/partner')
         ],
 
+        'file_dokumen' => [
+            'driver' => 'local',
+            'root'   => public_path('upload/document')
+        ],
+
         'image_ckeditor' => [
             'driver' => 'local',
             'root'   => public_path('upload/ckeditor'),

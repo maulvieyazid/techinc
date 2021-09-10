@@ -119,6 +119,13 @@
                     </a>
                 </li>
 
+                <li class="sidebar-item @if ($sidebar=='document' ) {{ 'active' }} @endif">
+                    <a href="{{ route('document.index') }}" class='sidebar-link'>
+                        <i class="bi bi-file-earmark-text"></i>
+                        <span>Document</span>
+                    </a>
+                </li>
+
 
                 <li class="sidebar-item"><br><br></li>
 
