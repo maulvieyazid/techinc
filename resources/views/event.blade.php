@@ -136,7 +136,7 @@
                 </div>
             </div>
         </div>
-        <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 mt-3 pb-5">
+        <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 mt-3 pb-4">
             @foreach ($allEvent as $event)
                 <div class="col my-3">
                     <div class="card event-card">
@@ -157,6 +157,11 @@
                     </div>
                 </div>
             @endforeach
+        </div>
+        <div class="row pb-4">
+            <div class="col d-flex justify-content-center align-items-center">
+                {{ $allEvent->links() }}
+            </div>
         </div>
     </section>
 

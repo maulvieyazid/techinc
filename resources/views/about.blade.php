@@ -123,14 +123,7 @@
             <div class="col-lg-5 col-6 pr-0">
                 <div>
                     <h2 class="judul teks-merah">Misi</h2>
-                    <p class="isi my-4 text-justify">{!! str_replace(PHP_EOL, '<br>', $about->misi) !!}</p>
-                    {{-- <ol class="isi" style="padding-left: 5%;">
-                        <li>Memberikan fasilitas dan dukungan terhadap ide inovatif, agar menjadi startup unggulan di
-                            masyarakat.</li>
-                        <li>Menyelenggarakan inkubasi perusahaan pemula berbasis teknologi secara profesional.</li>
-                        <li>Menghasilkan startup yang siap berkarya di masyarakat.</li>
-                        <li>Mempercepat komersialisasi produk inovasi.</li>
-                    </ol> --}}
+                    <p class="isi my-4">{!! str_replace(PHP_EOL, '<br>', $about->misi) !!}</p>
                 </div>
             </div>
         </div>
@@ -144,18 +137,6 @@
             </div>
             <div class="col-lg-5 col-6 pr-0">
                 <p class="isi text-white my-4">{!! str_replace(PHP_EOL, '<br>', $about->tujuan) !!}</p>
-                {{-- <ol class="isi p-0 text-white">
-                    <li>Meningkatkan alih teknologi hasil riset lembaga penelitian untuk meningkatkan
-                        daya saing perusahaan baru berbasis inovasi teknologi.</li>
-                    <li>Mendorong lahirnya wirausaha-wirausaha muda berbasis teknologi dan Perusahaan
-                        Baru Berbasis Teknologi.</li>
-                    <li>Memperkuat daya saing industri dalam negeri menuju ekonomi berbasis inovasi.
-                    </li>
-                    <li>Menciptakan lapangan pekerjaan baru berbasis inovasi teknologi bagi warga
-                        masyarakat berpendidikan tinggi.</li>
-                    <li>Meningkatkan kemandirian sumber pendanaan riset dari komersialisasi HKI/hasil
-                        riset UNIVERSITAS DINAMIKA.</li>
-                </ol> --}}
             </div>
         </div>
     </section>

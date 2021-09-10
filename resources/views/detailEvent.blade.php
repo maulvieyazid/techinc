@@ -191,7 +191,7 @@
                 @endif
                 </h5>
                 @if ($event->link_daftar)
-                    <a href="{{ $event->link_daftar }}" class="btn btn-danger mb-4" target="_blank">DAFTAR</a>
+                    <a href="{{ $event->link_daftar }}" class="btn btn-danger my-3" target="_blank">DAFTAR</a>
                 @endif
             </div>
         </div>
