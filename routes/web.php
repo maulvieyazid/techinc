@@ -25,6 +25,7 @@ Route::get('/event', 'WelcomeController@event')->name('all.event');
 Route::get('/event/{event}', 'WelcomeController@detailEvent')->name('detail.event');
 Route::get('/startup', 'WelcomeController@startup')->name('all.startup');
 Route::get('/startup/{startup}', 'WelcomeController@detailStartup')->name('detail.startup');
+Route::get('/document', 'WelcomeController@document')->name('all.document');
 
 Auth::routes();
 

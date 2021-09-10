@@ -234,7 +234,7 @@
                 <a class="nav-link d-block d-sm-block d-md-block d-lg-none d-xl-none @if ($navbar == 'news') {{ 'active' }} @endif"
                     href="{{ route('all.news') }}">News</a>
                 <a class="nav-link d-block d-sm-block d-md-block d-lg-none d-xl-none @if ($navbar == 'document') {{ 'active' }} @endif"
-                    href="#">Document</a>
+                    href="{{ route('all.document') }}">Document</a>
                 <a class="nav-link d-block d-sm-block d-md-block d-lg-none d-xl-none @if ($navbar == 'contact-us') {{ 'active' }} @endif"
                     href="#contact-us">Contact Us</a>
             </div>
@@ -282,7 +282,7 @@
                 data-placement="right" title="News">
                 <img src="{{ asset('images/news-icon.png') }}">
             </a>
-            <a href="/" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
+            <a href="{{ route('all.document') }}" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
                 title="Document">
                 <img src="{{ asset('images/document-icon.png') }}">
             </a>

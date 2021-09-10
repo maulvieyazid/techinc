@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Document;
 use App\Event;
 use App\Galeri;
 use App\Kategori;
@@ -101,5 +102,11 @@ class WelcomeController extends Controller
     {
         $timStartup = TimStartup::where('slug_startup', $startup->slug)->aktif()->get();
         return view('detailStartup', compact('startup', 'timStartup'));
+    }
+
+    public function document()
+    {
+        $allDocument = Document::latest()->get();
+        return view('document', compact('allDocument'));
     }
 }
