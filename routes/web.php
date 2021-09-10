@@ -84,5 +84,8 @@ Route::middleware(['auth'])->group(function () {
 
         # Route About
         Route::resource('about', 'AboutController');
+
+        # Route Program
+        Route::resource('program', 'ProgramController');
     });
 });
