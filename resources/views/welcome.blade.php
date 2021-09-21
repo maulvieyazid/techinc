@@ -329,8 +329,8 @@
         <div class="carousel-inner">
             <div class="call-to-action">
                 <img src="{{ asset('images/text-cta.png') }}" alt="Mau Buat Startup?">
-                <button type="button" class="btn btn-danger btn-action">Mau</button>
-                <button type="button" class="btn btn-danger btn-action">Pelajari</button>
+                <a href="https://bit.ly/TenantStartup" class="btn btn-danger btn-action">Mau</a>
+                <a href="https://bit.ly/TenantStartup" class="btn btn-danger btn-action">Pelajari</a>
             </div>
             @foreach ($allCarouselImage as $carouselImage)
             <div class="carousel-item @if($loop->first) active @endif">

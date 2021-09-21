@@ -136,10 +136,10 @@
                 </div>
             </div>
         </div>
-        <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 mt-3 pb-4">
+        <div class="row row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-1 mt-3 pb-4">
             @foreach ($allEvent as $event)
                 <div class="col my-3">
-                    <div class="card event-card">
+                    <div class="card event-card h-100">
                         <a href="{{ route('detail.event', $event->slug) }}" class="stretched-link"></a>
                         <img src="{{ asset($event->file_photo()[0]) }}" class="card-img-top">
                         <div class="card-body">

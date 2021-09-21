@@ -205,7 +205,7 @@
         </div>
     </section>
 
-    <section id="other" class="container-fluid" style="margin-top: 50px;">
+    <section id="other" class="container-fluid pb-5" style="margin-top: 50px;">
         <div class="row">
             <div class="col-lg-3 col-md-4 col-6">
                 <img src="{{ asset('images/kiri-detail-page.svg') }}" class="w-100">
@@ -217,7 +217,7 @@
                 <h3 style="color: #ED1C24; font-weight: 800">Event Lainnya</h3>
             </div>
         </div>
-        <div class="row">
+        <div class="row pb-5">
             <div
                 class="col-lg-2 col-1 d-none d-sm-none d-md-none d-lg-flex d-xl-flex align-items-center justify-content-end">
                 <div class="event-prev-arrow text-right">
@@ -228,7 +228,7 @@
                 <div class="event-slider">
                     @foreach ($otherEvent as $event)
                         <div>
-                            <div class="card event-card">
+                            <div class="card event-card mx-4">
                                 <a href="{{ route('detail.event', $event->slug) }}" class="stretched-link"></a>
                                 <img src="{{ asset($event->file_photo()[0]) }}" class="card-img-top">
                                 <div class="card-body">
@@ -272,7 +272,7 @@
                 slidesToScroll: 2,
                 arrows: true,
                 autoplay: true,
-                autoplaySpeed: 2000,
+                autoplaySpeed: 3000,
                 prevArrow: $('.event-prev-arrow'),
                 nextArrow: $('.event-next-arrow'),
                 responsive: [{
