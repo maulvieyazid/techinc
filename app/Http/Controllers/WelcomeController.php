@@ -6,6 +6,7 @@ use App\About;
 use App\CarouselImage;
 use App\Document;
 use App\Event;
+use App\Fasilitas;
 use App\Galeri;
 use App\Kategori;
 use App\KategoriNews;
@@ -47,7 +48,9 @@ class WelcomeController extends Controller
 
     public function facilities()
     {
-        return view('facilities');
+        $semuaFasilitas = Fasilitas::orderBy('urutan', 'asc')->get();
+
+        return view('facilities', compact('semuaFasilitas'));
     }
 
     public function news(Request $request)

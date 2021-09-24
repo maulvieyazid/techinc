@@ -87,5 +87,8 @@ Route::middleware(['auth'])->group(function () {
 
         # Route Program
         Route::resource('program', 'ProgramController');
+
+        # Route Fasilitas
+        Route::resource('fasilitas', 'FasilitasController');
     });
 });

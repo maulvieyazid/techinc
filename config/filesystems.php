@@ -110,6 +110,11 @@ return [
             'root'   => public_path('upload/document')
         ],
 
+        'logo_fasilitas' => [
+            'driver' => 'local',
+            'root'   => public_path('upload/fasilitas')
+        ],
+
         'image_ckeditor' => [
             'driver' => 'local',
             'root'   => public_path('upload/ckeditor'),
