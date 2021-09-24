@@ -102,11 +102,15 @@
 
         .news-card .card .card-body {
             margin-bottom: 25px;
+            height: 230px;
+            overflow-y: hidden;
         }
 
         .news-card .card img {
             padding: 1.25rem;
             padding-top: 3rem;
+            height: 300px;
+            object-fit: contain;
         }
 
         .news-card .card .card-title {
@@ -333,9 +337,9 @@
                 <a href="https://bit.ly/TenantStartup" class="btn btn-danger btn-action">Pelajari</a>
             </div>
             @foreach ($allCarouselImage as $carouselImage)
-            <div class="carousel-item @if($loop->first) active @endif">
-                <img src="{{ asset($carouselImage->foto) }}" class="d-block">
-            </div>
+                <div class="carousel-item @if ($loop->first) active @endif">
+                    <img src="{{ asset($carouselImage->foto) }}" class="d-block">
+                </div>
             @endforeach
         </div>
     </section>
@@ -469,7 +473,8 @@
                                 <a href="{{ route('detail.event', $event->slug) }}" class="stretched-link"></a>
                                 <img src="{{ asset($event->file_photo()[0]) }}" class="card-img-top">
                                 <div class="card-body">
-                                    <h6 class="card-subtitle text-right">{{ $event->tanggal_mulai->format('d.m.Y') }}</h6>
+                                    <h6 class="card-subtitle text-right">{{ $event->tanggal_mulai->format('d.m.Y') }}
+                                    </h6>
                                     <h5 class="card-title">{{ $event->nama_event }}</h5>
                                     <ul>
                                         <li><img src="{{ asset('images/bell-dark.png') }}">
