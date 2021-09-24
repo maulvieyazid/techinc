@@ -190,7 +190,8 @@
                     <span class="badge bg-success text-white">Selesai</span>
                 @endif
                 </h5>
-                @if ($event->link_daftar)
+                {{-- Jika ada link daftarnya dan event nya blm selesai --}}
+                @if ($event->link_daftar && !$event->tanggal_selesai->lt(date('Y-m-d H:i:s')))
                     <a href="{{ $event->link_daftar }}" class="btn btn-danger my-3" target="_blank">DAFTAR</a>
                 @endif
             </div>
@@ -205,7 +206,7 @@
         </div>
     </section>
 
-    <section id="other" class="container-fluid pb-5" style="margin-top: 50px;">
+    {{-- <section id="other" class="container-fluid pb-5" style="margin-top: 50px;">
         <div class="row">
             <div class="col-lg-3 col-md-4 col-6">
                 <img src="{{ asset('images/kiri-detail-page.svg') }}" class="w-100">
@@ -255,7 +256,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
 
 @endsection

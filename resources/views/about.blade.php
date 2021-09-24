@@ -103,7 +103,7 @@
                 <h1 class="text-white m-0 judul">About Us.</h1>
             </div>
         </div>
-        <div class="row align-items-center h-50">
+        <div class="row align-items-end h-50">
             <div class="col-lg-2 col-1"></div>
             <div class="col-lg-6 col-9">
                 <div>

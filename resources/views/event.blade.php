@@ -151,7 +151,21 @@
                                 </li>
                             </ul>
                             <ul>
-                                <li><img src="{{ asset('images/location-dark.png') }}"> online</li>
+                                <li>
+                                    <img src="https://img.icons8.com/ios/100/000000/door.png" />
+                                    {{-- Jika Tanggal Mulai (>) sekarang --}}
+                                    @if ($event->tanggal_mulai->gt(date('Y-m-d H:i:s')))
+                                        <span class="badge bg-primary text-white align-middle">Akan Datang</span>
+                                        {{-- Jika Tanggal Mulai (<) sekarang && Tanggal Selesai (>) sekarang --}}
+                                    @elseif ($event->tanggal_mulai->lt(date('Y-m-d H:i:s')) &&
+                                        $event->tanggal_selesai->gt(date('Y-m-d
+                                        H:i:s')) )
+                                        <span class="badge bg-warning text-dark align-middle">Sedang Berlangsung</span>
+                                        {{-- Jika Tanggal Selesai (<) sekarang --}}
+                                    @elseif ($event->tanggal_selesai->lt(date('Y-m-d H:i:s')) )
+                                        <span class="badge bg-success text-white align-middle">Selesai</span>
+                                    @endif
+                                </li>
                             </ul>
                         </div>
                     </div>
