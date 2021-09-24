@@ -109,8 +109,8 @@
         .news-card .card img {
             padding: 1.25rem;
             padding-top: 3rem;
-            height: 300px;
-            object-fit: contain;
+            height: 250px;
+            object-fit: cover;
         }
 
         .news-card .card .card-title {
@@ -417,7 +417,7 @@
                                     </h6>
                                     <h5 class="card-title">{{ $news->judul }}</h5>
                                     <p class="card-text">
-                                        {{ \Illuminate\Support\Str::limit(strip_tags($news->deskripsi), 180, $end = '...') }}
+                                        {{ \Illuminate\Support\Str::limit(strip_tags($news->deskripsi), 140, $end = '...') }}
                                     </p>
                                 </div>
                             </div>

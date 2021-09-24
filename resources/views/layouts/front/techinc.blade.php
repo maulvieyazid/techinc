@@ -225,8 +225,8 @@
                 </div>
                 <a class="nav-link d-block d-sm-block d-md-block d-lg-none d-xl-none @if ($navbar == 'event') {{ 'active' }} @endif"
                     href="{{ route('all.event') }}">Event</a>
-                <a class="nav-link d-block d-sm-block d-md-block d-lg-none d-xl-none @if ($navbar == 'announcement') {{ 'active' }} @endif"
-                    href="#">Announcement</a>
+                {{-- <a class="nav-link d-block d-sm-block d-md-block d-lg-none d-xl-none @if ($navbar == 'announcement') {{ 'active' }} @endif"
+                    href="#">Announcement</a> --}}
                 <a class="nav-link d-block d-sm-block d-md-block d-lg-none d-xl-none @if ($navbar == 'gallery') {{ 'active' }} @endif"
                     href="{{ route('all.galeri') }}">Gallery</a>
                 <a class="nav-link d-block d-sm-block d-md-block d-lg-none d-xl-none @if ($navbar == 'startup') {{ 'active' }} @endif"
@@ -262,10 +262,10 @@
                 data-placement="right" title="Event">
                 <img src="{{ asset('images/event-icon.png') }}">
             </a>
-            <a href="/" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
+            {{-- <a href="/" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
                 title="Announcement">
                 <img src="{{ asset('images/announcement-icon.png') }}">
-            </a>
+            </a> --}}
             <a href="{{ route('all.galeri') }}" class="floating-item d-block my-2" data-toggle="tooltip"
                 data-placement="right" title="Gallery">
                 <img src="{{ asset('images/gallery-icon.png') }}">
