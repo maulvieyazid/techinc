@@ -231,6 +231,8 @@
                     href="{{ route('all.galeri') }}">Gallery</a>
                 <a class="nav-link d-block d-sm-block d-md-block d-lg-none d-xl-none @if ($navbar == 'startup') {{ 'active' }} @endif"
                     href="{{ route('all.startup') }}">Tenant Startup</a>
+                <a class="nav-link d-block d-sm-block d-md-block d-lg-none d-xl-none @if ($navbar == 'registrasi') {{ 'active' }} @endif"
+                    href="{{ route('all.registrasi') }}">Registration</a>
                 <a class="nav-link d-block d-sm-block d-md-block d-lg-none d-xl-none @if ($navbar == 'news') {{ 'active' }} @endif"
                     href="{{ route('all.news') }}">News</a>
                 <a class="nav-link d-block d-sm-block d-md-block d-lg-none d-xl-none @if ($navbar == 'document') {{ 'active' }} @endif"
@@ -238,7 +240,7 @@
                 <a class="nav-link d-block d-sm-block d-md-block d-lg-none d-xl-none @if ($navbar == 'contact-us') {{ 'active' }} @endif"
                     href="#contact-us">Contact Us</a>
             </div>
-            <a class="nav-link btn btn-outline-light btn-gabung" href="https://bit.ly/TenantStartup">GABUNG</a>
+            <a class="nav-link btn btn-outline-light btn-gabung" href="{{ route('join') }}">GABUNG</a>
         </div>
     </nav>
     {{-- Akhir Navbar --}}
@@ -274,7 +276,7 @@
                 data-placement="right" title="Tenant Startup">
                 <img src="{{ asset('images/tenant-startup-icon.png') }}">
             </a>
-            <a href="https://bit.ly/TenantStartup" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
+            <a href="{{ route('all.registrasi') }}" class="floating-item d-block my-2" data-toggle="tooltip" data-placement="right"
                 title="Registration">
                 <img src="{{ asset('images/registration-icon.png') }}">
             </a>

@@ -14,6 +14,7 @@ use App\Member;
 use App\News;
 use App\Partner;
 use App\Program;
+use App\Registrasi;
 use Illuminate\Http\Request;
 use App\Startup;
 use App\TimStartup;
@@ -99,8 +100,35 @@ class WelcomeController extends Controller
 
     public function detailEvent(Event $event)
     {
-        $otherEvent = Event::where('slug', '!=', $event->slug)->latest()->take(5)->get();
-        return view('detailEvent', compact('event', 'otherEvent'));
+        // $otherEvent = Event::where('slug', '!=', $event->slug)->latest()->take(5)->get();
+        return view('detailEvent', compact('event'));
+    }
+
+    public function registrasi()
+    {
+        $allRegistrasi = Registrasi::latest()->paginate(6);
+        return view('registrasi', compact('allRegistrasi'));
+    }
+
+    public function detailRegistrasi(Registrasi $registrasi)
+    {
+        return view('detailRegistrasi', compact('registrasi'));
+    }
+
+    public function join()
+    {
+        # Ambil Registrasi yang sedang buka
+        $registrasi = Registrasi::where('tanggal_mulai', '<=', date('Y-m-d H:i:s'))
+            ->where('tanggal_selesai', '>=', date('Y-m-d H:i:s'))
+            ->get();
+
+        # Jika ditemukan 1 registrasi yang sedang buka, maka redirect ke detail registrasi tsb
+        if($registrasi->count() == 1){
+            return redirect()->route('detail.registrasi', ['registrasi' => $registrasi[0]->slug]);
+        }
+
+        # Jika tidak ada / lebih dari 1 registrasi yang sedang buka, maka redirect ke list semua registrasi
+        return redirect()->route('all.registrasi');
     }
 
     public function startup()
