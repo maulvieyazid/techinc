@@ -266,26 +266,26 @@
     <script src="{{ asset('vendors/ckeditor/ckeditor.js') }}"></script>
 
     <script>
-        $(document).ready(function() {
-            $('.event-slider').slick({
-                infinite: true,
-                slidesToShow: 2,
-                slidesToScroll: 2,
-                arrows: true,
-                autoplay: true,
-                autoplaySpeed: 3000,
-                prevArrow: $('.event-prev-arrow'),
-                nextArrow: $('.event-next-arrow'),
-                responsive: [{
-                    breakpoint: 775,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                        dots: true,
-                    }
-                }]
-            });
-        });
+        // $(document).ready(function() {
+        //     $('.event-slider').slick({
+        //         infinite: true,
+        //         slidesToShow: 2,
+        //         slidesToScroll: 2,
+        //         arrows: true,
+        //         autoplay: true,
+        //         autoplaySpeed: 3000,
+        //         prevArrow: $('.event-prev-arrow'),
+        //         nextArrow: $('.event-next-arrow'),
+        //         responsive: [{
+        //             breakpoint: 775,
+        //             settings: {
+        //                 slidesToShow: 1,
+        //                 slidesToScroll: 1,
+        //                 dots: true,
+        //             }
+        //         }]
+        //     });
+        // });
 
         ClassicEditor
             .create(document.getElementById('deskripsi'), {

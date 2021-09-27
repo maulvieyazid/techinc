@@ -333,8 +333,8 @@
         <div class="carousel-inner">
             <div class="call-to-action">
                 <img src="{{ asset('images/text-cta.png') }}" alt="Mau Buat Startup?">
-                <a href="https://bit.ly/TenantStartup" class="btn btn-danger btn-action">Mau</a>
-                <a href="https://bit.ly/TenantStartup" class="btn btn-danger btn-action">Pelajari</a>
+                <a href="https://bit.ly/TenantStartup" target="_blank" class="btn btn-danger btn-action">Mau</a>
+                <a href="https://bit.ly/TenantStartup" target="_blank" class="btn btn-danger btn-action">Pelajari</a>
             </div>
             @foreach ($allCarouselImage as $carouselImage)
                 <div class="carousel-item @if ($loop->first) active @endif">
@@ -471,7 +471,7 @@
                         <div class="col-12 col-lg-6">
                             <div class="card event-card">
                                 <a href="{{ route('detail.event', $event->slug) }}" class="stretched-link"></a>
-                                <img src="{{ asset($event->file_photo()[0]) }}" class="card-img-top">
+                                <img src="{{ asset($event->file_photo()[0] ?? 'images/no-photos.webp') }}" class="card-img-top">
                                 <div class="card-body">
                                     <h6 class="card-subtitle text-right">{{ $event->tanggal_mulai->format('d.m.Y') }}
                                     </h6>
@@ -482,7 +482,22 @@
                                         </li>
                                     </ul>
                                     <ul>
-                                        <li><img src="{{ asset('images/location-dark.png') }}"> online</li>
+                                        <li>
+                                            <img src="https://img.icons8.com/ios/100/000000/door.png" />
+                                            {{-- Jika Tanggal Mulai (>) sekarang --}}
+                                            @if ($event->tanggal_mulai->gt(date('Y-m-d H:i:s')))
+                                                <span class="badge bg-primary text-white align-middle">Akan Datang</span>
+                                                {{-- Jika Tanggal Mulai (<) sekarang && Tanggal Selesai (>) sekarang --}}
+                                            @elseif ($event->tanggal_mulai->lt(date('Y-m-d H:i:s')) &&
+                                                $event->tanggal_selesai->gt(date('Y-m-d
+                                                H:i:s')) )
+                                                <span class="badge bg-warning text-dark align-middle">Sedang
+                                                    Berlangsung</span>
+                                                {{-- Jika Tanggal Selesai (<) sekarang --}}
+                                            @elseif ($event->tanggal_selesai->lt(date('Y-m-d H:i:s')) )
+                                                <span class="badge bg-success text-white align-middle">Selesai</span>
+                                            @endif
+                                        </li>
                                     </ul>
                                 </div>
                             </div>

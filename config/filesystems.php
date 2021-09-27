@@ -65,6 +65,11 @@ return [
             'endpoint' => env('AWS_ENDPOINT'),
         ],
 
+        'foto_registrasi' => [
+            'driver' => 'local',
+            'root'   => public_path('upload/registrasi')
+        ],
+
         'foto_event' => [
             'driver' => 'local',
             'root'   => public_path('upload/event')

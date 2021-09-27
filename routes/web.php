@@ -39,6 +39,9 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/upload/images/ckeditor', 'HomeController@uploadImagesCkeditor')
             ->name('upload.images.ckeditor');
 
+        # Route Registrasi
+        Route::resource('registrasi', 'RegistrasiController');
+
         # Route Event
         Route::resource('event', 'EventController');
 

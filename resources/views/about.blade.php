@@ -114,7 +114,7 @@
         </div>
     </header>
 
-    <section id="misi" class="container-fluid mt-5">
+    <section id="misi" class="container-fluid" style="margin-top: 200px;">
         <div class="row">
             <div class="col-lg-2 col-1"></div>
             <div class="col-lg-4 col-4">
@@ -129,7 +129,7 @@
         </div>
     </section>
 
-    <section id="tujuan" class="container-fluid" style="margin-top: 15%">
+    <section id="tujuan" class="container-fluid" style="margin-top: 200px;">
         <div class="row">
             <div class="col-lg-2 col-1"></div>
             <div class="col-lg-4 col-4">

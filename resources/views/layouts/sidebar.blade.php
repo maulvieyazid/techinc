@@ -43,6 +43,13 @@
                     </ul>
                 </li>
 
+                <li class="sidebar-item @if ($sidebar=='registrasi' ) {{ 'active' }} @endif">
+                    <a href="{{ route('registrasi.index') }}" class='sidebar-link'>
+                        <i class="bi bi-clipboard"></i>
+                        <span>Registrasi</span>
+                    </a>
+                </li>
+
                 <li class="sidebar-item @if ($sidebar=='event' ) {{ 'active' }} @endif">
                     <a href="{{ route('event.index') }}" class='sidebar-link'>
                         <i class="bi bi-calendar3"></i>

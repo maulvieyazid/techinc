@@ -9,13 +9,11 @@ use Illuminate\Support\Facades\Storage;
 
 class EventController extends Controller
 {
-
-    private $pathFoto;
-
     public function __construct()
     {
         $this->pathFoto = Event::$pathFoto;
     }
+
     /**
      * Display a listing of the resource.
      *
