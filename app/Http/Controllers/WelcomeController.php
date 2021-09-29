@@ -26,10 +26,17 @@ class WelcomeController extends Controller
         $allCarouselImage = CarouselImage::orderBy('urutan', 'asc')->get();
         $allStartup = Startup::latest()->get();
         $allNews = News::latest()->take(2)->get();
-        $allEvent = Event::where('tanggal_selesai', '>=', date('Y-m-d H:i:s'))->get();
+        $allEvent = Event::where('tanggal_selesai', '>=', date('Y-m-d H:i:s'))->take(2)->get();
         $allKategori = Kategori::latest()->take(3)->get();
         $allPartner = Partner::latest()->get();
-        return view('welcome', compact('allCarouselImage', 'allStartup', 'allNews', 'allEvent', 'allKategori', 'allPartner'));
+        return view('welcome', compact(
+            'allCarouselImage',
+            'allStartup',
+            'allNews',
+            'allEvent',
+            'allKategori',
+            'allPartner'
+        ));
     }
 
     public function about()
@@ -123,7 +130,7 @@ class WelcomeController extends Controller
             ->get();
 
         # Jika ditemukan 1 registrasi yang sedang buka, maka redirect ke detail registrasi tsb
-        if($registrasi->count() == 1){
+        if ($registrasi->count() == 1) {
             return redirect()->route('detail.registrasi', ['registrasi' => $registrasi[0]->slug]);
         }
 

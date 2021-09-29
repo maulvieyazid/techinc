@@ -159,6 +159,7 @@
             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
             background-color: transparent;
             border-radius: 50px;
+            margin-bottom: 15px;
         }
 
         .event-card .card-img-top {
@@ -167,7 +168,7 @@
         }
 
         .event-card .card-body {
-            padding-left: 20px;
+            padding-left: 30px;
         }
 
         .event-card .card-title {
@@ -283,17 +284,16 @@
             /* Style Event Desktop */
 
             /* ============= Event Card Desktop ========= */
-            .event-card .card-title {
-                font-size: 3.2vmin;
-            }
 
             .event-card ul img {
-                width: 4vmin;
+                width: 3.4vmin;
             }
 
             .event-card .card-body {
                 padding-left: 35px;
                 padding-bottom: 50px;
+                height: 400px;
+                overflow-y: hidden;
             }
 
             /* ============= Event Card Desktop ========= */
@@ -507,7 +507,7 @@
                         <div class="col-12 col-lg-6">
                             <div class="card event-card">
                                 <img src="{{ asset('images/no-event-img.png') }}" class="card-img-top">
-                                <div class="card-body">
+                                <div class="card-body" style="height: auto!important;">
                                     <h5 class="card-title">Belum Ada Event</h5>
                                 </div>
                             </div>
