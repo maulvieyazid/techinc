@@ -171,6 +171,16 @@
                     </div>
                 </div>
             @endforeach
+            @if ($allRegistrasi->isEmpty())
+                <div class="col-12 col-lg-6">
+                    <div class="card event-card">
+                        <img src="{{ asset('images/no-event-img.png') }}" class="card-img-top">
+                        <div class="card-body" style="height: auto!important;">
+                            <h5 class="card-title">Belum Ada Open Recruitment</h5>
+                        </div>
+                    </div>
+                </div>
+            @endif
         </div>
         <div class="row pb-4">
             <div class="col d-flex justify-content-center align-items-center">
