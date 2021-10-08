@@ -69,7 +69,7 @@
             <div class="col-lg-7 col-md-10 col-12">
                 <div class="row row-cols-lg-3 row-cols-md-3 row-cols-2">
                     @foreach ($semuaFasilitas as $fasilitas)
-                        <div class="col d-flex flex-column align-items-center my-3">
+                        <div class="col d-flex flex-column align-items-center justify-content-end my-3">
                             <img src="{{ $fasilitas->logo }}" alt="{{ $fasilitas->nama_fasilitas }}">
                             <p class="text-center">{{ $fasilitas->nama_fasilitas }}</p>
                         </div>
