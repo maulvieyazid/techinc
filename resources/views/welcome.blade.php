@@ -102,8 +102,6 @@
 
         .news-card .card .card-body {
             margin-bottom: 25px;
-            height: 230px;
-            overflow-y: hidden;
         }
 
         .news-card .card img {
@@ -404,10 +402,10 @@
         <div class="row">
             <div class="col-lg-1"></div>
             <div class="col-lg-9 col-10">
-                <div class="row" style="margin-top: -15%">
+                <div class="row row-cols-lg-2 row-cols-1" style="margin-top: -15%">
                     @foreach ($allNews as $news)
-                        <div class="col-12 col-lg-6 news-card">
-                            <div class="card ">
+                        <div class="col news-card my-3">
+                            <div class="card h-100">
                                 <a href="{{ route('detail.news', $news->slug) }}" class="stretched-link"></a>
                                 <img src="{{ asset($news->thumbnail) }}" class="card-img-top">
                                 <div class="card-body">
