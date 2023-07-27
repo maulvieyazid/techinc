@@ -41,7 +41,7 @@ class WelcomeController extends Controller
 
     public function about()
     {
-        $allMember = Member::with('jenisMember')->get();
+        $allMember = Member::with('jenisMember')->aktif()->get();
         $about = About::first();
 
         return view('about', compact('allMember', 'about'));

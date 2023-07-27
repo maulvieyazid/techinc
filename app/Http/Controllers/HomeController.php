@@ -26,7 +26,17 @@ class HomeController extends Controller
     {
         return view('home');
     }
-
+    /**
+     * Note: Untuk Copas Image Dari Aplikasi Lain seperti Power Point, Visio, dll, 
+     * akan selalu menampilkan gambar yang sama
+     * karena nama image yang diupload itu sama secara default yaitu image.png, 
+     * sehingga akan selalu menampilkan gambar yang sama
+     * 
+     * Future Fix: Generate nama file random, untuk membedakan nama image di upload
+     * 
+     * Risk: Meningkatkan sampah file image di server apabila image nya tidak terpakai 
+     * dan image tersebut isinya redundan
+     */
     public function uploadImagesCkeditor(Request $request)
     {
         $file = $request->upload;

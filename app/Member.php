@@ -19,4 +19,9 @@ class Member extends Model
         return $this->belongsToMany(JenisMember::class, 'role_member', 'id_member', 'id_jenis');
     }
 
+    public function scopeAktif($query)
+    {
+        return $query->where('status', 1);
+    }
+
 }

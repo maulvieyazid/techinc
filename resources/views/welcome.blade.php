@@ -330,7 +330,7 @@
             <div class="call-to-action">
                 <img src="{{ asset('images/text-cta.png') }}" alt="Mau Buat Startup?">
                 <a href="https://bit.ly/TenantStartup" target="_blank" class="btn btn-danger btn-action">Mau</a>
-                <a href="https://bit.ly/TenantStartup" target="_blank" class="btn btn-danger btn-action">Pelajari</a>
+                <a href="{{ route('program') }}" class="btn btn-danger btn-action">Pelajari</a>
             </div>
             @foreach ($allCarouselImage as $carouselImage)
                 <div class="carousel-item @if ($loop->first) active @endif">
@@ -479,7 +479,8 @@
                                     </ul>
                                     <ul>
                                         <li>
-                                            <img src="https://img.icons8.com/ios/100/000000/door.png" />
+                                            {{-- <img src="https://img.icons8.com/ios/100/000000/door.png" /> --}}
+                                            <img src="{{ asset('images/door-icon-10414.png') }}" />
                                             {{-- Jika Tanggal Mulai (>) sekarang --}}
                                             @if ($event->tanggal_mulai->gt(date('Y-m-d H:i:s')))
                                                 <span class="badge bg-primary text-white align-middle">Akan Datang</span>

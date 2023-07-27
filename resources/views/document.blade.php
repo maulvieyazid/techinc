@@ -53,7 +53,7 @@
                     class="w-100 d-none d-sm-none d-md-none d-lg-block d-xl-block">
             </div>
             <div class="col-lg-10 col-10">
-                <h1 class="text-white m-0 judul">Dokumen</h1>
+                <h1 class="text-white m-0 judul">Document</h1>
             </div>
         </div>
     </header>

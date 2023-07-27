@@ -53,6 +53,8 @@
         .news-card img {
             padding: 1.25rem;
             padding-top: 3rem;
+            height: 250px;
+            object-fit: cover;
         }
 
         .news-card .card-title {
@@ -105,27 +107,6 @@
                 <h1 class="text-white m-0 judul">News</h1>
             </div>
         </div>
-        {{-- <div class="row align-items-center h-50">
-            <div class="col-8">
-                <div>
-                    <h2 class="judul teks-merah" style="font-size: 5vmax">Kategori</h2>
-
-                    <div class="list-group list-group-horizontal-md text-center mt-5 align-middle">
-                        <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
-                            Semua
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action">Tech News</a>
-                        <a href="#" class="list-group-item list-group-item-action">Our Story</a>
-                        <a href="#" class="list-group-item list-group-item-action">Startup Teknologi</a>
-                        <a href="#" class="list-group-item list-group-item-action">Startup Teknologi</a>
-                        <a href="#" class="list-group-item list-group-item-action">Startup Teknologi</a>
-                        <a href="#" class="list-group-item list-group-item-action">Startup Teknologi</a>
-                        <a href="#" class="list-group-item list-group-item-action">Startup Teknologi</a>
-                    </div>
-
-                </div>
-            </div>
-        </div> --}}
     </header>
 
     <section class="container-fluid mb-5" style="margin-top: -200px;">
@@ -146,12 +127,12 @@
                 <div class="row row-cols-xl-3 row-cols-lg-2 row-cols-1">
                     @foreach ($allNews as $news)
                         <div class="col my-3">
-                            <div class="card news-card">
+                            <div class="card news-card h-100">
                                 <a href="{{ route('detail.news', $news->slug) }}" class="stretched-link"></a>
                                 <img src="{{ asset($news->thumbnail) }}" class="card-img-top">
                                 <div class="card-body">
                                     <h6 class="card-subtitle text-right">{{ $news->created_at->format('d.m.Y') }}</h6>
-                                    <h5 class="card-title">{{ $news->judul }}</h5>
+                                    <h5 class="card-title mt-3">{{ $news->judul }}</h5>
                                     <p class="card-text">
                                         {{ \Illuminate\Support\Str::limit(strip_tags($news->deskripsi), 180, $end = '...') }}
                                     </p>

@@ -32,6 +32,8 @@
         .news-slider .card img {
             padding: 1.25rem;
             padding-top: 3rem;
+            height: 250px;
+            object-fit: cover;
         }
 
         .news-slider .card .card-title {
@@ -72,6 +74,18 @@
 
         /*  Akhir Utilities */
 
+        /* Style Slick*/
+        .slick-track {
+            display: flex !important;
+            margin-bottom: 10%;
+        }
+
+        .slick-slide {
+            height: inherit !important;
+        }
+
+        /* Akhir Style Slick*/
+
         /* ======================================================================================================================================================================================================== */
         /* ======================================================================================================================================================================================================== */
         /* ======================================================================================================================================================================================================== */
@@ -108,11 +122,6 @@
         </div>
         <div class="row align-items-end h-50">
             <div class="col-lg-2 col-1"></div>
-            {{-- <div class="col-lg-6 col-9">
-                <div>
-                    <h2 class="judul teks-merah" style="font-size: 4vmax;">The Lean Startup</h2>
-                </div>
-            </div> --}}
         </div>
     </header>
 
@@ -167,7 +176,7 @@
                 <div class="news-slider">
                     @foreach ($otherNews as $other)
                         <div>
-                            <div class="card">
+                            <div class="card h-100">
                                 <a href="{{ route('detail.news', $other->slug) }}" class="stretched-link"></a>
                                 <img src="{{ asset($other->thumbnail) }}" class="card-img-top">
                                 <div class="card-body">
