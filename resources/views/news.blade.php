@@ -134,7 +134,7 @@
                                     <h6 class="card-subtitle text-right">{{ $news->created_at->format('d.m.Y') }}</h6>
                                     <h5 class="card-title mt-3">{{ $news->judul }}</h5>
                                     <p class="card-text">
-                                        {{ \Illuminate\Support\Str::limit(strip_tags($news->deskripsi), 180, $end = '...') }}
+                                        {{ substr(strip_tags($news->deskripsi), 0, 180) }} ...
                                     </p>
                                 </div>
                             </div>

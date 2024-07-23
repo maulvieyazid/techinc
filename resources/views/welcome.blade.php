@@ -413,7 +413,7 @@
                                     </h6>
                                     <h5 class="card-title">{{ $news->judul }}</h5>
                                     <p class="card-text">
-                                        {{ \Illuminate\Support\Str::limit(strip_tags($news->deskripsi), 140, $end = '...') }}
+                                        {{ substr(strip_tags($news->deskripsi), 0, 140) }} ...
                                     </p>
                                 </div>
                             </div>
